@@ -1,7 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:salat_al_janaza/screen/pages/takbeerScreen.dart';
 
-class QiyyamPrayerStep extends StatelessWidget {
+import 'package:salat_al_janaza/screen/provider/prayerstepsprovider.dart';
+
+import 'package:salat_al_janaza/screen/pages/prayerstepscreen.dart';
+import 'package:salat_al_janaza/widgets/prayer_step_carousel.dart';
+import 'package:salat_al_janaza/widgets/prayer_step_dots_indicator.dart';
+
+class QiyyamPrayerStep extends StatefulWidget {
   const QiyyamPrayerStep({Key? key}) : super(key: key);
+
+  @override
+  State<QiyyamPrayerStep> createState() => _QiyyamPrayerStepState();
+}
+
+class _QiyyamPrayerStepState extends State<QiyyamPrayerStep> {
+  void _handleDotTapped(BuildContext context, int index) {
+    Provider.of<PrayerStepsProvider>(context, listen: false)
+        .setCurrentPage(index, context);
+    
+    // Navigate to appropriate screen based on index
+    if (index == 0) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const TakbeerScreen()),
+      );
+    }
+    // Add more conditions for other indices if needed
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +75,7 @@ class QiyyamPrayerStep extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(20.0),
                           child: Image.asset(
-                            'assets/qiyyam_position.png',
+                            'assets/qiyyam image.png',
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -90,7 +117,7 @@ class QiyyamPrayerStep extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
-                      'നിന്ന നിലയിൽ തന്നെ തുടരുക, ഖുർആനിലെ ഉദ്ഘാടന പ്രാർത്ഥനയായ അൽ-ഫാതിഹ പാരായണം ചെയ്യുക:',
+                      'നിന്ന നിലയിൽ തന്നെ തുടരുക, ഖുർആനിലെ പ്രാരംഭ പ്രാർത്ഥനയായ അൽ-ഫാതിഹ പാരായണം ചെയ്യുക:',
                       style: TextStyle(
                         color: Colors.grey[400],
                         fontSize: 16,
@@ -120,8 +147,16 @@ class QiyyamPrayerStep extends StatelessWidget {
               ),
             ),
           ),
-         
-          
+          // Add the dots indicator at the bottom
+          Consumer<PrayerStepsProvider>(
+            builder: (context, provider, child) {
+              return PrayerStepCarousel(
+                currentIndex: 1,  // Qiyam is the second step
+                onPageChanged: (index) => _handleDotTapped(context, index),
+              );
+            },
+          ),
+          const SizedBox(height: 16),
         ],
       ),
     );

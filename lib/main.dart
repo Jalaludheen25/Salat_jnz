@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:salat_al_janaza/screen/SalatalJanazascreen.dart';
+import 'package:salat_al_janaza/screen/salatalJanazascreen.dart';
 import 'package:salat_al_janaza/screen/provider/prayerstepsprovider.dart';
 void main() {
   runApp(

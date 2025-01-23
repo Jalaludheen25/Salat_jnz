@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:salat_al_janaza/constants/textstyleclass.dart';
 import 'package:salat_al_janaza/screen/provider/prayerstepsprovider.dart';
+import 'package:salat_al_janaza/widgets/prayer_step_carousel.dart';
+import 'package:salat_al_janaza/widgets/prayer_step_dots_indicator.dart';
 
-class PrayerStepsScreen extends StatelessWidget {
+class PrayerStepsScreen extends StatefulWidget {
   const PrayerStepsScreen({Key? key}) : super(key: key);
+
+  @override
+  State<PrayerStepsScreen> createState() => _PrayerStepsScreenState();
+}
+
+class _PrayerStepsScreenState extends State<PrayerStepsScreen> {
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +59,7 @@ class PrayerStepsScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(20.0),
                           child: Image.asset(
-                            'assets/muslim takbir.jpg', // Make sure to add this image to your assets
+                            'assets/muslim takbir.jpg',  // Updated to use available image
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -75,26 +84,19 @@ class PrayerStepsScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  // Takbeer Title
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
+                  
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
                       'തക്ബീർ',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: TextStyleClass.primaryFontMalayalam(20, Colors.white,FontWeight.w100),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
                       'തക്ബീർ പറയുക:',
-                      style: TextStyle(
-                        color: Colors.grey[500],
-                        fontSize: 16,
-                      ),
+                      style: TextStyleClass.primaryFontMalayalam(1, Colors.white,FontWeight.w100),
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -103,10 +105,7 @@ class PrayerStepsScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
                       'അല്ലാഹു അക്ബർ',
-                      style: TextStyle(
-                        color: Colors.grey[300],
-                        fontSize: 18,
-                      ),
+                     style: TextStyleClass.primaryFontMalayalam(16, Colors.white,FontWeight.w100),
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -115,10 +114,7 @@ class PrayerStepsScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
                       'അല്ലാഹു ഏറ്റവും വലിയവനാണ്.',
-                      style: TextStyle(
-                        color: Colors.grey[500],
-                        fontSize: 16,
-                      ),
+                      style: TextStyleClass.primaryFontMalayalam(16, Colors.white,FontWeight.w100),
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -127,43 +123,23 @@ class PrayerStepsScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
                       'പുരുഷന്മാർ കൈകൾ ചെവികളോളം ഉയർത്തണം. സ്ത്രീകൾ തോളോളം ഉയർത്തിയാൽ മതി.',
-                      style: TextStyle(
-                        color: Colors.grey[400],
-                        fontSize: 16,
-                        height: 1.5,
-                      ),
+                      style: TextStyleClass.primaryFontMalayalam(16, Colors.white,FontWeight.w100),
                     ),
                   ),
                 ],
               ),
             ),
           ),
-          // Bottom Dots Indicator
+          // Updated Bottom Dots Indicator
           Consumer<PrayerStepsProvider>(
             builder: (context, provider, child) {
-              return Padding(
-                padding: const EdgeInsets.all(16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(
-                    7,
-                    (index) => GestureDetector(
-                      onTap: () => provider.setCurrentPage(index),
-                      child: Container(
-                        width: 8,
-                        height: 8,
-                        margin: const EdgeInsets.symmetric(horizontal: 4),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: index == provider.currentPage ? Colors.blue : Colors.grey[800],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+              return PrayerStepCarousel(
+                currentIndex: provider.currentPage,
+                onPageChanged: (index) => provider.setCurrentPage(index, context),
               );
             },
           ),
+          const SizedBox(height: 16),
         ],
       ),
     );
