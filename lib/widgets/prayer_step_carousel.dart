@@ -16,62 +16,43 @@ class PrayerStepCarousel extends StatefulWidget {
 }
 
 class _PrayerStepCarouselState extends State<PrayerStepCarousel> {
+  final CarouselController _carouselController = CarouselController();
+
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 150, // Fixed height for the entire widget
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          CarouselSlider.builder(
-            itemCount: 6,
-            options: CarouselOptions(
-              height: 20.0,
-              initialPage: widget.currentIndex,
-              enableInfiniteScroll: false,
-              viewportFraction: 0.3,
-              enlargeCenterPage: true,
-              onPageChanged: (index, reason) {
-                widget.onPageChanged(index);
-              },
+    return Container(
+      height: 50,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: List.generate(5, (index) {
+          return GestureDetector(
+            onTap: () => widget.onPageChanged(index),
+            child: Container(
+              width: 40,
+              height: 40,
+              margin: const EdgeInsets.symmetric(horizontal: 5),
+              decoration: BoxDecoration(
+                color: index == widget.currentIndex ? Colors.blue : Colors.grey[800],
+                shape: BoxShape.circle,
+              ),
+              // child: Center(
+              //   child: Text(
+              //     '${index + 1}',
+              //     style: TextStyle(
+              //       color: index == widget.currentIndex ? Colors.white : Colors.grey[400],
+              //       fontWeight: FontWeight.bold,
+              //     ),
+              //   ),
+              // ),
+              
             ),
-            itemBuilder: (context, index, realIndex) {
-              return Container(
-                width: MediaQuery.of(context).size.width * 0.25,
-                 margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                decoration: BoxDecoration(
-                  color: index == widget.currentIndex ? Colors.blue : Colors.grey[800],
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                // child: Center(
-                //   child: Text(
-                //     '${index + 1}',
-                //     style: TextStyle(
-                //       fontSize: 16.0,
-                //       color: index == widget.currentIndex ? Colors.white : Colors.grey,
-                //     ),
-                //   ),
-                // ),
-              );
-            },
-          ),
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(6, (index) {
-              return Container(
-                width: 8,
-                height: 8,
-                margin: const EdgeInsets.symmetric(horizontal: 4.0),
-                decoration: BoxDecoration(
-                  color: index == widget.currentIndex ? Colors.blue : Colors.grey[800],
-                  shape: BoxShape.circle,
-                ),
-              );
-            }),
-          ),
-        ],
+          );
+        }),
       ),
     );
   }
+}
+
+extension on CarouselController {
+  void animateToPage(int index) {}
 } 

@@ -1,63 +1,61 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:salat_al_janaza/screen/pages/Prayerdeceasedscreen.dart';
-import 'package:salat_al_janaza/screen/pages/qiyamscreen.dart';
-import 'package:salat_al_janaza/screen/pages/prayerstepscreen.dart';
-import 'package:salat_al_janaza/screen/pages/salamscreen.dart';
-import 'package:salat_al_janaza/screen/pages/tachahoodscreen.dart';
-import 'package:salat_al_janaza/screen/pages/takbeerScreen.dart';
+// import 'package:flutter/foundation.dart';
+// import 'package:flutter/material.dart';
+// import 'package:salat_al_janaza/screen/pages/Prayerdeceasedscreen.dart';
+// import 'package:salat_al_janaza/screen/pages/qiyamscreen.dart';
+// import 'package:salat_al_janaza/screen/pages/prayerstepscreen.dart';
+// import 'package:salat_al_janaza/screen/pages/salamscreen.dart';
+// import 'package:salat_al_janaza/screen/pages/tachahoodscreen.dart';
 
 
-class PrayerStepsProvider extends ChangeNotifier {
-  int _currentPage = 0;
+
+// class PrayerStepsProvider extends ChangeNotifier {
+//   int _currentPage = 0;
   
-  int get currentPage => _currentPage;
+//   int get currentPage => _currentPage;
 
-  void setCurrentPage(int page, BuildContext context) {
-    _currentPage = page;
-    _navigateToPage(context, page);
-    notifyListeners();
-  }
+//   void setCurrentPage(int index, BuildContext context) {
+//     _currentPage = index;
+//     notifyListeners();
+//     _navigateToScreen(index, context);
+//   }
 
-  void _navigateToPage(BuildContext context, int page) {
-    switch (page) {
-      case 0:
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const PrayerStepsScreen()),
-        );
-        break;
-      case 1:
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const QiyyamPrayerStep()),
-        );
-        break;
-      case 2:
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const TakbeerScreen()),
-        );
-        break;
-      case 3:
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const TachahoodScreen()),
-        );
-        break;
-      case 4:
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const Prayerdeceasedscreen()),
-        );
-        break;
-      case 5:
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const SalamScreen()),
-        );
-        break;
-      // Add cases for other prayer steps
-    }
-  }
-}
+//   // void _navigateToScreen(int index, BuildContext context) {
+//   //   Widget screen;
+    
+//   //   switch (index) {
+//   //     case 0:
+//   //       screen = const TakbeerScreen();
+//   //       break;
+//   //     case 1:
+//   //       screen = const QiyyamPrayerStep();
+//   //       break;
+//   //     case 2:
+//   //       screen = const TachahoodScreen();
+//   //       break;
+//   //     case 3:
+//   //       screen = const Prayerdeceasedscreen();
+//   //       break;
+//   //     case 4:
+//   //       screen = const SalamScreen();
+//   //       break;
+//   //     default:
+//   //       return;
+//   //   }
+
+//     Navigator.pushReplacement(
+//       context,
+//       PageRouteBuilder(
+//         pageBuilder: (context, animation, secondaryAnimation) => screen,
+//         transitionsBuilder: (context, animation, secondaryAnimation, child) {
+//           const begin = Offset(1.0, 0.0);
+//           const end = Offset.zero;
+//           const curve = Curves.easeInOut;
+//           var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+//           var offsetAnimation = animation.drive(tween);
+//           return SlideTransition(position: offsetAnimation, child: child);
+//         },
+//         transitionDuration: const Duration(milliseconds: 300),
+//       ),
+//     );
+//   }
+// }

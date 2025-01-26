@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:salat_al_janaza/constants/textstyleclass.dart';
 import 'package:salat_al_janaza/screen/pages/prayerstepscreen.dart';
+import 'package:salat_al_janaza/screen/prayerstepscreen.dart';
 
 class SalatAlJanazaScreen extends StatefulWidget {
   const SalatAlJanazaScreen({Key? key}) : super(key: key);
@@ -47,7 +48,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Image.asset(
-                    'assets/praying man.jpg',
+                    'assets/images/praying man.jpg',
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -59,7 +60,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const PrayerStepsScreen(),
+                      builder: (context) => const PrayerStepsSliderView(),
                     ),
                   );
                 },

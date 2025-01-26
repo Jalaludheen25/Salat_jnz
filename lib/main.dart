@@ -1,16 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:salat_al_janaza/screen/salatalJanazascreen.dart';
-import 'package:salat_al_janaza/screen/provider/prayerstepsprovider.dart';
+
 void main() {
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => PrayerStepsProvider()),
-      ],
-      child: const MyApp(),
-    ),
-  );
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
