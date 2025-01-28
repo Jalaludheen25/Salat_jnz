@@ -1,57 +1,78 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:flutter/services.dart';
 
-class AudioService {
+
+class AudioService extends ChangeNotifier {
   static final AudioService _instance = AudioService._internal();
   factory AudioService() => _instance;
+  
   AudioService._internal() {
-    _init();
+    _initAudioPlayer();
   }
 
   final AudioPlayer _audioPlayer = AudioPlayer();
-  bool isPlaying = false;
+  bool _isPlaying = false;
+  bool get isPlaying => _isPlaying;
+  String? _currentAssetPath;
 
-  Future<void> _init() async {
-    try {
-      await _audioPlayer.setAsset('assets/audio/Allah_Hu_Akbar_voice.mp3');
-      _audioPlayer.playerStateStream.listen((state) {
-        isPlaying = state.playing;
-      });
-    } catch (e) {
-      debugPrint('Error initializing audio: $e');
-    }
+  Future<void> _initAudioPlayer() async {
+    _audioPlayer.playerStateStream.listen((state) {
+      _isPlaying = state.playing;
+      notifyListeners();
+    });
   }
 
-  Future<void> playAudio(String assetPath) async {
+  Future<void> playPauseAudio(String assetPath) async {
     try {
-      print('Attempting to play audio: $assetPath');
-      
-      // Dispose previous audio if any
-      await _audioPlayer.stop();
-      
-      // Load and play the audio
-      await _audioPlayer.setAsset(assetPath);
-      await _audioPlayer.play();
-      
-      print('Audio started playing successfully');
+      if (_isPlaying) {
+        await _audioPlayer.pause();
+        _isPlaying = false;
+      } else {
+        // If it's a different audio file or no audio is loaded
+        if (_currentAssetPath != assetPath) {
+          await _audioPlayer.stop();
+          await _audioPlayer.setAsset(assetPath);
+          _currentAssetPath = assetPath;
+        }
+        await _audioPlayer.play();
+        _isPlaying = true;
+      }
+      notifyListeners();
     } catch (e) {
-      print('Error playing audio: $e');
+      debugPrint('Error playing/pausing audio: $e');
+      _isPlaying = false;
+      notifyListeners();
       rethrow;
     }
   }
 
-  Future<void> stopAudio() async {
+  Future<void> stop() async {
     try {
-      debugPrint('Stopping audio...');
       await _audioPlayer.stop();
-      debugPrint('Audio stopped successfully');
+      _isPlaying = false;
+      notifyListeners();
     } catch (e) {
       debugPrint('Error stopping audio: $e');
     }
   }
 
-  Future<void> dispose() async {
-    await _audioPlayer.dispose();
+  Future<void> replay() async {
+    try {
+      if (_currentAssetPath != null) {
+        await _audioPlayer.seek(Duration.zero);
+        await _audioPlayer.play();
+        _isPlaying = true;
+        notifyListeners();
+      }
+    } catch (e) {
+      debugPrint('Error replaying audio: $e');
+      rethrow;
+    }
+  }
+
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
   }
 } 

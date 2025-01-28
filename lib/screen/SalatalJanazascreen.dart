@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:salat_al_janaza/constants/textstyleclass.dart';
 import 'package:salat_al_janaza/screen/pages/prayerstepscreen.dart';
-import 'package:salat_al_janaza/screen/prayerstepscreen.dart';
+
 
 class SalatAlJanazaScreen extends StatefulWidget {
   const SalatAlJanazaScreen({Key? key}) : super(key: key);
@@ -48,8 +48,8 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Image.asset(
-                    'assets/images/praying man.jpg',
-                    fit: BoxFit.contain,
+                    'assets/images/janza image.jpg',
+                    fit: BoxFit.fill,
                   ),
                 ),
               ),
@@ -102,7 +102,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
               const SizedBox(height: 12),
               Text(
                 '1) അല്ലാഹു അക്ബർ എന്ന് നാല് തവണ പറയുക\n\n'
-                '2)  ഖിയാം അഥവാ മൂന്ന് സുന്നത്തെ മുഅക്കദകൾ: സനാഅ്, ദുറൂദ് ഷരീഫ്, മയ്യിത്തിനു വേണ്ടിയുള്ള ദുആ',
+                '2)  ഖിയാം അഥവാ മൂന്ന് സുന്നത്തെ മുഅക്കദകൾ: അൽ-ഫാതിഹ, ദുറൂദ് ഷരീഫ്, മയ്യിത്തിനു വേണ്ടിയുള്ള ദുആ',
                style: TextStyleClass.primaryFontMalayalam(16, Colors.white,FontWeight.w100),
               ),
             ],

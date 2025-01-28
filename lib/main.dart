@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:salat_al_janaza/screen/salatalJanazascreen.dart';
+import 'package:salat_al_janaza/screen/home%20screen.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      title: 'Salat Al Janaza',
       debugShowCheckedModeBanner: false,
-      home: const SalatAlJanazaScreen(),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: Colors.black,
+      ),
+      home: const HomeScreen(),
     );
   }
 }
