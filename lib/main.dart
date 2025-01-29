@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:salat_al_janaza/screen/home%20screen.dart';
+import 'package:salat_al_janaza/screen/splash%20screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: Colors.black,
       ),
-      home: const HomeScreen(),
+      home: const SplashScreen(),
     );
   }
 }

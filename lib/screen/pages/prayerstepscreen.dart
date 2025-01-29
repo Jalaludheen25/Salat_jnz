@@ -105,7 +105,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.grey[900],
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,

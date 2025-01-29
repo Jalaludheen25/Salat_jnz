@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:salat_al_janaza/constants/textstyleclass.dart';
 import 'package:salat_al_janaza/screen/SalatAlJanazaScreen.dart';
 
+// Import your settings screen
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -17,6 +19,7 @@ class HomeScreen extends StatelessWidget {
           style: TextStyleClass.primaryFontMalayalam(24, Colors.white, FontWeight.bold),
         ),
         centerTitle: true,
+      
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -37,7 +40,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 24),
-              
+
               // Main Menu Card
               GestureDetector(
                 onTap: () => Navigator.push(
@@ -68,7 +71,7 @@ class HomeScreen extends StatelessWidget {
                             Text(
                               'ജനാസ നമസ്കാരം',
                               style: TextStyleClass.primaryFontMalayalam(
-                                20, 
+                                20,
                                 Colors.white,
                                 FontWeight.w500,
                               ),
@@ -91,7 +94,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 24),
-              
+
               // Description
               Text(
                 'ജനാസ നമസ്കാരത്തിൻ്റെ പ്രാധാന്യം',
@@ -108,4 +111,4 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-} 
+}
