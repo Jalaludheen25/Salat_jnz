@@ -1,114 +1,152 @@
 import 'package:flutter/material.dart';
-import 'package:salat_al_janaza/constants/textstyleclass.dart';
-import 'package:salat_al_janaza/screen/SalatAlJanazaScreen.dart';
+import 'package:salat_al_janaza/constants/colorclass.dart';
+import 'package:salat_al_janaza/constants/iconclass.dart';
+import 'package:salat_al_janaza/screen/MayyithScreen.dart';
+import 'package:salat_al_janaza/screen/salatalJanazascreen.dart';
 
-// Import your settings screen
+class PrayerScreen extends StatefulWidget {
+  const PrayerScreen({Key? key}) : super(key: key);
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  @override
+  State<PrayerScreen> createState() => _PrayerScreenState();
+}
 
+class _PrayerScreenState extends State<PrayerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: ColorClass.darkGrey1,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Text(
-          'സലാത്തുൽ ജനാസ',
-          style: TextStyleClass.primaryFontMalayalam(24, Colors.white, FontWeight.bold),
+        backgroundColor: Colors.black,
+        title: const Text(
+          'Prayers',
+          style: TextStyle(color: Colors.white, fontSize: 24),
         ),
-        centerTitle: true,
-      
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
+        children: [
+          const SizedBox(height: 20),
+          _buildPrayerItem(
+            leading: Image.asset(
+              IconClass.deadbodyicon,
+              color: Colors.blue,
+              width: 40,
+              height: 40,
+            ),
+            title: 'മയ്യിത്ത് പരിപാലനം',
+            hasVideo: true,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const MayyithScreen(),
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: 20),
+          _buildPrayerItem(
+            leading: Image.asset(
+              IconClass.prayericon,
+              color: Colors.blue,
+              width: 40,
+              height: 40,
+            ),
+            title: 'ജനാസ നമസ്കാരം',
+            hasVideo: true,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SalatAlJanazaScreen(),
+                ),
+              );
+            },
+          ),
+          const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Text(
+              'Prayers list',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.black,
+        unselectedItemColor: Colors.grey,
+        selectedItemColor: Colors.blue,
+        currentIndex: 0,
+        onTap: (index) {
+          // Handle bottom navigation
+        },
+        type: BottomNavigationBarType.fixed,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.mosque),
+            label: 'Prayers',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today),
+            label: 'Today',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.book),
+            label: 'Quran Teacher',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPrayerItem({
+    required Widget leading,
+    required String title,
+    required VoidCallback onTap,
+    required bool hasVideo,
+  }) {
+    return Column(
+      children: [
+        ListTile(
+          onTap: onTap,
+          leading: leading,
+          title: Text(
+            title,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          trailing: Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              // Hero Image
-              Container(
-                width: double.infinity,
-                height: 200,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  image: const DecorationImage(
-                    image: AssetImage('assets/images/janza image.jpg'),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 24),
-
-              // Main Menu Card
-              GestureDetector(
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SalatAlJanazaScreen()),
-                ),
-                child: Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 47, 47, 48),
-                    borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.2),
-                        blurRadius: 8,
-                        offset: const Offset(0, 4),
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    children: [
-                      const Icon(Icons.book, color: Colors.blue, size: 32),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'ജനാസ നമസ്കാരം',
-                              style: TextStyleClass.primaryFontMalayalam(
-                                20,
-                                Colors.white,
-                                FontWeight.w500,
-                              ),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              'നമസ്കാര രീതികൾ പഠിക്കാം',
-                              style: TextStyleClass.primaryFontMalayalam(
-                                14,
-                                Colors.grey,
-                                FontWeight.w300,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const Icon(Icons.arrow_forward_ios, color: Colors.blue),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 24),
-
-              // Description
-              Text(
-                'ജനാസ നമസ്കാരത്തിൻ്റെ പ്രാധാന്യം',
-                style: TextStyleClass.primaryFontMalayalam(18, Colors.white, FontWeight.w500),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'ജനാസ നമസ്കാരം ഫർദ് കിഫായ ആണ്. അതായത് ഒരു പ്രദേശത്തെ കുറച്ച് മുസ്ലിംകൾ നിർവഹിച്ചാൽ മറ്റുള്ളവരിൽ നിന്ന് ആ ബാധ്യത നീങ്ങുന്നു. എന്നാൽ ആരും നിർവഹിക്കാതിരുന്നാൽ ആ പ്രദേശത്തെ മുഴുവൻ മുസ്ലിംകളും കുറ്റക്കാരാവുന്നു.',
-                style: TextStyleClass.primaryFontMalayalam(16, Colors.grey, FontWeight.w300),
+              if (hasVideo)
+                
+              const SizedBox(width: 8),
+              const Icon(
+                Icons.chevron_right,
+                color: Colors.grey,
               ),
             ],
           ),
         ),
-      ),
+        Padding(
+          padding: const EdgeInsets.only(left: 72, right: 16),
+          child: Container(
+            height: 0.5,
+            color: Colors.grey.withOpacity(0.3),
+          ),
+        ),
+      ],
     );
   }
 }

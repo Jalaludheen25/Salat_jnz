@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:salat_al_janaza/constants/imagesclass.dart';
 import 'package:salat_al_janaza/constants/textstyleclass.dart';
 import 'package:salat_al_janaza/screen/pages/prayerstepscreen.dart';
 
@@ -22,7 +23,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
           onPressed: () => Navigator.pop(context),
         ),
         title: const Text(
-          'Salat Al Janaza',
+          'സ്വലാത്ത് ജനാസ',
           style: TextStyle(
             color: Colors.white,
             fontSize: 24,
@@ -48,7 +49,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Image.asset(
-                    'assets/images/janza image.jpg',
+                    ImageClass.bgjanza,
                     fit: BoxFit.fill,
                   ),
                 ),

@@ -12,7 +12,7 @@ class PrayerStepsSliderView extends StatefulWidget {
 }
 
 class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
-  // Data model for prayer steps
+  // Data model for prayer steps remains the same
   final List<PrayerStepModel> _prayerSteps = [
     PrayerStepModel(
       title: 'തക്ബീർ',
@@ -85,25 +85,24 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
       instructions: 'അല്ലാഹുവേ ഞങ്ങളെ നീ ഇതിന്റെ പ്രതിഫലത്തില്‍ നിന്നും തടയപ്പെട്ടവരാക്കല്ലേ, അദ്ധേഹത്തിന് ശേഷം നാശത്തിലകപ്പെട്ടവരുമാക്കല്ലേ...അയാള്‍കും ഞങ്ങള്‍കും നീ പൊറുത്ത് തരികയും ചൈയ്യേണമേ. ഞങ്ങളുടെ രക്ഷിതാവേ... ഞങ്ങള്‍ക് നീ ഇഹലോകത്തെ ഗുണങ്ങളേയും പരലോകത്തെ ഗുണങ്ങളേയും നല്‍കേണമേ',
       audioPath: 'assets/audio/salam dua.mp3',
     ),
-    // PrayerStep(
-    //   title: 'ഖിയാം',
-    //   description: 'നിന്ന നിലയിൽ തുടരുക, അൽ-ഫാതിഹ പാരായണം ചെയ്യുക:',
-    //   arabicTexts: [
-    //     'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ',
-    //     'الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ',
-    //     // Add more lines of Surah Al-Fatihah
-    //   ],
-    //   // meaning: 'പ്രാരംഭ പ്രാർത്ഥനയായ അൽ-ഫാതിഹ',
-    //   imagePath: 'assets/images/qiyyam_image.png',
-    //   instructions: 'നിന്ന നിലയിൽ തന്നെ തുടരുക, ഖുർആനിലെ പ്രാരംഭ പ്രാർത്ഥനയായ അൽ-ഫാതിഹ പാരായണം ചെയ്യുക',
-    // ),
-    // Add more prayer steps as needed
   ];
 
   final PageController _pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
+    // Get screen size
+    final Size screenSize = MediaQuery.of(context).size;
+    final double screenHeight = screenSize.height;
+    final double screenWidth = screenSize.width;
+    
+    // Calculate responsive sizes
+    final double imageHeight = screenHeight * 0.35; // 35% of screen height
+    final double titleFontSize = screenWidth * 0.045; // 4.5% of screen width
+    final double descriptionFontSize = screenWidth * 0.04; // 4% of screen width
+    final double arabicFontSize = screenWidth * 0.045; // 4.5% of screen width
+    final double instructionsFontSize = screenWidth * 0.04; // 4% of screen width
+
     return Scaffold(
       backgroundColor: Colors.grey[900],
       appBar: AppBar(
@@ -111,7 +110,11 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
         elevation: 0,
         title: Text(
           'പ്രാർത്ഥനാ ഘട്ടങ്ങൾ',
-          style: TextStyleClass.primaryFontMalayalam(18, Colors.white, FontWeight.w500),
+          style: TextStyleClass.primaryFontMalayalam(
+            titleFontSize,
+            Colors.white,
+            FontWeight.w500,
+          ),
         ),
         actions: [
           IconButton(
@@ -128,7 +131,14 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
               controller: _pageController,
               itemCount: _prayerSteps.length,
               itemBuilder: (context, index) {
-                return _buildPrayerStepPage(_prayerSteps[index]);
+                return _buildPrayerStepPage(
+                  _prayerSteps[index],
+                  imageHeight,
+                  titleFontSize,
+                  descriptionFontSize,
+                  arabicFontSize,
+                  instructionsFontSize,
+                );
               },
               onPageChanged: (index) {
                 setState(() {});
@@ -141,16 +151,23 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
     );
   }
 
-  Widget _buildPrayerStepPage(PrayerStepModel step) {
+  Widget _buildPrayerStepPage(
+    PrayerStepModel step,
+    double imageHeight,
+    double titleFontSize,
+    double descriptionFontSize,
+    double arabicFontSize,
+    double instructionsFontSize,
+  ) {
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Image Container
+          // Image Container with responsive height
           Container(
             width: double.infinity,
-            height: 300,
-            margin: const EdgeInsets.all(16),
+            height: imageHeight,
+            margin: EdgeInsets.all(MediaQuery.of(context).size.width * 0.04),
             decoration: BoxDecoration(
               color: Colors.grey[900],
               borderRadius: BorderRadius.circular(20),
@@ -170,7 +187,8 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
                   right: 20,
                   child: Row(
                     children: [
-                      GestureDetector(
+                      _buildAudioButton(
+                        icon: Icons.replay,
                         onTap: () async {
                           try {
                             final audioService = AudioService();
@@ -184,18 +202,10 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
                             }
                           }
                         },
-                        child: Container(
-                          width: 40,
-                          height: 40,
-                          margin: const EdgeInsets.only(right: 8),
-                          decoration: const BoxDecoration(
-                            color: Colors.black,
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(Icons.replay, color: Colors.blue, size: 24),
-                        ),
                       ),
-                      GestureDetector(
+                      const SizedBox(width: 8),
+                      _buildAudioButton(
+                        icon: AudioService().isPlaying ? Icons.pause : Icons.play_arrow,
                         onTap: () async {
                           try {
                             final audioService = AudioService();
@@ -209,19 +219,6 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
                             }
                           }
                         },
-                        child: Container(
-                          width: 40,
-                          height: 40,
-                          decoration: const BoxDecoration(
-                            color: Colors.black,
-                            shape: BoxShape.circle,
-                          ),
-                          child: Icon(
-                            AudioService().isPlaying ? Icons.pause : Icons.play_arrow,
-                            color: Colors.blue,
-                            size: 24,
-                          ),
-                        ),
                       ),
                     ],
                   ),
@@ -230,51 +227,62 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
             ),
           ),
           
-          // Title
+          // Title with responsive font size
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.04,
+            ),
             child: Text(
               step.title,
-              style: TextStyleClass.primaryFontMalayalam(18, Colors.white, FontWeight.w500),
+              style: TextStyleClass.primaryFontMalayalam(
+                titleFontSize,
+                Colors.white,
+                FontWeight.w500,
+              ),
             ),
           ),
           
-          // Description
+          // Description with responsive font size
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.04,
+              vertical: MediaQuery.of(context).size.height * 0.02,
+            ),
             child: Text(
               step.description,
-              style: TextStyleClass.primaryFontMalayalam(16, Colors.grey,FontWeight.w500  ),
+              style: TextStyleClass.primaryFontMalayalam(
+                descriptionFontSize,
+                Colors.grey,
+                FontWeight.w500,
+              ),
             ),
           ),
           
-          // Arabic Texts
+          // Arabic Texts with responsive font size
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.04,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: step.arabicTexts.map(_prayerLine).toList(),
+              children: step.arabicTexts.map(
+                (text) => _prayerLine(text, arabicFontSize),
+              ).toList(),
             ),
           ),
           
-          // // Meaning
-          // Padding(
-          //   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          //   child: Text(
-          //     step.meaning,
-          //     style: TextStyle(
-          //       color: Colors.grey[500],
-          //       fontSize: 16,
-          //     ),
-          //   ),
-          // ),
-          
-          // Instructions
+          // Instructions with responsive font size
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.04,
+            ),
             child: Text(
               step.instructions,
-              style: TextStyleClass.primaryFontMalayalam(16, Colors.white, FontWeight.w300),
+              style: TextStyleClass.primaryFontMalayalam(
+                instructionsFontSize,
+                Colors.white,
+                FontWeight.w300,
+              ),
             ),
           ),
         ],
@@ -282,21 +290,41 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
     );
   }
 
-  Widget _prayerLine(String text) {
+  Widget _buildAudioButton({
+    required IconData icon,
+    required VoidCallback onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 40,
+        height: 40,
+        decoration: const BoxDecoration(
+          color: Colors.black,
+          shape: BoxShape.circle,
+        ),
+        child: Icon(icon, color: Colors.blue, size: 24),
+      ),
+    );
+  }
+
+  Widget _prayerLine(String text, double fontSize) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Text(
         text,
         textAlign: TextAlign.right,
         textDirection: TextDirection.rtl,
-        style: TextStyleClass.primaryFontArabic(18, Colors.white),
+        style: TextStyleClass.primaryFontArabic(fontSize, Colors.white),
       ),
     );
   }
 
   Widget _buildBottomIndicator() {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 16),
+      padding: EdgeInsets.symmetric(
+        vertical: MediaQuery.of(context).size.height * 0.02,
+      ),
       child: DotsIndicator(
         dotsCount: _prayerSteps.length,
         position: _pageController.hasClients 
@@ -322,4 +350,3 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
     super.dispose();
   }
 }
-

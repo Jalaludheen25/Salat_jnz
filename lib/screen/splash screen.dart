@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:salat_al_janaza/constants/textstyleclass.dart';
-import 'package:salat_al_janaza/screen/home%20screen.dart';
+
+import 'home screen.dart';
+
+
 
 
 class SplashScreen extends StatefulWidget {
@@ -34,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen>
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const HomeScreen(), // Replace with your HomePage widget
+            builder: (context) => const PrayerScreen(), // Replace with your HomePage widget
           ),
         );
       }
