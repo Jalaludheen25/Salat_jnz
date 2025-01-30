@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:salat_al_janaza/constants/colorclass.dart';
 import 'package:salat_al_janaza/constants/imagesclass.dart';
 import 'package:salat_al_janaza/constants/textstyleclass.dart';
 import 'package:salat_al_janaza/screen/pages/prayerstepscreen.dart';
@@ -68,16 +69,16 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                 child: Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF1A1A2E),
+                    color:  ColorClass.blueGrey1,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Row(
                     children: [
-                      const Icon(Icons.format_list_bulleted, color: Colors.blue),
+                      const Icon(Icons.format_list_bulleted, color: Colors.black),
                       const SizedBox(width: 8),
                       Text(
                         'പ്രാർത്ഥനാ ഘട്ടങ്ങൾ',
-                        style: TextStyleClass.primaryFontMalayalam(18, Colors.blue,FontWeight.w100),
+                        style: TextStyleClass.primaryFontMalayalam(18, Colors.black,FontWeight.w100),
                       ),
                     ],
                   ),

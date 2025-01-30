@@ -12,13 +12,31 @@ class TextStyleClass {
       fontSize: 16,
       fontWeight: FontWeight.w400,
       color: ColorClass.black);
+ 
 
-  static TextStyle primaryFontMalayalam(double size, Color color, FontWeight bold, {FontWeight weight = FontWeight.w700}) => TextStyle(
-      fontFamily: 'NotoSansMalyalam',
-      fontWeight: weight,
+  static TextStyle primaryFont300(double size, Color color) => TextStyle(
+      fontFamily: primaryFontName,
+      fontWeight: FontWeight.w300,
       color: color,
       height: textHeight,
       fontSize: size);
+
+  static TextStyle primaryFont600(double size, Color color) => TextStyle(
+      fontFamily: primaryFontName,
+      fontWeight: FontWeight.w600,
+      color: color,
+      height: textHeight,
+      fontSize: size);
+
+  static TextStyle primaryFontMalayalam(
+          double size, Color color, FontWeight bold,
+          {FontWeight weight = FontWeight.w700}) =>
+      TextStyle(
+          fontFamily: 'NotoSansMalyalam',
+          fontWeight: weight,
+          color: color,
+          height: textHeight,
+          fontSize: size);
 
   // Title style
   static TextStyle malayalamTitle = const TextStyle(

@@ -16,9 +16,9 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
      Mayyithmodel(
       title: 'മരണാസന്നനെ കിടത്തല്‍:',
       description: 'മൂന്ന് രൂപങ്ങളില്‍ ഇത്തരം രോഗികളെ കിട ത്താം. ഒന്ന്, തല വടക്കോട്ടും കാല് തെക്കോട്ടും മുഖം ഖിബ്ലയിലേക്കുമായി വലത് ഭാഗത്തിന്‍റെ മേല്‍ ചെരിച്ച് കിടത്തുക. രണ്ട്, തല തെക്കോട്ടും കാല് വടക്കോട്ടും മുഖം ഖിബ്ലയിലേക്കുമായി ഇടതുഭാഗത്തിന്മേല്‍ ചെരിച്ച് കിടത്തുക. മൂന്ന്, മേല്‍ പറഞ്ഞ രണ്ട് രൂപത്തിലും സാധിക്കാതെ വന്നാല്‍, കാല് ഖിബ്ലയുടെ ഭാഗത്തേക്കും തല എതിര്‍ ദിശയിലേക്കും മുഖം ഖിബ്ലയിലേക്കും ആകും വിധം മലര്‍ത്തിക്കിടത്തുക. മുഖം ഖിബ്ലയിലേക്കാകാന്‍ വേണ്ടി തലയുടെ അടിഭാഗത്ത് തലയിണയോ മറ്റോ വച്ച് അല്‍പം ഉയര്‍ത്തണം. സാധാരണ ജനങ്ങള്‍ ചെയ്തു വരുന്നത് ഈ രൂപത്തിലാണെന്ന് ഇമാം നവവി(റ) ശര്‍ഹുല്‍ മുഹദ്ദബില്‍ രേഖപ്പെടുത്തുന്നു.',
-      
-    
+
       imagePath: 'assets/images/patient man.jpeg',
+      
     ),
       
     Mayyithmodel(
@@ -47,6 +47,12 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
      
     ),
   ];
+  
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   final PageController _pageController = PageController();
 
@@ -125,7 +131,7 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
                   borderRadius: BorderRadius.circular(20),
                   child: Image.asset(
                     step.imagePath,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fitWidth,
                   ),
                 ),
               ],
@@ -189,9 +195,4 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
     );
   }
 
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
 }

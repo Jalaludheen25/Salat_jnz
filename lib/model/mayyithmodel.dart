@@ -3,14 +3,14 @@ class Mayyithmodel {
   final String description;
 
   final String imagePath;
-  
-
+ 
 
   Mayyithmodel({
     required this.title,
     required this.description,
     
     required this.imagePath,
+ 
     
    
    
