@@ -19,7 +19,8 @@ class TextStyleClass {
       fontWeight: FontWeight.w300,
       color: color,
       height: textHeight,
-      fontSize: size);
+      fontSize: size
+      );
 
   static TextStyle primaryFont600(double size, Color color) => TextStyle(
       fontFamily: primaryFontName,
@@ -29,14 +30,15 @@ class TextStyleClass {
       fontSize: size);
 
   static TextStyle primaryFontMalayalam(
-          double size, Color color, FontWeight bold,
+          double size, Color color, FontWeight bold, TextAlign center,
           {FontWeight weight = FontWeight.w700}) =>
       TextStyle(
           fontFamily: 'NotoSansMalyalam',
           fontWeight: weight,
           color: color,
           height: textHeight,
-          fontSize: size);
+          fontSize: size,
+           );
 
   // Title style
   static TextStyle malayalamTitle = const TextStyle(

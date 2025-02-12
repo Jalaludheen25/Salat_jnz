@@ -64,6 +64,7 @@ class _DeadbodyverbscreenState extends State<Deadbodyverbscreen> {
             screenSize.width * 0.045, // Responsive font size
             Colors.white,
             FontWeight.w500,
+            TextAlign.start,
           ),
         ),
         actions: [
@@ -132,6 +133,7 @@ class _DeadbodyverbscreenState extends State<Deadbodyverbscreen> {
                 screenSize.width * 0.045, // Responsive font size
                 Colors.white,
                 FontWeight.w500,
+                TextAlign.center,
               ),
             ),
           ),
@@ -148,6 +150,7 @@ class _DeadbodyverbscreenState extends State<Deadbodyverbscreen> {
                 screenSize.width * 0.04, // Responsive font size
                 Colors.grey,
                 FontWeight.w500,
+                TextAlign.center,
               ),
             ),
           ),
@@ -165,6 +168,7 @@ class _DeadbodyverbscreenState extends State<Deadbodyverbscreen> {
                   screenSize.width * 0.04, // Responsive font size
                   Colors.white,
                   FontWeight.w500,
+                    TextAlign.center,
                 ),
               ),
             ),

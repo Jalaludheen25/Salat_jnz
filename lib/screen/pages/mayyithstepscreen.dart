@@ -73,6 +73,7 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
             screenSize.width * 0.045, // Responsive font size
             Colors.white,
             FontWeight.w500,
+              TextAlign.center
           ),
         ),
         actions: [
@@ -147,6 +148,7 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
                 screenSize.width * 0.045, // Responsive font size
                 Colors.white,
                 FontWeight.w500,
+                TextAlign.center,
               ),
             ),
           ),
@@ -163,6 +165,7 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
                 screenSize.width * 0.04, // Responsive font size
                 Colors.grey,
                 FontWeight.w500,
+                  TextAlign.center,
               ),
             ),
           ),

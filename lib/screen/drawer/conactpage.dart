@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:salat_al_janaza/constants/colorclass.dart';
+import 'package:salat_al_janaza/constants/textstyleclass.dart';
 
 class ContactPage extends StatelessWidget {
   const ContactPage({super.key});
@@ -109,10 +110,7 @@ class ContactPage extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey,
-                ),
+                 style: TextStyleClass.primaryFont600(16, Colors.white,),
               ),
               const SizedBox(height: 4),
               Text(

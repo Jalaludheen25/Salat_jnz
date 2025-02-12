@@ -114,6 +114,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
             titleFontSize,
             Colors.white,
             FontWeight.w500,
+            TextAlign.start
           ),
         ),
         actions: [
@@ -238,6 +239,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
                 titleFontSize,
                 Colors.white,
                 FontWeight.w500,
+                TextAlign.start
               ),
             ),
           ),
@@ -254,6 +256,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
                 descriptionFontSize,
                 Colors.grey,
                 FontWeight.w500,
+                TextAlign.start
               ),
             ),
           ),
@@ -282,6 +285,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
                 instructionsFontSize,
                 Colors.white,
                 FontWeight.w300,
+                TextAlign.center,
               ),
             ),
           ),
