@@ -111,7 +111,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
         elevation: 0,
         title: Text(
           'പ്രാർത്ഥനാ ഘട്ടങ്ങൾ',
-          style: GoogleFonts.manjari(
+          style: GoogleFonts.anekMalayalam(
             fontSize: 20,
             color: Colors.white,
             fontWeight: FontWeight.w500,
@@ -235,7 +235,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
             ),
             child: Text(
               step.title,
-              style: GoogleFonts.manjari(
+              style: GoogleFonts.anekMalayalam(
             fontSize: 20,
             color: Colors.white,
             fontWeight: FontWeight.w500,
@@ -251,7 +251,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
             ),
             child: Text(
               step.description,
-              style: GoogleFonts.manjari(
+              style: GoogleFonts.anekMalayalam(
             fontSize: 20,
             color: Colors.white,
             fontWeight: FontWeight.w500,
@@ -279,7 +279,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
             ),
             child: Text(
               step.instructions,
-              style: GoogleFonts.manjari(
+              style: GoogleFonts.anekMalayalam(
             fontSize: 20,
             color: Colors.white,
             fontWeight: FontWeight.w600,

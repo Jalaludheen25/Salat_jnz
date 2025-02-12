@@ -61,7 +61,7 @@ class _DeadbodyverbscreenState extends State<Deadbodyverbscreen> {
         elevation: 0,
         title: Text(
           'മരണാനന്തര ക്രിയകള്‍',
-           style: GoogleFonts.manjari(
+           style: GoogleFonts.anekMalayalam(
             fontSize: 20,
             color: Colors.white,
             fontWeight: FontWeight.w500,
@@ -129,7 +129,7 @@ class _DeadbodyverbscreenState extends State<Deadbodyverbscreen> {
             padding: EdgeInsets.symmetric(horizontal: screenSize.width * 0.04),
             child: Text(
               step.title,
-               style: GoogleFonts.manjari(
+               style: GoogleFonts.anekMalayalam(
             fontSize: 20,
             color: Colors.white,
             fontWeight: FontWeight.w500,
@@ -145,7 +145,7 @@ class _DeadbodyverbscreenState extends State<Deadbodyverbscreen> {
             ),
             child: Text(
               step.description,
-               style: GoogleFonts.manjari(
+               style: GoogleFonts.anekMalayalam(
             fontSize: 20,
             color: Colors.white,
             fontWeight: FontWeight.w500,
@@ -162,7 +162,7 @@ class _DeadbodyverbscreenState extends State<Deadbodyverbscreen> {
               ),
               child: Text(
                 step.instructions,
-                 style: GoogleFonts.manjari(
+                 style: GoogleFonts.anekMalayalam(
             fontSize: 20,
             color: Colors.white,
             fontWeight: FontWeight.w500,
