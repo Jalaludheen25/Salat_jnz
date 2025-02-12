@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:salat_al_janaza/constants/textstyleclass.dart';
 import 'package:salat_al_janaza/model/Deadboadyverbmodel.dart';
 import 'package:dots_indicator/dots_indicator.dart';
@@ -60,11 +61,10 @@ class _DeadbodyverbscreenState extends State<Deadbodyverbscreen> {
         elevation: 0,
         title: Text(
           'മരണാനന്തര ക്രിയകള്‍',
-          style: TextStyleClass.primaryFontMalayalam(
-            screenSize.width * 0.045, // Responsive font size
-            Colors.white,
-            FontWeight.w500,
-            TextAlign.start,
+           style: GoogleFonts.manjari(
+            fontSize: 20,
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
           ),
         ),
         actions: [
@@ -129,12 +129,11 @@ class _DeadbodyverbscreenState extends State<Deadbodyverbscreen> {
             padding: EdgeInsets.symmetric(horizontal: screenSize.width * 0.04),
             child: Text(
               step.title,
-              style: TextStyleClass.primaryFontMalayalam(
-                screenSize.width * 0.045, // Responsive font size
-                Colors.white,
-                FontWeight.w500,
-                TextAlign.center,
-              ),
+               style: GoogleFonts.manjari(
+            fontSize: 20,
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
+          ),
             ),
           ),
           
@@ -146,12 +145,11 @@ class _DeadbodyverbscreenState extends State<Deadbodyverbscreen> {
             ),
             child: Text(
               step.description,
-              style: TextStyleClass.primaryFontMalayalam(
-                screenSize.width * 0.04, // Responsive font size
-                Colors.grey,
-                FontWeight.w500,
-                TextAlign.center,
-              ),
+               style: GoogleFonts.manjari(
+            fontSize: 20,
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
+          ),
             ),
           ),
 
@@ -164,12 +162,11 @@ class _DeadbodyverbscreenState extends State<Deadbodyverbscreen> {
               ),
               child: Text(
                 step.instructions,
-                style: TextStyleClass.primaryFontMalayalam(
-                  screenSize.width * 0.04, // Responsive font size
-                  Colors.white,
-                  FontWeight.w500,
-                    TextAlign.center,
-                ),
+                 style: GoogleFonts.manjari(
+            fontSize: 20,
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
+          ),
               ),
             ),
         ],

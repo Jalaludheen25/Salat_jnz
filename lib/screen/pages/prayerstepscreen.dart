@@ -3,6 +3,7 @@ import 'package:salat_al_janaza/constants/textstyleclass.dart';
 import 'package:salat_al_janaza/model/prayerstepmodel.dart';
 import 'package:salat_al_janaza/services/audio_service.dart';
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class PrayerStepsSliderView extends StatefulWidget {
   const PrayerStepsSliderView({Key? key}) : super(key: key);
@@ -46,7 +47,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
       description: 'രണ്ടാം തക്ബീര്‍ ചൊല്ലി വീണ്ടും കൈ കെട്ടി ഇബ്രാഹിമീയ സ്വലാത്ത് ചൊല്ലുക:',
       arabicTexts: [
           'اللهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ',
-          'اَلَّلهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرِاهِيمَ وَعَلَى آلِ إِبْرِاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ',
+          'اَلَّلهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ',
         
       ],
       
@@ -110,11 +111,10 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
         elevation: 0,
         title: Text(
           'പ്രാർത്ഥനാ ഘട്ടങ്ങൾ',
-          style: TextStyleClass.primaryFontMalayalam(
-            titleFontSize,
-            Colors.white,
-            FontWeight.w500,
-            TextAlign.start
+          style: GoogleFonts.manjari(
+            fontSize: 20,
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
           ),
         ),
         actions: [
@@ -235,12 +235,11 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
             ),
             child: Text(
               step.title,
-              style: TextStyleClass.primaryFontMalayalam(
-                titleFontSize,
-                Colors.white,
-                FontWeight.w500,
-                TextAlign.start
-              ),
+              style: GoogleFonts.manjari(
+            fontSize: 20,
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
+          ),
             ),
           ),
           
@@ -252,12 +251,11 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
             ),
             child: Text(
               step.description,
-              style: TextStyleClass.primaryFontMalayalam(
-                descriptionFontSize,
-                Colors.grey,
-                FontWeight.w500,
-                TextAlign.start
-              ),
+              style: GoogleFonts.manjari(
+            fontSize: 20,
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
+          ),
             ),
           ),
           
@@ -281,12 +279,11 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
             ),
             child: Text(
               step.instructions,
-              style: TextStyleClass.primaryFontMalayalam(
-                instructionsFontSize,
-                Colors.white,
-                FontWeight.w300,
-                TextAlign.center,
-              ),
+              style: GoogleFonts.manjari(
+            fontSize: 20,
+            color: Colors.white,
+            fontWeight: FontWeight.w600,
+          ),
             ),
           ),
         ],
