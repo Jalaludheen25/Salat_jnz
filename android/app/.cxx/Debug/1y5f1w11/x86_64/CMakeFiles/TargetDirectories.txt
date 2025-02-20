@@ -1,0 +1,2 @@
+D:/d4dx/salat_al_janaza/android/app/.cxx/Debug/1y5f1w11/x86_64/CMakeFiles/edit_cache.dir
+D:/d4dx/salat_al_janaza/android/app/.cxx/Debug/1y5f1w11/x86_64/CMakeFiles/rebuild_cache.dir

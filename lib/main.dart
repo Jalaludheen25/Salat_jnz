@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:salat_al_janaza/screen/home%20screen.dart';
 import 'package:salat_al_janaza/screen/splash%20screen.dart';
 
 void main() {

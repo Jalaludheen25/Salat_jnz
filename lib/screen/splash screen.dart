@@ -3,9 +3,6 @@ import 'package:salat_al_janaza/constants/textstyleclass.dart';
 
 import 'home screen.dart';
 
-
-
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -30,14 +27,14 @@ class _SplashScreenState extends State<SplashScreen>
       curve: Curves.easeInOut,
     );
     _controller.forward();
-    
+
     // Navigate to home page after animation
     Future.delayed(const Duration(seconds: 5), () {
       if (mounted) {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const PrayerScreen(), // Replace with your HomePage widget
+            builder: (context) => const HomeScreen(),
           ),
         );
       }
@@ -68,12 +65,11 @@ class _SplashScreenState extends State<SplashScreen>
                   height: 200,
                 ),
               ),
-              
             ),
             const SizedBox(height: 24),
             FadeTransition(
               opacity: _animation,
-              child:  Text(
+              child: Text(
                 'Salat Al Janaza',
                 style: TextStyleClass.black16_400,
               ),
