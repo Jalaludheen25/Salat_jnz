@@ -13,13 +13,13 @@ class AppDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: ColorClass.darkGrey1,
+        color: ColorClass.secondaryColor,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blueGrey,
+                color: ColorClass.primaryColor,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +51,10 @@ class AppDrawer extends StatelessWidget {
               title: 'Prayer Guide',
               onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const MayyithScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const MayyithScreen()));
               },
             ),
             _buildDrawerItem(
@@ -59,24 +62,32 @@ class AppDrawer extends StatelessWidget {
               title: 'Janaza Prayer',
               onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const SalatAlJanazaScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SalatAlJanazaScreen()));
               },
             ),
             const Divider(color: Colors.grey),
             _buildDrawerItem(
               icon: Icons.favorite,
               title: 'Donate',
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const DonationDetails())),
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const DonationDetails())),
             ),
             _buildDrawerItem(
               icon: Icons.call,
               title: 'Contact',
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const ContactPage())),
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ContactPage())),
             ),
             _buildDrawerItem(
               icon: Icons.info,
               title: 'About',
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutPage())),
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const AboutPage())),
             ),
           ],
         ),
@@ -91,7 +102,8 @@ class AppDrawer extends StatelessWidget {
   }) {
     return ListTile(
       leading: Icon(icon, color: Colors.white),
-      title: Text(title, style: const TextStyle(color: Colors.white, fontSize: 16)),
+      title: Text(title,
+          style: const TextStyle(color: Colors.white, fontSize: 16)),
       onTap: onTap,
     );
   }
