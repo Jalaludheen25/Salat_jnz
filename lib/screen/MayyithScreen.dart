@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:salat_al_janaza/constants/colorclass.dart';
+import 'package:salat_al_janaza/constants/iconclass.dart';
 import 'package:salat_al_janaza/constants/imagesclass.dart';
 import 'package:salat_al_janaza/constants/textstyleclass.dart';
 import 'package:salat_al_janaza/screen/pages/deadbodyverb.dart';

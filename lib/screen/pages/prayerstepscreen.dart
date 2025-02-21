@@ -5,6 +5,7 @@ import 'package:salat_al_janaza/model/prayerstepmodel.dart';
 import 'package:salat_al_janaza/services/audio_service.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class PrayerStepsSliderView extends StatefulWidget {
   const PrayerStepsSliderView({Key? key}) : super(key: key);
@@ -14,7 +15,10 @@ class PrayerStepsSliderView extends StatefulWidget {
 }
 
 class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
-  // Data model for prayer steps remains the same
+  final PageController _pageController = PageController();
+  late AudioService _audioService;
+  
+  // Data model for prayer steps
   final List<PrayerStepModel> _prayerSteps = [
     PrayerStepModel(
       title: 'തക്ബീർ',
@@ -33,30 +37,28 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
       description:
           'നിന്ന നിലയിൽ തുടരുക, ഖുർആനിലെ പ്രാരംഭ പ്രാർത്ഥനയായ അൽ-ഫാതിഹ പാരായണം ചെയ്യുക',
       arabicTexts: [
-        'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ',
-        'الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ',
-        'الرَّحْمَٰنِ الرَّحِيمِ',
-        'مَالِكِ يَوْمِ الدِّينِ',
-        'إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ',
-        'اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ، صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ',
-        'غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ.\nآمِينَ',
+        'بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ ۝١',
+        'ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ ۝٢',
+        'ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ ۝٣',
+        'مَـٰلِكِ يَوْمِ ٱلدِّينِ ۝٤',
+        'إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ۝٥',
+        'ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ ۝٦',
+        'صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ ۝٧',
+        'آمِينَ ۝٨',
       ],
       imagePath: 'assets/images/qiyyam image.png',
-      instructions:
-          ' പരമദയാലുവും കരുണാവാരിധിയുമായ അല്ലാഹുവിന്റെ നാമത്തില്‍. സര്‍വലോകത്തിന്റെയും റബ്ബായ3 അല്ലാഹുവിനു മാത്രമാകുന്നു സ്‌തോത്രം. അളവറ്റ ദയാപരനും കരുണാവാരിധിയുമാണവന്‍.പ്രതിഫലദിവസത്തിന്നധിപനായവന്‍.നിനക്കുമാത്രം ഞങ്ങള്‍ ഇബാദത്തുചെയ്യുന്നു.നിന്നോടുമാത്രം ഞങ്ങള്‍ സഹായം തേടുന്നു.നീ ഞങ്ങളെ നേര്‍വഴിയില്‍ നയിക്കേണമേ! നീ അനുഗ്രഹിച്ചവരുടെ മാര്‍ഗത്തില്‍ കോപത്തിനിരയായവരുടെയും വ്യതിചലിച്ചവരുടെയും മാര്‍ഗത്തിലല്ല.',
+      instructions: ' പരമദയാലുവും കരുണാവാരിധിയുമായ അല്ലാഹുവിന്റെ നാമത്തില്‍. സര്‍വലോകത്തിന്റെയും റബ്ബായ3 അല്ലാഹുവിനു മാത്രമാകുന്നു സ്‌തോത്രം. അളവറ്റ ദയാപരനും കരുണാവാരിധിയുമാണവന്‍.പ്രതിഫലദിവസത്തിന്നധിപനായവന്‍.നിനക്കുമാത്രം ഞങ്ങള്‍ ഇബാദത്തുചെയ്യുന്നു.നിന്നോടുമാത്രം ഞങ്ങള്‍ സഹായം തേടുന്നു.നീ ഞങ്ങളെ നേര്‍വഴിയില്‍ നയിക്കേണമേ! നീ അനുഗ്രഹിച്ചവരുടെ മാര്‍ഗത്തില്‍ കോപത്തിനിരയായവരുടെയും വ്യതിചലിച്ചവരുടെയും മാര്‍ഗത്തിലല്ല.',
       audioPath: 'assets/audio/SuratAl-Fatihah.mp3',
     ),
     PrayerStepModel(
       title: 'തശഹ്ഹുദ്',
-      description:
-          'രണ്ടാം തക്ബീര്‍ ചൊല്ലി വീണ്ടും കൈ കെട്ടി ഇബ്രാഹിമീയ സ്വലാത്ത് ചൊല്ലുക:',
+      description: 'രണ്ടാം തക്ബീര്‍ ചൊല്ലി വീണ്ടും കൈ കെട്ടി ഇബ്രാഹിമീയ സ്വലാത്ത് ചൊല്ലുക:',
       arabicTexts: [
         'اللهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ',
         'اَلَّلهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ',
       ],
       imagePath: 'assets/images/qiyyam image.png',
-      instructions:
-          'അല്ലാഹുവേ പറയുക! ഇബ്രാഹിമിനും ഇബ്രാഹിമിൻ്റെ കുടുംബത്തിനും നീ സമാധാനം അയച്ചതുപോലെ, നിൻ്റെ ദാസനും നിൻ്റെ ദൂതനും മുഹമ്മദിനും സമാധാനം നൽകേണമേ , ഇബ്രാഹിമിനും ഇബ്രാഹിമിൻ്റെ കുടുംബത്തിനും നീ അനുഗ്രഹം അയച്ചതുപോലെ മുഹമ്മദിനും മുഹമ്മദിൻ്റെ കുടുംബത്തിനും നീ അനുഗ്രഹം നൽകണമേ',
+      instructions: 'അല്ലാഹുവേ പറയുക! ഇബ്രാഹിമിനും ഇബ്രാഹിമിൻ്റെ കുടുംബത്തിനും നീ സമാധാനം അയച്ചതുപോലെ, നിൻ്റെ ദാസനും നിൻ്റെ ദൂതനും മുഹമ്മദിനും സമാധാനം നൽകേണമേ , ഇബ്രാഹിമിനും ഇബ്രാഹിമിൻ്റെ കുടുംബത്തിനും നീ അനുഗ്രഹം അയച്ചതുപോലെ മുഹമ്മദിനും മുഹമ്മദിൻ്റെ കുടുംബത്തിനും നീ അനുഗ്രഹം നൽകണമേ',
       audioPath: 'assets/audio/durood e ibrahimi.mp3',
     ),
     PrayerStepModel(
@@ -73,8 +75,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
         'وَاَعِذْهُ مِنْ عَذَابِ الْقَبْرِ وَفِتْنَتِهِ وَمِنْ عَذَابِ الْنَّارٍ',
       ],
       imagePath: 'assets/images/qiyyam image.png',
-      instructions:
-          'അല്ലാഹുവേ, അവനോട് പൊറുക്കുകയും കരുണ കാണിക്കുകയും അവന് ശക്തി നൽകുകയും ക്ഷമിക്കുകയും ചെയ്യേണമേ. അവനോട് ഉദാരമായി പെരുമാറുകയും അവൻ്റെ പ്രവേശനം വിശാലമാക്കുകയും വെള്ളവും മഞ്ഞും ആലിപ്പഴവും കൊണ്ട് അവനെ കഴുകുകയും ചെയ്യുക. വെള്ളവസ്ത്രം കറകളിൽനിന്ന് ശുദ്ധീകരിക്കപ്പെടുന്നതുപോലെ അവൻ്റെ അതിക്രമങ്ങളിൽനിന്നു അവനെ ശുദ്ധീകരിക്കേണമേ. അവൻ്റെ വീടിനേക്കാൾ ഉത്തമമായ ഒരു വാസസ്ഥലവും അവൻ്റെ കുടുംബത്തേക്കാൾ ഉത്തമമായ ഒരു കുടുംബവും അവൻ്റെ ഭാര്യയെക്കാൾ ഉത്തമമായ ഒരു ഭാര്യയും അവന് നൽകേണമേ. അവനെ സ്വർഗത്തിൽ പ്രവേശിപ്പിക്കുകയും ഖബറിലെ ശിക്ഷയിൽ നിന്നും [നരകാഗ്നിയുടെ ശിക്ഷയിൽ നിന്നും] അവനെ സംരക്ഷിക്കുകയും ചെയ്യുക.',
+      instructions: 'അല്ലാഹുവേ, അവനോട് പൊറുക്കുകയും കരുണ കാണിക്കുകയും അവന് ശക്തി നൽകുകയും ക്ഷമിക്കുകയും ചെയ്യേണമേ. അവനോട് ഉദാരമായി പെരുമാറുകയും അവൻ്റെ പ്രവേശനം വിശാലമാക്കുകയും വെള്ളവും മഞ്ഞും ആലിപ്പഴവും കൊണ്ട് അവനെ കഴുകുകയും ചെയ്യുക. വെള്ളവസ്ത്രം കറകളിൽനിന്ന് ശുദ്ധീകരിക്കപ്പെടുന്നതുപോലെ അവൻ്റെ അതിക്രമങ്ങളിൽനിന്നു അവനെ ശുദ്ധീകരിക്കേണമേ. അവൻ്റെ വീടിനേക്കാൾ ഉത്തമമായ ഒരു വാസസ്ഥലവും അവൻ്റെ കുടുംബത്തേക്കാൾ ഉത്തമമായ ഒരു കുടുംബവും അവൻ്റെ ഭാര്യയെക്കാൾ ഉത്തമമായ ഒരു ഭാര്യയും അവന് നൽകേണമേ. അവനെ സ്വർഗത്തിൽ പ്രവേശിപ്പിക്കുകയും ഖബറിലെ ശിക്ഷയിൽ നിന്നും [നരകാഗ്നിയുടെ ശിക്ഷയിൽ നിന്നും] അവനെ സംരക്ഷിക്കുകയും ചെയ്യുക.',
       audioPath: 'assets/audio/Dua janaza.mp3',
     ),
     PrayerStepModel(
@@ -95,12 +96,30 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
       audioPath: 'assets/audio/salam dua.mp3',
     ),
   ];
-
-  final PageController _pageController = PageController();
+  
+  @override
+  void initState() {
+    super.initState();
+    _audioService = AudioService();
+    _audioService.addListener(() {
+      if (mounted) {
+        setState(() {});
+      }
+    });
+  }
+  
+  @override
+  void dispose() {
+    _pageController.dispose();
+    _audioService.removeListener(() {
+      setState(() {});
+    });
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    // Get screen size
+    // Get screen size for responsive sizing
     final Size screenSize = MediaQuery.of(context).size;
     final double screenHeight = screenSize.height;
     final double screenWidth = screenSize.width;
@@ -189,6 +208,8 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
                   child: Image.asset(
                     step.imagePath,
                     fit: BoxFit.cover,
+                    width: double.infinity,
+                    height: double.infinity,
                   ),
                 ),
                 // Play Button
@@ -201,9 +222,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
                         icon: Icons.replay,
                         onTap: () async {
                           try {
-                            final audioService = AudioService();
-                            await audioService.replay();
-                            setState(() {});
+                            await _audioService.replay();
                           } catch (e) {
                             if (mounted) {
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -217,32 +236,35 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
                       ),
                       const SizedBox(width: 8),
                       _buildAudioButton(
-                        icon: AudioService().isPlaying
-                            ? Icons.pause
-                            : Icons.play_arrow,
-                        onTap: () async {
-                          try {
-                            final audioService = AudioService();
-                            await audioService.playPauseAudio(step.audioPath);
-                            setState(() {});
-                          } catch (e) {
-                            if (mounted) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                    content:
-                                        Text('Audio error: ${e.toString()}')),
-                              );
-                            }
-                          }
-                        },
-                      ),
+  icon: _audioService.isPlaying ? Icons.pause : Icons.play_arrow,
+  onTap: () async {
+    try {
+      if (_audioService.isPlaying) {
+        await _audioService.playPauseAudio(step.audioPath);
+      } else {
+        // Try to resume if it's the same file, otherwise start playing
+        if (_audioService.currentAssetPath == step.audioPath) {
+          await _audioService.resume();
+        } else {
+          await _audioService.playPauseAudio(step.audioPath);
+        }
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Audio error: ${e.toString()}')),
+        );
+      }
+    }
+  },
+)
                     ],
                   ),
                 ),
               ],
             ),
-          ),
-
+          ),  
+          
           // Title with responsive font size
           Padding(
             padding: EdgeInsets.symmetric(
@@ -251,7 +273,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
             child: Text(
               step.title,
               style: GoogleFonts.anekMalayalam(
-                fontSize: 20,
+                fontSize: titleFontSize,
                 color: Colors.white,
                 fontWeight: FontWeight.w500,
               ),
@@ -267,7 +289,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
             child: Text(
               step.description,
               style: GoogleFonts.anekMalayalam(
-                fontSize: 20,
+                fontSize: descriptionFontSize,
                 color: Colors.white,
                 fontWeight: FontWeight.w500,
               ),
@@ -293,16 +315,20 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width * 0.04,
+              vertical: MediaQuery.of(context).size.height * 0.02,
             ),
             child: Text(
               step.instructions,
               style: GoogleFonts.anekMalayalam(
-                fontSize: 20,
+                fontSize: instructionsFontSize,
                 color: Colors.white,
                 fontWeight: FontWeight.w600,
               ),
             ),
           ),
+          
+          // Add some bottom padding for better scrolling experience
+          SizedBox(height: MediaQuery.of(context).size.height * 0.05),
         ],
       ),
     );
@@ -360,11 +386,5 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
   }
 }

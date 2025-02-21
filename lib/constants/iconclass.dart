@@ -5,6 +5,7 @@ class IconClass {
   static const String deadbodyicon = '${iconRoot}dead-body.png';
   static const String prayericon = '${iconRoot}islamicprayer.png';
   static const String applogo = '${iconRoot}app logo.png';
+  static const String preview = '${iconRoot}preview.png';
 
 
 
