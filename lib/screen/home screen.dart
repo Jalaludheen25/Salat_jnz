@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:salat_al_janaza/constants/colorclass.dart';
 import 'package:salat_al_janaza/constants/iconclass.dart';
-import 'package:salat_al_janaza/constants/textstyleclass.dart';
 import 'package:salat_al_janaza/screen/MayyithScreen.dart';
 import 'package:salat_al_janaza/screen/salatalJanazascreen.dart';
 import 'package:salat_al_janaza/widget/appdrawer.dart';
@@ -16,112 +16,101 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
+  final List<Map<String, dynamic>> prayerItems = [
+    {
+      'title': 'മയ്യിത്ത് പരിപാലനം',
+      'icon': IconClass.deadbodyicon,
+      'screen': const MayyithScreen(),
+    },
+    {
+      'title': 'ജനാസ നമസ്കാരം',
+      'icon': IconClass.prayericon,
+      'screen': const SalatAlJanazaScreen(),
+    },
+    // Add more prayer items here
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      backgroundColor: ColorClass.darkGrey1,
-      drawer: AppDrawer(),  
-      body: Column(
-        children: [
-          _buildHeader(),
-          const SizedBox(height: 20),
-          const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Text(
-              'Prayers List',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+      // Set to transparent so the Stack shows through
+      backgroundColor: Colors.transparent,
+      // Make the AppBar transparent with no elevation
+      extendBodyBehindAppBar: true,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(65.0),
+        child: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: Container(
+            margin: const EdgeInsets.only(left: 8),
+            child: IconButton(
+              icon: const Icon(
+                Icons.menu_rounded,
+                color: ColorClass.white,
+                size: 30,
               ),
+              onPressed: () => _scaffoldKey.currentState?.openDrawer(),
             ),
           ),
-          Expanded(
-            child: ListView(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              children: [
-                _buildPrayerItem(
-                  leading: Image.asset(
-                    IconClass.deadbodyicon,
-                    color: ColorClass.blueGrey1,
-                    width: 40,
-                    height: 40,
-                  ),
-                  title: 'മയ്യിത്ത് പരിപാലനം',
-                  hasVideo: true,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const MayyithScreen(),
-                      ),
-                    );
-                  },
-                ),
-                _buildPrayerItem(
-                  leading: Image.asset(
-                    IconClass.prayericon,
-                    color: ColorClass.blueGrey1,
-                    width: 40,
-                    height: 40,
-                  ),
-                  title: 'ജനാസ നമസ്കാരം',
-                  hasVideo: true,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const SalatAlJanazaScreen(),
-                      ),
-                    );
-                  },
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildHeader() {
-    return Container(
-      height: 200,
-      padding: const EdgeInsets.all(24.0),
-      decoration: BoxDecoration(
-        color: Colors.blueGrey,
-        borderRadius: const BorderRadius.only(
-          bottomLeft: Radius.circular(30),
-          bottomRight: Radius.circular(30),
-        ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
+          title: Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              IconButton(
-                icon: const Icon(
-                  Icons.format_list_bulleted,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  _scaffoldKey.currentState?.openDrawer();
-                },
-              ),
-              SizedBox(width: 40),
+              const SizedBox(width: 10),
               Text(
-                'Salath Learning',
-                style: TextStyleClass.primaryFont600(24, Colors.white),
+                'Salath Janaza',
+                style: GoogleFonts.lato(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                  color: ColorClass.white,
+                  letterSpacing: 0.8,
+                  shadows: [
+                    Shadow(
+                      offset: Offset(1, 1),
+                      blurRadius: 3.0,
+                      color: ColorClass.black.withOpacity(0.5),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
-          const Text(
-            'Step by step',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16,
+          centerTitle: true,
+        ),
+      ),
+      drawer: AppDrawer(),
+      body: Stack(
+        children: [
+          // Background image (now covers the entire screen including AppBar area)
+          Positioned.fill(
+            child: Image.asset(
+              'assets/images/homebg.jpeg',
+              fit: BoxFit.cover,
+            ),
+          ),
+          // Overlay container with opacity (covers entire screen)
+          Positioned.fill(
+            child: Container(
+              color: ColorClass.primaryColor.withOpacity(0.7),
+            ),
+          ),
+          // Content - now with padding from top to account for AppBar
+          SafeArea(
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 200),
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  padding: const EdgeInsets.symmetric(vertical: 24),
+                  itemCount: prayerItems.length,
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(height: 32),
+                  itemBuilder: (context, index) {
+                    return _buildPrayerItem(prayerItems[index]);
+                  },
+                ),
+              ),
             ),
           ),
         ],
@@ -129,40 +118,52 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildPrayerItem({
-    required Widget leading,
-    required String title,
-    required VoidCallback onTap,
-    required bool hasVideo,
-  }) {
-    return Column(
-      children: [
-        ListTile(
-          onTap: onTap,
-          leading: leading,
-          title: Text(
-            title,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
-            ),
+  Widget _buildPrayerItem(Map<String, dynamic> item) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => item['screen']),
+        );
+      },
+      child: AspectRatio(
+        aspectRatio: 1,
+        child: Container(
+          decoration: BoxDecoration(
+            color: ColorClass.white,
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: ColorClass.black.withOpacity(0.1),
+                spreadRadius: 0,
+                blurRadius: 6,
+                offset: const Offset(0, 3),
+              ),
+            ],
           ),
-          trailing: const Icon(
-            Icons.chevron_right,
-            color: Colors.grey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                item['icon'],
+                color: ColorClass.primaryColor,
+                width: 60,
+                height: 60,
+              ),
+              const SizedBox(height: 10),
+              Text(
+                item['title'],
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: ColorClass.primaryColor,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
           ),
         ),
-        const SizedBox(height: 10),
-        Padding(
-          padding: const EdgeInsets.only(left: 72, right: 16),
-          child: Container(
-            height: 0.5,
-            color: Colors.grey.withOpacity(0.3),
-          ),
-        ),
-        const SizedBox(height: 10),
-      ],
+      ),
     );
   }
 }
