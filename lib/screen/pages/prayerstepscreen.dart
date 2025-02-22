@@ -3,9 +3,7 @@ import 'package:salat_al_janaza/constants/colorclass.dart';
 import 'package:salat_al_janaza/constants/textstyleclass.dart';
 import 'package:salat_al_janaza/model/prayerstepmodel.dart';
 import 'package:salat_al_janaza/provider/audio_service.dart';
-import 'package:dots_indicator/dots_indicator.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 
 class PrayerStepsSliderView extends StatefulWidget {
   const PrayerStepsSliderView({Key? key}) : super(key: key);
@@ -17,7 +15,7 @@ class PrayerStepsSliderView extends StatefulWidget {
 class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
   final PageController _pageController = PageController();
   late AudioProvider _audioService;
-  
+
   // Data model for prayer steps
   final List<PrayerStepModel> _prayerSteps = [
     PrayerStepModel(
@@ -47,18 +45,21 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
         'آمِينَ ۝٨',
       ],
       imagePath: 'assets/images/qiyyam image.png',
-      instructions: ' പരമദയാലുവും കരുണാവാരിധിയുമായ അല്ലാഹുവിന്റെ നാമത്തില്‍. സര്‍വലോകത്തിന്റെയും റബ്ബായ3 അല്ലാഹുവിനു മാത്രമാകുന്നു സ്‌തോത്രം. അളവറ്റ ദയാപരനും കരുണാവാരിധിയുമാണവന്‍.പ്രതിഫലദിവസത്തിന്നധിപനായവന്‍.നിനക്കുമാത്രം ഞങ്ങള്‍ ഇബാദത്തുചെയ്യുന്നു.നിന്നോടുമാത്രം ഞങ്ങള്‍ സഹായം തേടുന്നു.നീ ഞങ്ങളെ നേര്‍വഴിയില്‍ നയിക്കേണമേ! നീ അനുഗ്രഹിച്ചവരുടെ മാര്‍ഗത്തില്‍ കോപത്തിനിരയായവരുടെയും വ്യതിചലിച്ചവരുടെയും മാര്‍ഗത്തിലല്ല.',
+      instructions:
+          ' പരമദയാലുവും കരുണാവാരിധിയുമായ അല്ലാഹുവിന്റെ നാമത്തില്‍. സര്‍വലോകത്തിന്റെയും റബ്ബായ3 അല്ലാഹുവിനു മാത്രമാകുന്നു സ്‌തോത്രം. അളവറ്റ ദയാപരനും കരുണാവാരിധിയുമാണവന്‍.പ്രതിഫലദിവസത്തിന്നധിപനായവന്‍.നിനക്കുമാത്രം ഞങ്ങള്‍ ഇബാദത്തുചെയ്യുന്നു.നിന്നോടുമാത്രം ഞങ്ങള്‍ സഹായം തേടുന്നു.നീ ഞങ്ങളെ നേര്‍വഴിയില്‍ നയിക്കേണമേ! നീ അനുഗ്രഹിച്ചവരുടെ മാര്‍ഗത്തില്‍ കോപത്തിനിരയായവരുടെയും വ്യതിചലിച്ചവരുടെയും മാര്‍ഗത്തിലല്ല.',
       audioPath: 'assets/audio/SuratAl-Fatihah.mp3',
     ),
     PrayerStepModel(
       title: 'തശഹ്ഹുദ്',
-      description: 'രണ്ടാം തക്ബീര്‍ ചൊല്ലി വീണ്ടും കൈ കെട്ടി ഇബ്രാഹിമീയ സ്വലാത്ത് ചൊല്ലുക:',
+      description:
+          'രണ്ടാം തക്ബീര്‍ ചൊല്ലി വീണ്ടും കൈ കെട്ടി ഇബ്രാഹിമീയ സ്വലാത്ത് ചൊല്ലുക:',
       arabicTexts: [
         'اللهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ',
         'اَلَّلهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ',
       ],
       imagePath: 'assets/images/qiyyam image.png',
-      instructions: 'അല്ലാഹുവേ പറയുക! ഇബ്രാഹിമിനും ഇബ്രാഹിമിൻ്റെ കുടുംബത്തിനും നീ സമാധാനം അയച്ചതുപോലെ, നിൻ്റെ ദാസനും നിൻ്റെ ദൂതനും മുഹമ്മദിനും സമാധാനം നൽകേണമേ , ഇബ്രാഹിമിനും ഇബ്രാഹിമിൻ്റെ കുടുംബത്തിനും നീ അനുഗ്രഹം അയച്ചതുപോലെ മുഹമ്മദിനും മുഹമ്മദിൻ്റെ കുടുംബത്തിനും നീ അനുഗ്രഹം നൽകണമേ',
+      instructions:
+          'അല്ലാഹുവേ പറയുക! ഇബ്രാഹിമിനും ഇബ്രാഹിമിൻ്റെ കുടുംബത്തിനും നീ സമാധാനം അയച്ചതുപോലെ, നിൻ്റെ ദാസനും നിൻ്റെ ദൂതനും മുഹമ്മദിനും സമാധാനം നൽകേണമേ , ഇബ്രാഹിമിനും ഇബ്രാഹിമിൻ്റെ കുടുംബത്തിനും നീ അനുഗ്രഹം അയച്ചതുപോലെ മുഹമ്മദിനും മുഹമ്മദിൻ്റെ കുടുംബത്തിനും നീ അനുഗ്രഹം നൽകണമേ',
       audioPath: 'assets/audio/durood e ibrahimi.mp3',
     ),
     PrayerStepModel(
@@ -75,7 +76,8 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
         'وَاَعِذْهُ مِنْ عَذَابِ الْقَبْرِ وَفِتْنَتِهِ وَمِنْ عَذَابِ الْنَّارٍ',
       ],
       imagePath: 'assets/images/qiyyam image.png',
-      instructions: 'അല്ലാഹുവേ, അവനോട് പൊറുക്കുകയും കരുണ കാണിക്കുകയും അവന് ശക്തി നൽകുകയും ക്ഷമിക്കുകയും ചെയ്യേണമേ. അവനോട് ഉദാരമായി പെരുമാറുകയും അവൻ്റെ പ്രവേശനം വിശാലമാക്കുകയും വെള്ളവും മഞ്ഞും ആലിപ്പഴവും കൊണ്ട് അവനെ കഴുകുകയും ചെയ്യുക. വെള്ളവസ്ത്രം കറകളിൽനിന്ന് ശുദ്ധീകരിക്കപ്പെടുന്നതുപോലെ അവൻ്റെ അതിക്രമങ്ങളിൽനിന്നു അവനെ ശുദ്ധീകരിക്കേണമേ. അവൻ്റെ വീടിനേക്കാൾ ഉത്തമമായ ഒരു വാസസ്ഥലവും അവൻ്റെ കുടുംബത്തേക്കാൾ ഉത്തമമായ ഒരു കുടുംബവും അവൻ്റെ ഭാര്യയെക്കാൾ ഉത്തമമായ ഒരു ഭാര്യയും അവന് നൽകേണമേ. അവനെ സ്വർഗത്തിൽ പ്രവേശിപ്പിക്കുകയും ഖബറിലെ ശിക്ഷയിൽ നിന്നും [നരകാഗ്നിയുടെ ശിക്ഷയിൽ നിന്നും] അവനെ സംരക്ഷിക്കുകയും ചെയ്യുക.',
+      instructions:
+          'അല്ലാഹുവേ, അവനോട് പൊറുക്കുകയും കരുണ കാണിക്കുകയും അവന് ശക്തി നൽകുകയും ക്ഷമിക്കുകയും ചെയ്യേണമേ. അവനോട് ഉദാരമായി പെരുമാറുകയും അവൻ്റെ പ്രവേശനം വിശാലമാക്കുകയും വെള്ളവും മഞ്ഞും ആലിപ്പഴവും കൊണ്ട് അവനെ കഴുകുകയും ചെയ്യുക. വെള്ളവസ്ത്രം കറകളിൽനിന്ന് ശുദ്ധീകരിക്കപ്പെടുന്നതുപോലെ അവൻ്റെ അതിക്രമങ്ങളിൽനിന്നു അവനെ ശുദ്ധീകരിക്കേണമേ. അവൻ്റെ വീടിനേക്കാൾ ഉത്തമമായ ഒരു വാസസ്ഥലവും അവൻ്റെ കുടുംബത്തേക്കാൾ ഉത്തമമായ ഒരു കുടുംബവും അവൻ്റെ ഭാര്യയെക്കാൾ ഉത്തമമായ ഒരു ഭാര്യയും അവന് നൽകേണമേ. അവനെ സ്വർഗത്തിൽ പ്രവേശിപ്പിക്കുകയും ഖബറിലെ ശിക്ഷയിൽ നിന്നും [നരകാഗ്നിയുടെ ശിക്ഷയിൽ നിന്നും] അവനെ സംരക്ഷിക്കുകയും ചെയ്യുക.',
       audioPath: 'assets/audio/Dua janaza.mp3',
     ),
     PrayerStepModel(
@@ -96,7 +98,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
       audioPath: 'assets/audio/salam dua.mp3',
     ),
   ];
-  
+
   @override
   void initState() {
     super.initState();
@@ -107,7 +109,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
       }
     });
   }
-  
+
   @override
   void dispose() {
     _pageController.dispose();
@@ -125,57 +127,103 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
     final double screenWidth = screenSize.width;
 
     // Calculate responsive sizes
-    final double imageHeight = screenHeight * 0.35; // 35% of screen height
-    final double titleFontSize = screenWidth * 0.045; // 4.5% of screen width
-    final double descriptionFontSize = screenWidth * 0.04; // 4% of screen width
-    final double arabicFontSize = screenWidth * 0.045; // 4.5% of screen width
-    final double instructionsFontSize =
-        screenWidth * 0.04; // 4% of screen width
+    final double imageHeight = screenHeight * 0.35;
+    final double titleFontSize = screenWidth * 0.045;
+    final double descriptionFontSize = screenWidth * 0.04;
+    final double arabicFontSize = screenWidth * 0.045;
+    final double instructionsFontSize = screenWidth * 0.04;
 
     return Scaffold(
       backgroundColor: ColorClass.detailprimary,
-      appBar: AppBar(
-        backgroundColor: ColorClass.secondaryColor,
-        elevation: 0,
-        title: Text(
-          'പ്രാർത്ഥനാ ഘട്ടങ്ങൾ',
-          style: GoogleFonts.anekMalayalam(
-            fontSize: 20,
-            color: Colors.white,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.close, color: Colors.white),
-            onPressed: () => Navigator.pop(context),
-          ),
-        ],
-        centerTitle: true,
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: PageView.builder(
-              controller: _pageController,
-              itemCount: _prayerSteps.length,
-              itemBuilder: (context, index) {
-                return _buildPrayerStepPage(
-                  _prayerSteps[index],
-                  imageHeight,
-                  titleFontSize,
-                  descriptionFontSize,
-                  arabicFontSize,
-                  instructionsFontSize,
-                );
-              },
-              onPageChanged: (index) {
-                setState(() {});
-              },
+      body: SafeArea(
+        child: Column(
+          children: [
+            _buildStepIndicator(),
+            Expanded(
+              child: PageView.builder(
+                controller: _pageController,
+                itemCount: _prayerSteps.length,
+                itemBuilder: (context, index) {
+                  return _buildPrayerStepPage(
+                    _prayerSteps[index],
+                    imageHeight,
+                    titleFontSize,
+                    descriptionFontSize,
+                    arabicFontSize,
+                    instructionsFontSize,
+                  );
+                },
+                onPageChanged: (index) {
+                  setState(() {});
+                },
+              ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildStepIndicator() {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+      decoration: BoxDecoration(
+        color: ColorClass.detailprimary,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 4,
+            offset: const Offset(0, 2),
           ),
-          _buildBottomIndicator(),
         ],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: List.generate(_prayerSteps.length * 2 - 1, (index) {
+          // If index is even, show circle, if odd show line
+          if (index % 2 == 0) {
+            final stepIndex = index ~/ 2;
+            final currentPage =
+                (_pageController.hasClients ? _pageController.page ?? 0 : 0)
+                    .round();
+            final isActive = stepIndex == currentPage;
+            final isCompleted = stepIndex < currentPage;
+
+            return Container(
+              width: 30,
+              height: 30,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: isCompleted
+                    ? ColorClass.secondaryColor
+                    : isActive
+                        ? ColorClass.secondaryColor
+                        : ColorClass.grey,
+              ),
+              child: Center(
+                child: Text(
+                  '${stepIndex + 1}',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            );
+          } else {
+            final lineIndex = index ~/ 2;
+            final currentPage =
+                (_pageController.hasClients ? _pageController.page ?? 0 : 0)
+                    .round();
+            return Container(
+              width: 20,
+              height: 2,
+              color: lineIndex < currentPage
+                  ? ColorClass.secondaryColor
+                  : Colors.grey[700],
+            );
+          }
+        }),
       ),
     );
   }
@@ -236,35 +284,42 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
                       ),
                       const SizedBox(width: 8),
                       _buildAudioButton(
-  icon: _audioService.isPlaying ? Icons.pause : Icons.play_arrow,
-  onTap: () async {
-    try {
-      if (_audioService.isPlaying) {
-        await _audioService.playPauseAudio(step.audioPath);
-      } else {
-        // Try to resume if it's the same file, otherwise start playing
-        if (_audioService.currentAssetPath == step.audioPath) {
-          await _audioService.resume();
-        } else {
-          await _audioService.playPauseAudio(step.audioPath);
-        }
-      }
-    } catch (e) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Audio error: ${e.toString()}')),
-        );
-      }
-    }
-  },
-)
+                        icon: _audioService.isPlaying
+                            ? Icons.pause
+                            : Icons.play_arrow,
+                        onTap: () async {
+                          try {
+                            if (_audioService.isPlaying) {
+                              await _audioService
+                                  .playPauseAudio(step.audioPath);
+                            } else {
+                              // Try to resume if it's the same file, otherwise start playing
+                              if (_audioService.currentAssetPath ==
+                                  step.audioPath) {
+                                await _audioService.resume();
+                              } else {
+                                await _audioService
+                                    .playPauseAudio(step.audioPath);
+                              }
+                            }
+                          } catch (e) {
+                            if (mounted) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                    content:
+                                        Text('Audio error: ${e.toString()}')),
+                              );
+                            }
+                          }
+                        },
+                      )
                     ],
                   ),
                 ),
               ],
             ),
-          ),  
-          
+          ),
+
           // Title with responsive font size
           Padding(
             padding: EdgeInsets.symmetric(
@@ -326,7 +381,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
               ),
             ),
           ),
-          
+
           // Add some bottom padding for better scrolling experience
           SizedBox(height: MediaQuery.of(context).size.height * 0.05),
         ],
@@ -360,30 +415,6 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
         textAlign: TextAlign.right,
         textDirection: TextDirection.rtl,
         style: TextStyleClass.primaryFontArabic(fontSize, Colors.white),
-      ),
-    );
-  }
-
-  Widget _buildBottomIndicator() {
-    return Container(
-      padding: EdgeInsets.symmetric(
-        vertical: MediaQuery.of(context).size.height * 0.02,
-      ),
-      child: DotsIndicator(
-        dotsCount: _prayerSteps.length,
-        position: _pageController.hasClients
-            ? (_pageController.page ?? 0).round()
-            : 0,
-        decorator: DotsDecorator(
-          activeColor: Colors.blue,
-          color: Colors.grey[800]!,
-          size: const Size(8.0, 8.0),
-          activeSize: const Size(24.0, 8.0),
-          activeShape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5.0),
-          ),
-          spacing: const EdgeInsets.all(4),
-        ),
       ),
     );
   }

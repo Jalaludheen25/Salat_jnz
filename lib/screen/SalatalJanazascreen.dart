@@ -13,16 +13,74 @@ class SalatAlJanazaScreen extends StatefulWidget {
 }
 
 class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
+  void _showPrayerStepsBottomSheet() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () => Navigator.of(context).pop(),
+        child: GestureDetector(
+          onTap: () {}, // Prevent taps from closing the bottom sheet
+          child: DraggableScrollableSheet(
+            initialChildSize: 0.95, // 95% of screen height
+            minChildSize: 0.5,
+            maxChildSize: 1.0,
+            builder: (_, controller) => Container(
+              decoration: BoxDecoration(
+                color: ColorClass.detailprimary
+                    .withOpacity(0.9), // Reduced opacity to 90%
+                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+              ),
+              child: Stack(
+                children: [
+                  // Close Button on Left
+                  Positioned(
+                    top: 10,
+                    left: 10,
+                    child: IconButton(
+                      icon: const Icon(Icons.close, color: Colors.white),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                  ),
+                  // Centered Title
+                  Positioned(
+                    top: 20,
+                    left: 0,
+                    right: 0,
+                    child: Center(
+                      child: Text(
+                        'പ്രാർത്ഥനാ ഘട്ടങ്ങൾ',
+                        style: GoogleFonts.anekMalayalam(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ),
+                  // Prayer Steps Content
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 70), // Adjust for title space
+                    child: const PrayerStepsSliderView(),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorClass.detailprimary,
       appBar: AppBar(
         backgroundColor: ColorClass.secondaryColor,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
-        ),
         title: Text(
           'സ്വലാത്ത് ജനാസ',
           style: GoogleFonts.anekMalayalam(
@@ -58,14 +116,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
               const SizedBox(height: 20),
               // Improved Prayer Steps Button
               ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const PrayerStepsSliderView(),
-                    ),
-                  );
-                },
+                onPressed: _showPrayerStepsBottomSheet,
                 style: ElevatedButton.styleFrom(
                   foregroundColor: ColorClass.white,
                   backgroundColor: ColorClass.secondaryColor,
