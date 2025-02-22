@@ -39,7 +39,7 @@ class _DonationDetailsState extends State<DonationDetails> {
           padding: const EdgeInsets.all(16.0),
           decoration: BoxDecoration(
             color: ColorClass.primaryColor, // Background color
-            borderRadius: BorderRadius.circular(12.0),
+           
            
           ),
           child: Column(

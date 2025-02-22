@@ -6,7 +6,7 @@ import 'package:salat_al_janaza/constants/iconclass.dart';
 import 'package:salat_al_janaza/constants/imagesclass.dart';
 import 'package:salat_al_janaza/constants/textstyleclass.dart';
 import 'package:salat_al_janaza/screen/pages/deadbodyverb.dart';
-import 'package:salat_al_janaza/screen/pages/mayyithstepscreen.dart';
+import 'package:salat_al_janaza/screen/pages/deadbodystepscreen.dart';
 
 class MayyithScreen extends StatefulWidget {
   const MayyithScreen({Key? key}) : super(key: key);
