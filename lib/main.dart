@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:salat_al_janaza/screen/splash%20screen.dart';
+import 'package:provider/provider.dart';
 
+import 'package:salat_al_janaza/provider/genderprovider.dart';
+
+
+import 'package:salat_al_janaza/screen/splash%20screen.dart';
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => GenderProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
