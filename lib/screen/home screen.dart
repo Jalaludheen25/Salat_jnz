@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:salat_al_janaza/constants/colorclass.dart';
 import 'package:salat_al_janaza/constants/iconclass.dart';
+import 'package:salat_al_janaza/constants/imagesclass.dart';
 import 'package:salat_al_janaza/screen/MayyithScreen.dart';
 import 'package:salat_al_janaza/screen/salatalJanazascreen.dart';
 import 'package:salat_al_janaza/widget/appdrawer.dart';
@@ -85,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
           // Background image (now covers the entire screen including AppBar area)
           Positioned.fill(
             child: Image.asset(
-              'assets/images/homebg.jpeg',
+              ImageClass.homebg,
               fit: BoxFit.cover,
             ),
           ),
