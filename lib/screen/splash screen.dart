@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:salat_al_janaza/constants/textstyleclass.dart';
-import 'package:salat_al_janaza/screen/genderselection.dart';
+import 'package:salat_al_janaza/screen/gender_selections.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

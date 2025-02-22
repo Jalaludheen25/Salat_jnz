@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:salat_al_janaza/constants/colorclass.dart';
 import 'package:salat_al_janaza/constants/textstyleclass.dart';
 import 'package:salat_al_janaza/model/prayerstepmodel.dart';
-import 'package:salat_al_janaza/services/audio_service.dart';
+import 'package:salat_al_janaza/provider/audio_service.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+
 
 class PrayerStepsSliderView extends StatefulWidget {
   const PrayerStepsSliderView({Key? key}) : super(key: key);
@@ -16,7 +16,7 @@ class PrayerStepsSliderView extends StatefulWidget {
 
 class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
   final PageController _pageController = PageController();
-  late AudioService _audioService;
+  late AudioProvider _audioService;
   
   // Data model for prayer steps
   final List<PrayerStepModel> _prayerSteps = [
@@ -100,7 +100,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
   @override
   void initState() {
     super.initState();
-    _audioService = AudioService();
+    _audioService = AudioProvider();
     _audioService.addListener(() {
       if (mounted) {
         setState(() {});

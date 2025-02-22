@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
 /// A service to handle audio playback for prayer steps
-class AudioService extends ChangeNotifier {
-  static final AudioService _instance = AudioService._internal();
-  factory AudioService() => _instance;
-  AudioService._internal();
+class AudioProvider extends ChangeNotifier {
+  static final AudioProvider _instance = AudioProvider._internal();
+  factory AudioProvider() => _instance;
+  AudioProvider._internal();
 
   final AudioPlayer _audioPlayer = AudioPlayer();
   String? _currentAssetPath;
@@ -15,7 +15,7 @@ class AudioService extends ChangeNotifier {
   bool get isPlaying => _isPlaying;
   String? currentAssetPath;
 
-  /// Dispose audio resources
+  // Dispose audio resources
   void dispose() {
     _audioPlayer.dispose();
     super.dispose();

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:salat_al_janaza/constants/colorclass.dart';
 import 'package:salat_al_janaza/constants/iconclass.dart';
 import 'package:salat_al_janaza/screen/MayyithScreen.dart';
