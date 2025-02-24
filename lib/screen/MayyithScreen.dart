@@ -16,12 +16,129 @@ class MayyithScreen extends StatefulWidget {
 }
 
 class _MayyithScreenState extends State<MayyithScreen> {
+  void _showMayyithStepsBottomSheet() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () => Navigator.of(context).pop(),
+        child: GestureDetector(
+          onTap: () {}, // Prevent taps from closing the bottom sheet
+          child: DraggableScrollableSheet(
+            initialChildSize: 0.95,
+            minChildSize: 0.5,
+            maxChildSize: 1.0,
+            builder: (_, controller) => Container(
+              decoration: BoxDecoration(
+                color: ColorClass.detailprimary.withOpacity(0.9),
+                borderRadius:
+                    const BorderRadius.vertical(top: Radius.circular(20)),
+              ),
+              child: Stack(
+                children: [
+                  Positioned(
+                    top: 10,
+                    left: 10,
+                    child: IconButton(
+                      icon: const Icon(Icons.close, color: Colors.white),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                  ),
+                  Positioned(
+                    top: 20,
+                    left: 0,
+                    right: 0,
+                    child: Center(
+                      child: Text(
+                        'മയ്യിത്ത് പരിപാലനം',
+                        style: GoogleFonts.anekMalayalam(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 70),
+                    child: const Mayyithstepscreen(),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _showDeadBodyVerbBottomSheet() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () => Navigator.of(context).pop(),
+        child: GestureDetector(
+          onTap: () {}, // Prevent taps from closing the bottom sheet
+          child: DraggableScrollableSheet(
+            initialChildSize: 0.95,
+            minChildSize: 0.5,
+            maxChildSize: 1.0,
+            builder: (_, controller) => Container(
+              decoration: BoxDecoration(
+                color: ColorClass.detailprimary.withOpacity(0.9),
+                borderRadius:
+                    const BorderRadius.vertical(top: Radius.circular(20)),
+              ),
+              child: Stack(
+                children: [
+                  Positioned(
+                    top: 10,
+                    left: 10,
+                    child: IconButton(
+                      icon: const Icon(Icons.close, color: Colors.white),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                  ),
+                  Positioned(
+                    top: 20,
+                    left: 0,
+                    right: 0,
+                    child: Center(
+                      child: Text(
+                        'മരണാനന്തര ക്രിയകള്‍',
+                        style: GoogleFonts.anekMalayalam(
+                          fontSize: 20,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 70),
+                    child: const Deadbodyverbscreen(),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorClass.detailprimary,
       appBar: AppBar(
         backgroundColor: ColorClass.secondaryColor,
+        elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: ColorClass.white),
           onPressed: () => Navigator.pop(context),
@@ -34,6 +151,7 @@ class _MayyithScreenState extends State<MayyithScreen> {
             fontWeight: FontWeight.w700,
           ),
         ),
+        centerTitle: false,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -70,14 +188,7 @@ class _MayyithScreenState extends State<MayyithScreen> {
               const SizedBox(height: 20),
               // Improved Prayer Steps Button
               ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Mayyithstepscreen(),
-                    ),
-                  );
-                },
+                onPressed: _showMayyithStepsBottomSheet,
                 style: ElevatedButton.styleFrom(
                   foregroundColor: ColorClass.white,
                   backgroundColor: ColorClass.secondaryColor,
@@ -149,14 +260,7 @@ class _MayyithScreenState extends State<MayyithScreen> {
               const SizedBox(height: 20),
               // Improved Post-Death Actions Button
               ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Deadbodyverbscreen(),
-                    ),
-                  );
-                },
+                onPressed: _showDeadBodyVerbBottomSheet,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: ColorClass.secondaryColor,
                   foregroundColor: ColorClass.white,

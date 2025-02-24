@@ -57,25 +57,6 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
 
     return Scaffold(
       backgroundColor: ColorClass.primaryColor,
-      appBar: AppBar(
-        backgroundColor: ColorClass.secondaryColor,
-        elevation: 0,
-        title: Text(
-          'മയ്യിത്ത് പരിപാലനം',
-          style: GoogleFonts.anekMalayalam(
-            fontSize: 20,
-            color: Colors.white,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.close, color: Colors.white),
-            onPressed: () => Navigator.pop(context),
-          ),
-        ],
-        centerTitle: true,
-      ),
       body: Column(
         children: [
           Expanded(
