@@ -3,16 +3,21 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:salat_al_janaza/constants/colorclass.dart';
 
 
-class ContactPage extends StatelessWidget {
+class ContactPage extends StatefulWidget {
   const ContactPage({super.key});
 
   @override
+  State<ContactPage> createState() => _ContactPageState();
+}
+
+class _ContactPageState extends State<ContactPage> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorClass.primaryColor,
+      backgroundColor: ColorClass.secondaryColor,
       appBar: AppBar(
         
-        backgroundColor:  ColorClass.primaryColor,
+        backgroundColor:  ColorClass.primaryColor.withOpacity(0.5),
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
@@ -46,7 +51,7 @@ class ContactPage extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: ColorClass.secondaryColor.withOpacity(0.5),
+                  color: ColorClass.primaryColor.withOpacity(0.5),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(

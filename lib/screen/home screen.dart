@@ -3,8 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:salat_al_janaza/constants/colorclass.dart';
 import 'package:salat_al_janaza/constants/iconclass.dart';
 import 'package:salat_al_janaza/constants/imagesclass.dart';
-import 'package:salat_al_janaza/screen/mayyithScreen.dart';
-import 'package:salat_al_janaza/screen/salatalJanazascreen.dart';
+import 'package:salat_al_janaza/screen/janazacare.dart';
+import 'package:salat_al_janaza/screen/payerjanazascreen.dart';
+
 import 'package:salat_al_janaza/widget/appdrawer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -60,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               const SizedBox(width: 10),
               Text(
-                'Salath Janaza',
+                ' Janaza Guide',
                 style: GoogleFonts.lato(
                   fontSize: 24,
                   fontWeight: FontWeight.w600,

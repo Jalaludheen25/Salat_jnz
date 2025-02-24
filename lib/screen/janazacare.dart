@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:salat_al_janaza/constants/colorclass.dart';
-import 'package:salat_al_janaza/constants/iconclass.dart';
 import 'package:salat_al_janaza/constants/imagesclass.dart';
-import 'package:salat_al_janaza/constants/textstyleclass.dart';
 import 'package:salat_al_janaza/screen/pages/deadbodyverb.dart';
 import 'package:salat_al_janaza/screen/pages/deadbodystepscreen.dart';
 
@@ -208,11 +205,11 @@ class _MayyithScreenState extends State<MayyithScreen> {
                         SizedBox(width: 12),
                         Text(
                           'മയ്യിത്ത് പരിപാലനം',
-                          style: TextStyleClass.primaryFontMalayalam(
-                              18,
-                              ColorClass.white,
-                              FontWeight.w500,
-                              TextAlign.start),
+                          style: GoogleFonts.anekMalayalam(
+                                fontSize: 20,
+                            color: ColorClass.white,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ],
                     ),
@@ -280,11 +277,10 @@ class _MayyithScreenState extends State<MayyithScreen> {
                         SizedBox(width: 12),
                         Text(
                           'മരണാനന്തര ക്രിയകള്‍',
-                          style: TextStyleClass.primaryFontMalayalam(
-                              18,
-                              ColorClass.white,
-                              FontWeight.w500,
-                              TextAlign.start),
+                          style: GoogleFonts.anekMalayalam(
+                              fontSize: 18,
+                            color: ColorClass.white,
+                            fontWeight: FontWeight.w500,),
                         ),
                       ],
                     ),
@@ -292,7 +288,7 @@ class _MayyithScreenState extends State<MayyithScreen> {
                       children: [
                         Text(
                           'View All',
-                          style: TextStyle(
+                          style: GoogleFonts.poppins(
                             color: ColorClass.white,
                             fontSize: 16,
                             fontWeight: FontWeight.w500,

@@ -71,4 +71,10 @@ class TextStyleClass {
       color: color,
       height: textHeight,
       fontSize: size);
+  static TextStyle UthmanicHafs1(double size, Color color) => TextStyle(
+      fontFamily: 'uthmanicHafs1',
+      fontWeight: FontWeight.w700,
+      color: color,
+      height: textHeight,
+      fontSize: size);
 }

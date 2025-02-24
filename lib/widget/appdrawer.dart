@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:salat_al_janaza/constants/colorclass.dart';
-import 'package:salat_al_janaza/screen/drawer/aboutpage.dart';
-import 'package:salat_al_janaza/screen/drawer/donatepage.dart';
-import 'package:salat_al_janaza/screen/mayyithScreen.dart';
-import 'package:salat_al_janaza/screen/drawer/conactpage.dart';
-import 'package:salat_al_janaza/screen/salatalJanazascreen.dart';
+import 'package:salat_al_janaza/screen/drawer/aboutscreen.dart';
+import 'package:salat_al_janaza/screen/drawer/donatescreen.dart';
+
+import 'package:salat_al_janaza/screen/drawer/contactscreen.dart';
+
 
 class AppDrawer extends StatefulWidget {
    AppDrawer({Key? key}) : super(key: key);
@@ -28,7 +28,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 children: [
                   DrawerHeader(
                     decoration: BoxDecoration(
-                      color: ColorClass.primaryColor,
+                      color: ColorClass.primaryColor.withOpacity(0.8),
 
                     ),
                     child: Column(
@@ -44,7 +44,7 @@ class _AppDrawerState extends State<AppDrawer> {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Salath Learning',
+                          'Janaza Guide',
                           style: GoogleFonts.poppins(
                             color: Colors.white,
                             fontSize: 20,
@@ -59,28 +59,7 @@ class _AppDrawerState extends State<AppDrawer> {
                     title: 'Home',
                     onTap: () => Navigator.pop(context),
                   ),
-                  _buildDrawerItem(
-                    icon: Icons.book,
-                    title: 'Prayer Guide',
-                    onTap: () {
-                      Navigator.pop(context);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>  MayyithScreen()));
-                    },
-                  ),
-                  _buildDrawerItem(
-                    icon: Icons.mosque,
-                    title: 'Janaza Prayer',
-                    onTap: () {
-                      Navigator.pop(context);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>  SalatAlJanazaScreen()));
-                    },
-                  ),
+                 
                   
                   _buildDrawerItem(
                     icon: Icons.favorite,

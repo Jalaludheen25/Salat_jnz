@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:salat_al_janaza/constants/colorclass.dart';
 import 'package:salat_al_janaza/constants/imagesclass.dart';
-import 'package:salat_al_janaza/constants/textstyleclass.dart';
 import 'package:salat_al_janaza/screen/pages/prayerstepscreen.dart';
 
 class SalatAlJanazaScreen extends StatefulWidget {
@@ -81,6 +80,10 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
       backgroundColor: ColorClass.detailprimary,
       appBar: AppBar(
         backgroundColor: ColorClass.secondaryColor,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: ColorClass.white),
+          onPressed: () => Navigator.pop(context),
+        ),
         title: Text(
           'സ്വലാത്ത് ജനാസ',
           style: GoogleFonts.anekMalayalam(
@@ -136,11 +139,10 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                         SizedBox(width: 12),
                         Text(
                           'പ്രാർത്ഥനാ ഘട്ടങ്ങൾ',
-                          style: TextStyleClass.primaryFontMalayalam(
-                              18,
-                              ColorClass.white,
-                              FontWeight.w500,
-                              TextAlign.start),
+                          style:  GoogleFonts.anekMalayalam(
+                            fontSize: 18,
+                            color: ColorClass.white,
+                            fontWeight: FontWeight.w500,),
                         ),
                       ],
                     ),
@@ -148,7 +150,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                       children: [
                         Text(
                           'View All',
-                          style: TextStyle(
+                          style: GoogleFonts.poppins(
                             color: ColorClass.white,
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
