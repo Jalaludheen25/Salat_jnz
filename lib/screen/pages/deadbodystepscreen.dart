@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:salat_al_janaza/constants/colorclass.dart';
 import 'package:salat_al_janaza/model/Mayyithmodel.dart';
-import 'package:dots_indicator/dots_indicator.dart';
 
 class Mayyithstepscreen extends StatefulWidget {
   const Mayyithstepscreen({Key? key}) : super(key: key);
@@ -59,6 +58,7 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
       backgroundColor: ColorClass.primaryColor,
       body: Column(
         children: [
+          _buildBottomIndicator(),
           Expanded(
             child: PageView.builder(
               controller: _pageController,
@@ -72,7 +72,6 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
               },
             ),
           ),
-          _buildBottomIndicator(),
         ],
       ),
     );
@@ -149,24 +148,63 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
 
   Widget _buildBottomIndicator() {
     return Container(
-      padding: EdgeInsets.symmetric(
-        vertical: MediaQuery.of(context).size.height * 0.02,
-      ),
-      child: DotsIndicator(
-        dotsCount: _prayerSteps.length,
-        position: _pageController.hasClients
-            ? (_pageController.page ?? 0).round()
-            : 0,
-        decorator: DotsDecorator(
-          activeColor: Colors.blue,
-          color: Colors.grey[800]!,
-          size: const Size(8.0, 8.0),
-          activeSize: const Size(24.0, 8.0),
-          activeShape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5.0),
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+      decoration: BoxDecoration(
+        color: ColorClass.primaryColor,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 4,
+            offset: const Offset(0, 2),
           ),
-          spacing: const EdgeInsets.all(4),
-        ),
+        ],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: List.generate(_prayerSteps.length * 2 - 1, (index) {
+          if (index % 2 == 0) {
+            final stepIndex = index ~/ 2;
+            final currentPage =
+                (_pageController.hasClients ? _pageController.page ?? 0 : 0)
+                    .round();
+            final isActive = stepIndex == currentPage;
+            final isCompleted = stepIndex < currentPage;
+
+            return Container(
+              width: 30,
+              height: 30,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: isCompleted
+                    ? ColorClass.secondaryColor
+                    : isActive
+                        ? ColorClass.secondaryColor
+                        : Colors.grey[700],
+              ),
+              child: Center(
+                child: Text(
+                  '${stepIndex + 1}',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            );
+          } else {
+            final lineIndex = index ~/ 2;
+            final currentPage =
+                (_pageController.hasClients ? _pageController.page ?? 0 : 0)
+                    .round();
+            return Container(
+              width: 20,
+              height: 2,
+              color: lineIndex < currentPage
+                  ? ColorClass.secondaryColor
+                  : Colors.grey[700],
+            );
+          }
+        }),
       ),
     );
   }
