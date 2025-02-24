@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:salat_al_janaza/constants/colorclass.dart';
-import 'package:salat_al_janaza/constants/textstyleclass.dart';
+
 
 class ContactPage extends StatelessWidget {
   const ContactPage({super.key});
@@ -25,18 +26,18 @@ class ContactPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 20),
-              const Text(
+               Text(
                 'Get in Touch',
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey,
+               style: GoogleFonts.poppins(
+                  fontSize: 16,
+                  color: ColorClass.white,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
               const SizedBox(height: 8),
-              const Text(
+               Text(
                 "We'd love to hear from you",
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 16,
                   color: Colors.grey,
                 ),
@@ -45,7 +46,7 @@ class ContactPage extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: ColorClass.blueGrey1,
+                  color: ColorClass.secondaryColor.withOpacity(0.5),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(
@@ -110,12 +111,17 @@ class ContactPage extends StatelessWidget {
             children: [
               Text(
                 title,
-                 style: TextStyleClass.primaryFont600(16, Colors.white,),
-              ),
-              const SizedBox(height: 4),
+                 style: GoogleFonts.poppins( 
+                  fontSize: 16,
+                  color: ColorClass.white,
+                  fontWeight: FontWeight.w400,
+                ),
+                ),
+              
+               SizedBox(height: 4),
               Text(
                 content,
-                style: const TextStyle(
+                style:  GoogleFonts.poppins(
                   fontSize: 16,
                   color: Colors.black87,
                 ),
