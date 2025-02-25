@@ -6,7 +6,8 @@ import 'package:salat_al_janaza/screen/drawer/aboutscreen.dart';
 import 'package:salat_al_janaza/screen/drawer/donatescreen.dart';
 
 import 'package:salat_al_janaza/screen/drawer/contactscreen.dart';
-
+import 'package:salat_al_janaza/screen/janazacare.dart';
+import 'package:salat_al_janaza/screen/payerjanazascreen.dart';
 
 class AppDrawer extends StatefulWidget {
   AppDrawer({Key? key}) : super(key: key);
@@ -30,7 +31,6 @@ class _AppDrawerState extends State<AppDrawer> {
                   DrawerHeader(
                     decoration: BoxDecoration(
                       color: ColorClass.primaryColor,
-
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,7 +68,7 @@ class _AppDrawerState extends State<AppDrawer> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>  MayyithScreen()));
+                              builder: (context) => MayyithScreen()));
                     },
                   ),
                   _buildDrawerItem(
@@ -79,10 +79,9 @@ class _AppDrawerState extends State<AppDrawer> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>  SalatAlJanazaScreen()));
+                              builder: (context) => SalatAlJanazaScreen()));
                     },
                   ),
-                  
                   _buildDrawerItem(
                     icon: Icons.favorite,
                     title: 'Donate',

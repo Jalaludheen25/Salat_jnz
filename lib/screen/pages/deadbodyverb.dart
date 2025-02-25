@@ -92,8 +92,8 @@ class _DeadbodyverbscreenState extends State<Deadbodyverbscreen> {
           ],
         ),
         borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
+          topLeft: Radius.circular(10),
+          topRight: Radius.circular(10),
         ),
       ),
       child: Scaffold(
@@ -302,21 +302,62 @@ class _DeadbodyverbscreenState extends State<Deadbodyverbscreen> {
 
   Widget _buildPageIndicator() {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 16),
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            // ignore: deprecated_member_use
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: List.generate(_prayerSteps.length, (index) {
-          return Container(
-            margin: const EdgeInsets.symmetric(horizontal: 4),
-            height: 8,
-            width: 8,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: index == _currentIndex
-                  ? ColorClass.white
-                  : ColorClass.white.withOpacity(0.4),
-            ),
-          );
+        children: List.generate(_prayerSteps.length * 2 - 1, (index) {
+          if (index % 2 == 0) {
+            final stepIndex = index ~/ 2;
+            final currentPage =
+                (_pageController.hasClients ? _pageController.page ?? 0 : 0)
+                    .round();
+            final isActive = stepIndex == currentPage;
+            final isCompleted = stepIndex < currentPage;
+
+            return Container(
+              width: 30,
+              height: 30,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: isCompleted
+                    ? ColorClass.secondaryColor
+                    : isActive
+                        ? ColorClass.secondaryColor
+                        : Colors.grey[700],
+              ),
+              child: Center(
+                child: Text(
+                  '${stepIndex + 1}',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            );
+          } else {
+            final lineIndex = index ~/ 2;
+            final currentPage =
+                (_pageController.hasClients ? _pageController.page ?? 0 : 0)
+                    .round();
+            return Container(
+              width: 20,
+              height: 2,
+              color: lineIndex < currentPage
+                  ? ColorClass.secondaryColor
+                  : Colors.grey[700],
+            );
+          }
         }),
       ),
     );
