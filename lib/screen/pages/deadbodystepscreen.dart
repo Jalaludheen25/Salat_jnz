@@ -46,6 +46,27 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
   }
 
   final PageController _pageController = PageController();
+  int _currentIndex = 0;
+
+  void _goToNextPage() {
+    if (_currentIndex < _prayerSteps.length - 1) {
+      _pageController.nextPage(
+          duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+      setState(() {
+        _currentIndex++;
+      });
+    }
+  }
+
+  void _goToPreviousPage() {
+    if (_currentIndex > 0) {
+      _pageController.previousPage(
+          duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+      setState(() {
+        _currentIndex--;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,25 +75,137 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
     final bool isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
 
-    return Scaffold(
-      backgroundColor: ColorClass.primaryColor,
-      body: Column(
-        children: [
-          _buildBottomIndicator(),
-          Expanded(
-            child: PageView.builder(
-              controller: _pageController,
-              itemCount: _prayerSteps.length,
-              itemBuilder: (context, index) {
-                return _buildPrayerStepPage(
-                    _prayerSteps[index], screenSize, isPortrait);
-              },
-              onPageChanged: (index) {
-                setState(() {});
-              },
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            ColorClass.bottomsheet1,
+            ColorClass.bottomsheet2,
+          ],
+        ),
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(10),
+          topRight: Radius.circular(10),
+        ),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+            icon: Icon(Icons.close, color: ColorClass.white),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+          title: Text(
+            'മരണാസന്ന കർമ്മങ്ങൾ',
+            style: GoogleFonts.anekMalayalam(
+              color: ColorClass.white,
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
             ),
           ),
-        ],
+          centerTitle: true,
+        ),
+        body: Stack(
+          children: [
+            // Main content
+            Column(
+              children: [
+                _buildBottomIndicator(),
+                Expanded(
+                  child: PageView.builder(
+                    controller: _pageController,
+                    itemCount: _prayerSteps.length,
+                    itemBuilder: (context, index) {
+                      return _buildPrayerStepPage(
+                          _prayerSteps[index], screenSize, isPortrait);
+                    },
+                    onPageChanged: (index) {
+                      setState(() {
+                        _currentIndex = index;
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
+
+            // Navigation buttons
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 20,
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    if (_currentIndex > 0)
+                      Container(
+                        width: 56,
+                        height: 56,
+                        decoration: BoxDecoration(
+                          color: ColorClass.white,
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 1,
+                              blurRadius: 4,
+                              offset: const Offset(0, 2),
+                            ),
+                          ],
+                        ),
+                        child: IconButton(
+                          onPressed: _goToPreviousPage,
+                          icon: Icon(
+                            Icons.arrow_back,
+                            color: ColorClass.primaryColor,
+                            size: 32,
+                          ),
+                          padding: EdgeInsets.zero,
+                        ),
+                      )
+                    else
+                      const SizedBox(width: 56),
+                    if (_currentIndex < _prayerSteps.length - 1)
+                      Container(
+                        width: 56,
+                        height: 56,
+                        decoration: BoxDecoration(
+                          color: ColorClass.white,
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 1,
+                              blurRadius: 4,
+                              offset: const Offset(0, 2),
+                            ),
+                          ],
+                        ),
+                        child: IconButton(
+                          onPressed: _goToNextPage,
+                          icon: Icon(
+                            Icons.arrow_forward,
+                            color: ColorClass.primaryColor,
+                            size: 32,
+                          ),
+                          padding: EdgeInsets.zero,
+                        ),
+                      )
+                    else
+                      const SizedBox(width: 56),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -125,7 +258,7 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
               ),
             ),
           ),
-          
+
           // Description
           Padding(
             padding: EdgeInsets.symmetric(
@@ -150,10 +283,8 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
       decoration: BoxDecoration(
-        color: ColorClass.primaryColor,
         boxShadow: [
           BoxShadow(
-            // ignore: deprecated_member_use
             color: Colors.black.withOpacity(0.1),
             blurRadius: 4,
             offset: const Offset(0, 2),

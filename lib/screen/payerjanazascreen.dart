@@ -27,38 +27,8 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
             minChildSize: 0.5,
             maxChildSize: 1.0,
             builder: (_, controller) => Container(
-              decoration: BoxDecoration(
-                color: ColorClass.detailprimary
-                    .withOpacity(0.9), // Reduced opacity to 90%
-                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-              ),
               child: Stack(
                 children: [
-                  // Close Button on Left
-                  Positioned(
-                    top: 10,
-                    left: 10,
-                    child: IconButton(
-                      icon: const Icon(Icons.close, color: Colors.white),
-                      onPressed: () => Navigator.pop(context),
-                    ),
-                  ),
-                  // Centered Title
-                  Positioned(
-                    top: 20,
-                    left: 0,
-                    right: 0,
-                    child: Center(
-                      child: Text(
-                        'പ്രാർത്ഥനാ ഘട്ടങ്ങൾ',
-                        style: GoogleFonts.anekMalayalam(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  ),
                   // Prayer Steps Content
                   Padding(
                     padding: const EdgeInsets.only(
@@ -139,10 +109,11 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                         SizedBox(width: 12),
                         Text(
                           'പ്രാർത്ഥനാ ഘട്ടങ്ങൾ',
-                          style:  GoogleFonts.anekMalayalam(
+                          style: GoogleFonts.anekMalayalam(
                             fontSize: 18,
                             color: ColorClass.white,
-                            fontWeight: FontWeight.w500,),
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ],
                     ),

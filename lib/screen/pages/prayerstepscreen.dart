@@ -15,6 +15,7 @@ class PrayerStepsSliderView extends StatefulWidget {
 class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
   final PageController _pageController = PageController();
   late AudioProvider _audioService;
+  int _currentIndex = 0;
 
   // Data model for prayer steps
   final List<PrayerStepModel> _prayerSteps = [
@@ -46,7 +47,8 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
       title: 'തശഹ്ഹുദ്',
       description:
           'രണ്ടാം തക്ബീര്‍ ചൊല്ലി വീണ്ടും കൈ കെട്ടി ഇബ്രാഹിമീയ സ്വലാത്ത് ചൊല്ലുക:',
-      arabicTexts: ['اللهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ اَلَّلهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ',
+      arabicTexts: [
+        'اللهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ اَلَّلهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ',
       ],
       imagePath: 'assets/images/qiyyam image.png',
       instructions:
@@ -69,7 +71,8 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
       title: 'സലാം ചൊല്ലുക',
       description:
           'നാലാം തക്ബീര്‍ ചൊല്ലി വീണ്ടും കൈ കെട്ടി എല്ലാവര്‍കും വേണ്ടി ദുആ ചൈയ്യുക',
-      arabicTexts: ['اَلَّلهُمَّ لاَ تُحَرِّمْنَا اَجْرَهُ وَ لاَ تَفْتِنَّا بَعْدَهُ وَغْفِرْلَنَا وَلَهُ رَبَّنَا اَتِنَا فِي الدُّنْياَ حَسَنَتً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَبَ النَّارِ'
+      arabicTexts: [
+        'اَلَّلهُمَّ لاَ تُحَرِّمْنَا اَجْرَهُ وَ لاَ تَفْتِنَّا بَعْدَهُ وَغْفِرْلَنَا وَلَهُ رَبَّنَا اَتِنَا فِي الدُّنْياَ حَسَنَتً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَبَ النَّارِ'
       ],
       imagePath: 'assets/images/qiyyam image.png',
       instructions:
@@ -98,6 +101,26 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
     super.dispose();
   }
 
+  void _goToNextPage() {
+    if (_currentIndex < _prayerSteps.length - 1) {
+      _pageController.nextPage(
+          duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+      setState(() {
+        _currentIndex++;
+      });
+    }
+  }
+
+  void _goToPreviousPage() {
+    if (_currentIndex > 0) {
+      _pageController.previousPage(
+          duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+      setState(() {
+        _currentIndex--;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     // Get screen size for responsive sizing
@@ -112,29 +135,140 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
     final double arabicFontSize = screenWidth * 0.045;
     final double instructionsFontSize = screenWidth * 0.04;
 
-    return Scaffold(
-      backgroundColor: ColorClass.detailprimary,
-      body: SafeArea(
-        child: Column(
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            ColorClass.bottomsheet1,
+            ColorClass.bottomsheet2,
+          ],
+        ),
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(10),
+          topRight: Radius.circular(10),
+        ),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+            icon: Icon(Icons.close, color: ColorClass.white),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+          title: Text(
+            'നമസ്കാര കർമ്മങ്ങൾ',
+            style: GoogleFonts.anekMalayalam(
+              color: ColorClass.white,
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          centerTitle: true,
+        ),
+        body: Stack(
           children: [
-            _buildStepIndicator(),
-            Expanded(
-              child: PageView.builder(
-                controller: _pageController,
-                itemCount: _prayerSteps.length,
-                itemBuilder: (context, index) {
-                  return _buildPrayerStepPage(
-                    _prayerSteps[index],
-                    imageHeight,
-                    titleFontSize,
-                    descriptionFontSize,
-                    arabicFontSize,
-                    instructionsFontSize,
-                  );
-                },
-                onPageChanged: (index) {
-                  setState(() {});
-                },
+            // Main content
+            Column(
+              children: [
+                _buildStepIndicator(),
+                Expanded(
+                  child: PageView.builder(
+                    controller: _pageController,
+                    itemCount: _prayerSteps.length,
+                    itemBuilder: (context, index) {
+                      return _buildPrayerStepPage(
+                        _prayerSteps[index],
+                        imageHeight,
+                        titleFontSize,
+                        descriptionFontSize,
+                        arabicFontSize,
+                        instructionsFontSize,
+                      );
+                    },
+                    onPageChanged: (index) {
+                      setState(() {
+                        _currentIndex = index;
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
+
+            // Navigation buttons positioned at the bottom
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 20,
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    if (_currentIndex > 0)
+                      Container(
+                        width: 56, // Increased button size
+                        height: 56, // Increased button size
+                        decoration: BoxDecoration(
+                          color: ColorClass.white,
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 1,
+                              blurRadius: 4,
+                              offset: const Offset(0, 2),
+                            ),
+                          ],
+                        ),
+                        child: IconButton(
+                          onPressed: _goToPreviousPage,
+                          icon: Icon(
+                            Icons.arrow_back,
+                            color: ColorClass.primaryColor,
+                            size: 32, // Increased icon size
+                          ),
+                          padding: EdgeInsets.zero, // Remove default padding
+                        ),
+                      )
+                    else
+                      const SizedBox(width: 56), // Match button width
+
+                    if (_currentIndex < _prayerSteps.length - 1)
+                      Container(
+                        width: 56, // Increased button size
+                        height: 56, // Increased button size
+                        decoration: BoxDecoration(
+                          color: ColorClass.white,
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 1,
+                              blurRadius: 4,
+                              offset: const Offset(0, 2),
+                            ),
+                          ],
+                        ),
+                        child: IconButton(
+                          onPressed: _goToNextPage,
+                          icon: Icon(
+                            Icons.arrow_forward,
+                            color: ColorClass.primaryColor,
+                            size: 32, // Increased icon size
+                          ),
+                          padding: EdgeInsets.zero, // Remove default padding
+                        ),
+                      )
+                    else
+                      const SizedBox(width: 56), // Match button width
+                  ],
+                ),
               ),
             ),
           ],
@@ -147,7 +281,6 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
       decoration: BoxDecoration(
-        color: ColorClass.detailprimary,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -177,7 +310,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
                     ? ColorClass.secondaryColor
                     : isActive
                         ? ColorClass.secondaryColor
-                        : ColorClass.grey,
+                        : Colors.grey[700],
               ),
               child: Center(
                 child: Text(
@@ -394,7 +527,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
         textAlign: TextAlign.right,
         textDirection: TextDirection.rtl,
         style: TextStyleClass.primaryFontArabic(
-          fontSize, 
+          fontSize,
           Colors.white,
         ).copyWith(height: 2.0),
       ),
