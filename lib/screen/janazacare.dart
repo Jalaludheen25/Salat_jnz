@@ -28,36 +28,8 @@ class _MayyithScreenState extends State<MayyithScreen> {
             minChildSize: 0.5,
             maxChildSize: 1.0,
             builder: (_, controller) => Container(
-              decoration: BoxDecoration(
-                color: ColorClass.detailprimary.withOpacity(0.9),
-                borderRadius:
-                    const BorderRadius.vertical(top: Radius.circular(20)),
-              ),
               child: Stack(
                 children: [
-                  Positioned(
-                    top: 10,
-                    left: 10,
-                    child: IconButton(
-                      icon: const Icon(Icons.close, color: Colors.white),
-                      onPressed: () => Navigator.pop(context),
-                    ),
-                  ),
-                  Positioned(
-                    top: 20,
-                    left: 0,
-                    right: 0,
-                    child: Center(
-                      child: Text(
-                        'മയ്യിത്ത് പരിപാലനം',
-                        style: GoogleFonts.anekMalayalam(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  ),
                   Padding(
                     padding: const EdgeInsets.only(top: 70),
                     child: const Mayyithstepscreen(),
@@ -85,43 +57,13 @@ class _MayyithScreenState extends State<MayyithScreen> {
             initialChildSize: 0.95,
             minChildSize: 0.5,
             maxChildSize: 1.0,
-            builder: (_, controller) => Container(
-              decoration: BoxDecoration(
-                color: ColorClass.detailprimary.withOpacity(0.9),
-                borderRadius:
-                    const BorderRadius.vertical(top: Radius.circular(20)),
-              ),
-              child: Stack(
-                children: [
-                  Positioned(
-                    top: 10,
-                    left: 10,
-                    child: IconButton(
-                      icon: const Icon(Icons.close, color: Colors.white),
-                      onPressed: () => Navigator.pop(context),
-                    ),
-                  ),
-                  Positioned(
-                    top: 20,
-                    left: 0,
-                    right: 0,
-                    child: Center(
-                      child: Text(
-                        'മരണാനന്തര ക്രിയകള്‍',
-                        style: GoogleFonts.anekMalayalam(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 70),
-                    child: const Deadbodyverbscreen(),
-                  ),
-                ],
-              ),
+            builder: (_, controller) => Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 70),
+                  child: const Deadbodyverbscreen(),
+                ),
+              ],
             ),
           ),
         ),
@@ -206,7 +148,7 @@ class _MayyithScreenState extends State<MayyithScreen> {
                         Text(
                           'മയ്യിത്ത് പരിപാലനം',
                           style: GoogleFonts.anekMalayalam(
-                                fontSize: 20,
+                            fontSize: 20,
                             color: ColorClass.white,
                             fontWeight: FontWeight.w500,
                           ),
@@ -278,9 +220,10 @@ class _MayyithScreenState extends State<MayyithScreen> {
                         Text(
                           'മരണാനന്തര ക്രിയകള്‍',
                           style: GoogleFonts.anekMalayalam(
-                              fontSize: 18,
+                            fontSize: 18,
                             color: ColorClass.white,
-                            fontWeight: FontWeight.w500,),
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ],
                     ),

@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:salat_al_janaza/constants/appkeys.dart';
 import 'package:salat_al_janaza/constants/colorclass.dart';
 import 'package:salat_al_janaza/screen/drawer/aboutscreen.dart';
 import 'package:salat_al_janaza/screen/drawer/donatescreen.dart';
 
 import 'package:salat_al_janaza/screen/drawer/contactscreen.dart';
-
+import 'package:salat_al_janaza/screen/janazacare.dart';
+import 'package:salat_al_janaza/screen/payerjanazascreen.dart';
 
 class AppDrawer extends StatefulWidget {
-   AppDrawer({Key? key}) : super(key: key);
+  AppDrawer({Key? key}) : super(key: key);
 
   @override
   State<AppDrawer> createState() => _AppDrawerState();
@@ -28,8 +30,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 children: [
                   DrawerHeader(
                     decoration: BoxDecoration(
-                      color: ColorClass.primaryColor.withOpacity(0.8),
-
+                      color: ColorClass.primaryColor,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,37 +60,57 @@ class _AppDrawerState extends State<AppDrawer> {
                     title: 'Home',
                     onTap: () => Navigator.pop(context),
                   ),
-                 
-                  
+                  _buildDrawerItem(
+                    icon: Icons.book,
+                    title: 'Prayer Guide',
+                    onTap: () {
+                      Navigator.pop(context);
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MayyithScreen()));
+                    },
+                  ),
+                  _buildDrawerItem(
+                    icon: Icons.mosque,
+                    title: 'Janaza Prayer',
+                    onTap: () {
+                      Navigator.pop(context);
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SalatAlJanazaScreen()));
+                    },
+                  ),
                   _buildDrawerItem(
                     icon: Icons.favorite,
                     title: 'Donate',
                     onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>  DonationDetails())),
+                            builder: (context) => DonationDetails())),
                   ),
                   _buildDrawerItem(
                     icon: Icons.call,
                     title: 'Contact',
                     onTap: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (context) =>  ContactPage())),
+                        MaterialPageRoute(builder: (context) => ContactPage())),
                   ),
                   _buildDrawerItem(
                     icon: Icons.info,
                     title: 'About',
                     onTap: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (context) =>  AboutPage())),
+                        MaterialPageRoute(builder: (context) => AboutPage())),
                   ),
                 ],
               ),
             ),
             Container(
-               padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(20),
               child: Text(
-                'Version 1.0.0',
+                'Version: ${appkeys.appversion}',
                 style: GoogleFonts.poppins(
-                  color: Colors.white,
+                  color: ColorClass.blueGrey1,
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                 ),
@@ -109,7 +130,7 @@ class _AppDrawerState extends State<AppDrawer> {
     return ListTile(
       leading: Icon(icon, color: Colors.white),
       title: Text(title,
-          style:  GoogleFonts.poppins(color: Colors.white, fontSize: 16)),
+          style: GoogleFonts.poppins(color: Colors.white, fontSize: 16)),
       onTap: onTap,
     );
   }

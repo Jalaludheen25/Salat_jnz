@@ -45,40 +45,177 @@ class _DeadbodyverbscreenState extends State<Deadbodyverbscreen> {
     Deadboadyverbmodel(
       title: 'കഫന്‍ ചെയ്യല്‍',
       description:
-          'ജീവിതകാലത്ത് ധരിക്കാവുന്ന വസ്ത്രം കൊണ്ടാണ് മരണ ശേഷം കഫന്‍ ചെയ്യേണ്ടത്. കഫന്‍ തുണി മുന്‍കൂട്ടി തയ്യാറാക്കിവെക്കല്‍ സുന്നത്തില്ലെങ്കിലും ഹലാലാണെന്ന് ഉറപ്പുള്ളതോ സ്വാലിഹീങ്ങളില്‍ നിന്ന് ലഭിച്ചതോ ആയ വസ്ത്രം സൂക്ഷിച്ചുവെക്കാവുന്നതാണ്.\n\n കഫന്‍ തുണികള്‍ വലുപ്പത്തിലും മേന്മയിലും വ്യത്യാസമുള്ളവയാണെങ്കില്‍ മേന്മയും വലുപ്പവുമുള്ളത് ആദ്യം വിരിക്കണം. മൂന്നാം തുണി രണ്ടാമത്തേതിന്‍റെ മുകളിലും വിരിക്കണം. ഓരോ തുണിയും അതിന്‍റെ മുകളില്‍ മറ്റു തുണി വിരിക്കും മുമ്പ് കര്‍പ്പൂരമോ ഊദോ ഉപയോഗിച്ച് പുകയിപ്പിക്കലും പനനീരോ മറ്റു സുഗന്ധ ദ്രവ്യങ്ങളോ അവയില്‍ പൂശലും പ്രത്യേകം സുന്നത്താണ്. മയ്യിത്ത് ഇഹ്റാം ചെയ്തയാളാണെങ്കില്‍ ഇവിടെയും സുഗന്ധം പാടില്ല. മയ്യിത്തിനെ തുണിയില്‍ മലര്‍ത്തി കിടത്തി ഇരുചന്തികള്‍ക്കിടയില്‍ പഞ്ഞിവച്ച ശേഷം ഒരു തുണിക്കഷ്ണം കൊണ്ട് അവ നന്നായി കെട്ടണം. മയ്യിത്തില്‍ നിന്ന് വല്ലതും പുറപ്പെടുന്നത് തടയും വിധമായിരിക്കണം ഈ കെട്ട്.\n\n കണ്ണ്, ചെവി, വായ, മൂക്കിന്‍റെ ദ്വാരങ്ങള്‍ തുട ങ്ങിയ തുറക്കപ്പെട്ട ദ്വാരങ്ങളിലും മൂക്ക്, നെറ്റിത്തടം, രണ്ട് മുട്ടുകാല്‍, മുന്‍കൈകളുടെ പള്ളകള്‍, കാല്‍വിരലുകള്‍ എന്നീ സുജൂദിന്‍റെ അവയവങ്ങളിലും പഞ്ഞി വെക്കണം. ശേഷം ഓരോ തുണിയും ഇരുഭാഗത്തു നിന്നും ചുറ്റണം. തുണികളുടെ രണ്ടറ്റങ്ങള്‍ തലഭാഗത്തും കാലുകളുടെ ഭാഗത്തും ചുരുട്ടിക്കെട്ടണം. കാലുകളുടെ ഭാഗത്തുള്ളതിനേക്കാള്‍ കൂടുതല്‍ നീളം തലഭാഗത്ത് വേണം. സ്ത്രീകളുടെ മാറിടം ചുമന്ന് പോകുമ്പോള്‍ പിടക്കാതിരിക്കാന്‍ തുണി ഉപയോഗിച്ച് പ്രത്യേകം കെട്ടണം. തലയുടെയും കാലുകളുടെയും ഭാഗത്തും നടുക്കുമായി മൂന്ന് കെട്ടുകളിടുകയും ഖബറിലേക്കിറക്കുമ്പോള്‍ അവ അഴിക്കുകയും വേണം. ഇഹ്റാമിലായി മരണപ്പെട്ടാല്‍ തുന്നപ്പെട്ട വസ്ത്രം ധരിപ്പിക്കുന്നതും പുരുഷന്‍റെ തലയും സ്ത്രീയുടെ മുഖവും മുന്‍കൈ കളും മറക്കുന്നതും സുഗന്ധം ഉപയോഗിക്കുന്നതും നിഷിദ്ധമാണ്.',
+          'ജീവിതകാലത്ത് ധരിക്കാവുന്ന വസ്ത്രം കൊണ്ടാണ് മരണ ശേഷം കഫന്‍ ചെയ്യേണ്ടത്. കഫന്‍ തുണി മുന്‍കൂട്ടി തയ്യാറാക്കിവെക്കല്‍ സുന്നത്തില്ലെങ്കിലും ഹലാലാണെന്ന് ഉറപ്പുള്ളതോ സ്വാലിഹീങ്ങളില്‍ നിന്ന് ലഭിച്ചതോ ആയ വസ്ത്രം സൂക്ഷിച്ചുവെക്കാവുന്നതാണ്.\n\n കഫന്‍ തുണികള്‍ വലുപ്പത്തിലും മേന്മയിലും വ്യത്യാസമുള്ളവയാണെങ്കില്‍ മേന്മയും വലുപ്പവുമുള്ളത് ആദ്യം വിരിക്കണം. മൂന്നാം തുണി രണ്ടാമത്തേതിന്‍റെ മുകളിലും വിരിക്കണം. ഓരോ തുണിയും അതിന്‍റെ മുകളില്‍ മറ്റു തുണി വിരിക്കും മുമ്പ് കര്‍പ്പൂരമോ ഊദോ ഉപയോഗിച്ച് പുകയിപ്പിക്കലും പനനീരോ മറ്റു സുഗന്ധ ദ്രവ്യങ്ങളോ അവയില്‍ പൂശലും പ്രത്യേകം സുന്നത്താണ്. മയ്യിത്ത് ഇഹ്റാം ചെയ്തയാളാണെങ്കില്‍ ഇവിടെയും സുഗന്ധം പാടില്ല. മയ്യിത്തിനെ തുണിയില്‍ മലര്‍ത്തി കിടത്തി ഇരുചന്തികള്‍ക്കിടയില്‍ പഞ്ഞിവച്ച് ശേഷം ഒരു തുണിക്കഷ്ണം കൊണ്ട് അവ നന്നായി കെട്ടണം. മയ്യിത്തില്‍ നിന്ന് വല്ലതും പുറപ്പെടുന്നത് തടയും വിധമായിരിക്കണം ഈ കെട്ട്.\n\n കണ്ണ്, ചെവി, വായ, മൂക്കിന്‍റെ ദ്വാരങ്ങള്‍ തുട ങ്ങിയ തുറക്കപ്പെട്ട ദ്വാരങ്ങളിലും മൂക്ക്, നെറ്റിത്തടം, രണ്ട് മുട്ടുകാല്‍, മുന്‍കൈകളുടെ പള്ളകള്‍, കാല്‍വിരലുകള്‍ എന്നീ സുജൂദിന്‍റെ അവയവങ്ങളിലും പഞ്ഞി വെക്കണം. ശേഷം ഓരോ തുണിയും ഇരുഭാഗത്തു നിന്നും ചുറ്റണം. തുണികളുടെ രണ്ടറ്റങ്ങള്‍ തലഭാഗത്തും കാലുകളുടെ ഭാഗത്തും ചുരുട്ടിക്കെട്ടണം. കാലുകളുടെ ഭാഗത്തുള്ളതിനേക്കാള്‍ കൂടുതല്‍ നീളം തലഭാഗത്ത് വേണം. സ്ത്രീകളുടെ മാറിടം ചുമന്ന് പോകുമ്പോള്‍ പിടക്കാതിരിക്കാന്‍ തുണി ഉപയോഗിച്ച് പ്രത്യേകം കെട്ടണം. തലയുടെയും കാലുകളുടെയും ഭാഗത്തും നടുക്കുമായി മൂന്ന് കെട്ടുകളിടുകയും ഖബറിലേക്കിറക്കുമ്പോള്‍ അവ അഴിക്കുകയും വേണം. ഇഹ്റാമിലായി മരണപ്പെട്ടാല്‍ തുന്നപ്പെട്ട വസ്ത്രം ധരിപ്പിക്കുന്നതും പുരുഷന്‍റെ തലയും സ്ത്രീയുടെ മുഖവും മുന്‍കൈ കളും മറക്കുന്നതും സുഗന്ധം ഉപയോഗിക്കുന്നതും നിഷിദ്ധമാണ്.',
       imagePath: 'assets/images/deadbody covering.png',
       instructions: '',
     ),
   ];
 
   final PageController _pageController = PageController();
+  int _currentIndex = 0;
+
+  void _goToNextPage() {
+    if (_currentIndex < _prayerSteps.length - 1) {
+      _pageController.nextPage(
+          duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+      setState(() {
+        _currentIndex++;
+      });
+    }
+  }
+
+  void _goToPreviousPage() {
+    if (_currentIndex > 0) {
+      _pageController.previousPage(
+          duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
+      setState(() {
+        _currentIndex--;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    // Get screen dimensions
     final screenSize = MediaQuery.of(context).size;
     final isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
+    MediaQuery.of(context).orientation == Orientation.portrait;
 
-    return Scaffold(
-      backgroundColor: ColorClass.primaryColor,
-      body: Column(
-        children: [
-          _buildBottomIndicator(),
-          Expanded(
-            child: PageView.builder(
-              controller: _pageController,
-              itemCount: _prayerSteps.length,
-              itemBuilder: (context, index) {
-                return _buildPrayerStepPage(
-                    _prayerSteps[index], screenSize, isPortrait);
-              },
-              onPageChanged: (index) {
-                setState(() {});
-              },
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            ColorClass.bottomsheet1,
+            ColorClass.bottomsheet2,
+          ],
+        ),
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(10),
+          topRight: Radius.circular(10),
+        ),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+            icon: Icon(Icons.close, color: ColorClass.white),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+          title: Text(
+            'മയ്യിത്ത് കര്‍മ്മങ്ങള്‍',
+            style: GoogleFonts.anekMalayalam(
+              color: ColorClass.white,
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
             ),
           ),
-        ],
+          centerTitle: true,
+        ),
+        body: Stack(
+          children: [
+            // Main content
+            Column(
+              children: [
+                _buildPageIndicator(),
+                Expanded(
+                  child: PageView.builder(
+                    controller: _pageController,
+                    itemCount: _prayerSteps.length,
+                    itemBuilder: (context, index) {
+                      return _buildPrayerStepPage(
+                        _prayerSteps[index],
+                        screenSize,
+                        isPortrait,
+                      );
+                    },
+                    onPageChanged: (index) {
+                      setState(() {
+                        _currentIndex = index;
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
+
+            // Navigation buttons positioned at the bottom
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 20,
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    if (_currentIndex > 0)
+                      Container(
+                        width: 56, // Increased button size
+                        height: 56, // Increased button size
+                        decoration: BoxDecoration(
+                          color: ColorClass.white,
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 1,
+                              blurRadius: 4,
+                              offset: const Offset(0, 2),
+                            ),
+                          ],
+                        ),
+                        child: IconButton(
+                          onPressed: _goToPreviousPage,
+                          icon: Icon(
+                            Icons.arrow_back,
+                            color: ColorClass.primaryColor,
+                            size: 32, // Increased icon size
+                          ),
+                          padding: EdgeInsets.zero, // Remove default padding
+                        ),
+                      )
+                    else
+                      const SizedBox(width: 56), // Match button width
+
+                    if (_currentIndex < _prayerSteps.length - 1)
+                      Container(
+                        width: 56, // Increased button size
+                        height: 56, // Increased button size
+                        decoration: BoxDecoration(
+                          color: ColorClass.white,
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 1,
+                              blurRadius: 4,
+                              offset: const Offset(0, 2),
+                            ),
+                          ],
+                        ),
+                        child: IconButton(
+                          onPressed: _goToNextPage,
+                          icon: Icon(
+                            Icons.arrow_forward,
+                            color: ColorClass.primaryColor,
+                            size: 32, // Increased icon size
+                          ),
+                          padding: EdgeInsets.zero, // Remove default padding
+                        ),
+                      )
+                    else
+                      const SizedBox(width: 56), // Match button width
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -163,13 +300,13 @@ class _DeadbodyverbscreenState extends State<Deadbodyverbscreen> {
     );
   }
 
-  Widget _buildBottomIndicator() {
+  Widget _buildPageIndicator() {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
       decoration: BoxDecoration(
-        color: ColorClass.primaryColor,
         boxShadow: [
           BoxShadow(
+            // ignore: deprecated_member_use
             color: Colors.black.withOpacity(0.1),
             blurRadius: 4,
             offset: const Offset(0, 2),
