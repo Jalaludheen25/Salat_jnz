@@ -38,7 +38,7 @@ class _DonationDetailsState extends State<DonationDetails> {
         Container(
           padding: const EdgeInsets.all(16.0),
           decoration: BoxDecoration(
-            color: ColorClass.primaryColor, // Background color
+            color: ColorClass.secondaryColor, // Background color
            
            
           ),

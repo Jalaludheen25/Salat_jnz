@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:salat_al_janaza/constants/appkeys.dart';
 import 'package:salat_al_janaza/constants/colorclass.dart';
-import 'package:salat_al_janaza/screen/drawer/aboutpage.dart';
-import 'package:salat_al_janaza/screen/drawer/donatepage.dart';
-import 'package:salat_al_janaza/screen/mayyithScreen.dart';
-import 'package:salat_al_janaza/screen/drawer/conactpage.dart';
-import 'package:salat_al_janaza/screen/salatalJanazascreen.dart';
+import 'package:salat_al_janaza/screen/drawer/aboutscreen.dart';
+import 'package:salat_al_janaza/screen/drawer/donatescreen.dart';
+
+import 'package:salat_al_janaza/screen/drawer/contactscreen.dart';
+
 
 class AppDrawer extends StatefulWidget {
   AppDrawer({Key? key}) : super(key: key);
@@ -30,6 +30,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   DrawerHeader(
                     decoration: BoxDecoration(
                       color: ColorClass.primaryColor,
+
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,7 +45,7 @@ class _AppDrawerState extends State<AppDrawer> {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Salath Learning',
+                          'Janaza Guide',
                           style: GoogleFonts.poppins(
                             color: Colors.white,
                             fontSize: 20,
@@ -67,7 +68,7 @@ class _AppDrawerState extends State<AppDrawer> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => MayyithScreen()));
+                              builder: (context) =>  MayyithScreen()));
                     },
                   ),
                   _buildDrawerItem(
@@ -78,9 +79,10 @@ class _AppDrawerState extends State<AppDrawer> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SalatAlJanazaScreen()));
+                              builder: (context) =>  SalatAlJanazaScreen()));
                     },
                   ),
+                  
                   _buildDrawerItem(
                     icon: Icons.favorite,
                     title: 'Donate',

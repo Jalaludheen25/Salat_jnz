@@ -3,13 +3,18 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:salat_al_janaza/constants/colorclass.dart';
 import 'package:salat_al_janaza/constants/iconclass.dart';
 
-class AboutPage extends StatelessWidget {
+class AboutPage extends StatefulWidget {
   const AboutPage({Key? key}) : super(key: key);
 
   @override
+  State<AboutPage> createState() => _AboutPageState();
+}
+
+class _AboutPageState extends State<AboutPage> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorClass.primaryColor,
+      backgroundColor: ColorClass.secondaryColor,
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(
@@ -52,7 +57,7 @@ class AboutPage extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Text(
-                'Mayyith Namaskaram',
+                'Janaza Guide',
                 style: GoogleFonts.poppins(
                   fontSize: 20,
                   color: ColorClass.white,
@@ -62,7 +67,7 @@ class AboutPage extends StatelessWidget {
               ),
               const SizedBox(height: 40),
               Text(
-                'Mayyith Namaskaram is a dedicated app designed to provide guidance on performing Janaza (funeral) prayers in accordance with Islamic traditions. It offers step-by-step instructions, supplications, and essential rulings related to the funeral prayer, ensuring that users can fulfill their religious duties with clarity and confidence. Whether you\'re attending a Janaza for the first time or seeking to deepen your understanding, this app serves as a reliable companion for all essential aspects of the prayer.\n\nThe app also includes information on the significance of Janaza prayer, etiquette to follow, and the proper way to offer condolences. With a simple and user-friendly interface, Mayyith Namaskaram ensures accessibility for users of all backgrounds. Designed for both learning and reference, it aims to help Muslims perform this important act of worship with ease and correctness.',
+                ' Janaza Guide is a dedicated app designed to provide guidance on performing Janaza (funeral) prayers in accordance with Islamic traditions. It offers step-by-step instructions, supplications, and essential rulings related to the funeral prayer, ensuring that users can fulfill their religious duties with clarity and confidence. Whether you\'re attending a Janaza for the first time or seeking to deepen your understanding, this app serves as a reliable companion for all essential aspects of the prayer.\n\nThe app also includes information on the significance of Janaza prayer, etiquette to follow, and the proper way to offer condolences. With a simple and user-friendly interface, Mayyith Namaskaram ensures accessibility for users of all backgrounds. Designed for both learning and reference, it aims to help Muslims perform this important act of worship with ease and correctness.',
                 style: GoogleFonts.poppins(
                   fontSize: 16,
                   color: ColorClass.white,
@@ -72,14 +77,14 @@ class AboutPage extends StatelessWidget {
               ),
               const SizedBox(height: 40),
               Text(
-                'Privacy Policy',
+                'Powerd By',
                 style: GoogleFonts.poppins(
-                  fontSize: 20,
+                  fontSize: 18,
                   color: ColorClass.white,
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              const SizedBox(height: 20),
+              
               Image.asset(
                 'assets/images/D4DX.png',
                 width: 100,

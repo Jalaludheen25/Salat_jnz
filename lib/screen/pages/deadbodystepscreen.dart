@@ -4,7 +4,7 @@ import 'package:salat_al_janaza/constants/colorclass.dart';
 import 'package:salat_al_janaza/model/Mayyithmodel.dart';
 
 class Mayyithstepscreen extends StatefulWidget {
-  const Mayyithstepscreen({Key? key}) : super(key: key);
+  const Mayyithstepscreen({super.key});
 
   @override
   _MayyithstepscreenState createState() => _MayyithstepscreenState();
@@ -28,7 +28,7 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
     Mayyithmodel(
       title: 'വെള്ളം കൊടുക്കല്‍:',
       description:
-          'ആത്മാവ് പുറപ്പെടുമ്പോള്‍ ശക്തമായ ദാഹം അനുഭവപ്പെടുന്നതിനാല്‍ മരണം ആസന്നനായ വ്യക്തിക്ക് ആവശ്യമെങ്കില്‍ വെള്ളം കൊടുക്കല്‍ നിര്‍ബന്ധവും അല്ലെങ്കില്‍ സുന്നത്തുമാണ്. മരണം ആസന്നനായ വ്യക്തിയുടെ മുന്നില്‍ പിശാച് പ്രത്യക്ഷപ്പെട്ട് ഞാനല്ലാതെ ആരാധ്യനില്ലെന്ന് പറഞ്ഞാല്‍ വെള്ളം തരാമെന്ന് പറയുമെന്ന് ഹദീസുകളില്‍ കാണാം.',
+          'ആത്മാവ് പുറപ്പെടുമ്പോള്‍ ശക്തമായ ദാഹം അനുഭവപ്പെടുന്നതിനാല്‍ മരണം ആസന്നനായ വ്യക്തിക്ക് ആവശ്യമെങ്കില്‍ വെള്ളം കൊടുക്കല്‍ നിര്‍ബന്ധവും അല്ലെങ്കില്‍ സുന്നത്തുമാണ്.',
       imagePath: 'assets/images/Giving water.png',
     ),
     Mayyithmodel(
@@ -125,7 +125,7 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
               ),
             ),
           ),
-
+          
           // Description
           Padding(
             padding: EdgeInsets.symmetric(
@@ -153,6 +153,7 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
         color: ColorClass.primaryColor,
         boxShadow: [
           BoxShadow(
+            // ignore: deprecated_member_use
             color: Colors.black.withOpacity(0.1),
             blurRadius: 4,
             offset: const Offset(0, 2),
