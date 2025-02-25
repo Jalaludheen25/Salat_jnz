@@ -17,7 +17,7 @@ class _MayyithScreenState extends State<MayyithScreen> {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.transparent,
+      backgroundColor: ColorClass.transparent,
       builder: (context) => GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () => Navigator.of(context).pop(),
@@ -47,7 +47,7 @@ class _MayyithScreenState extends State<MayyithScreen> {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.transparent,
+      backgroundColor: ColorClass.transparent,
       builder: (context) => GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () => Navigator.of(context).pop(),
@@ -86,7 +86,7 @@ class _MayyithScreenState extends State<MayyithScreen> {
           'മയ്യിത്ത് പരിപാലനം',
           style: GoogleFonts.anekMalayalam(
             fontSize: 20,
-            color: Colors.white,
+            color: ColorClass.white,
             fontWeight: FontWeight.w700,
           ),
         ),
@@ -182,7 +182,7 @@ class _MayyithScreenState extends State<MayyithScreen> {
                 "മരണം സുനിശ്ചിതമാണ്. ആത്മാവ് ശരീരവുമായി വേര്‍പിരിയുന്നതാണ് മരണം. അല്ലാഹു പറയുന്നു: \"എതൊരു ശരീരവും മരണം രുചിക്കുന്നതാണ്. ഉയര്‍ത്തെഴുന്നേല്‍പ്പിന്‍റെ ദിനം മാത്രം ആണ് നിങ്ങളുടെ പ്രതിഫലങ്ങള്‍ നിങ്ങള്‍ക്ക് പൂര്‍ണമായും നല്‍കപ്പെടുന്നത്\" (ഖുര്‍ആന്‍ 3/185). മരണസ്മരണ വര്‍ധിപ്പിക്കാന്‍ തിരുനബി(സ്വ) പ്രത്യേക നിര്‍ദേശിച്ചിട്ടുണ്ട്. മരണം കൂടുതലായി ഓര്‍ക്കല്‍ വിശ്വാസികള്‍ക്ക് ശക്തമായ സുന്നത്താണ്. രോഗികള്‍ക്ക് അതിശക്തമായ സുന്നത്തും. മരണാസന്നനായ വ്യക്തിക്ക് ചില കാര്യങ്ങള്‍ ചെയ്തുകൊടുക്കാന്‍ ഇസ്ലാം പഠിപ്പിക്കുന്നുണ്ട്.",
                 style: GoogleFonts.anekMalayalam(
                   fontSize: 20,
-                  color: Colors.white,
+                  color: ColorClass.white,
                   fontWeight: FontWeight.w500,
                 ),
                 textAlign: TextAlign.left,
@@ -192,7 +192,7 @@ class _MayyithScreenState extends State<MayyithScreen> {
                 'മരണം ഉറപ്പിച്ചാല്‍ നിര്‍വഹിക്കേണ്ട പ്രധാന കര്‍മങ്ങള്‍ നോക്കാം.',
                 style: GoogleFonts.anekMalayalam(
                   fontSize: 20,
-                  color: Colors.white,
+                  color: ColorClass.white,
                   fontWeight: FontWeight.w600,
                 ),
               ),

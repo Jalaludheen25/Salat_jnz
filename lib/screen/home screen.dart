@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               const SizedBox(width: 10),
               Text(
-                'Salath Janaza',
+                appkeys.appname,
                 style: GoogleFonts.lato(
                   fontSize: 24,
                   fontWeight: FontWeight.w600,
