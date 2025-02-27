@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:salat_al_janaza/constants/appkeys.dart';
 import 'package:salat_al_janaza/constants/colorclass.dart';
 import 'package:salat_al_janaza/constants/iconclass.dart';
 import 'package:salat_al_janaza/constants/imagesclass.dart';
@@ -21,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Map<String, dynamic>> prayerItems = [
     {
-      'title': 'മയ്യിത്ത് പരിപാലനം',
+      'title': 'മയ്യിത്ത് സംസ്കരണം',
       'icon': IconClass.deadbodyicon,
       'screen': const MayyithScreen(),
     },
@@ -62,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               const SizedBox(width: 10),
               Text(
-                'Salath Janaza',
+                'Janaza Guide',
                 style: GoogleFonts.lato(
                   fontSize: 24,
                   fontWeight: FontWeight.w600,

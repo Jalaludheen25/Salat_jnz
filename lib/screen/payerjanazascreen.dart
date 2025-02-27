@@ -55,7 +55,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
-          'സ്വലാത്ത് ജനാസ',
+          'മയ്യിത്ത് നമസ്കാരം',
           style: GoogleFonts.anekMalayalam(
             fontSize: 20,
             color: Colors.white,
@@ -87,6 +87,15 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                 ),
               ),
               const SizedBox(height: 20),
+               Text(
+                'മയ്യിത്ത് നമസ്കാരം സാമൂഹ്യബാധ്യതയാണ്. സമൂഹത്തിൽ കുറച്ചു പേർ അതു നിർവഹിച്ചാൽ ബാധ്യതയിൽ നിന്ന് എല്ലാവരും മുക്തരാവും. അബൂഹുറൈറ (റ) ഉദ്ധരിക്കുന്നു.إن النبي كان يؤتى بالرجل المتوفى عليه الدين فيسأل هل ترك لدينه فضلا، فإن حدث أنه ترك وفاء صلى، وإلا قال للمسلمين: صلوا لى صاحبكم(കട ബാധ്യതയോടുകൂട മരിച്ച ആളെ നബി (സ)യുടെ മുമ്പിൽ കൊണ്ടുവരുമായിരുന്നു. അയാൾ കടം വീട്ടാൻ വല്ലതും മിച്ചം വെച്ചിട്ടുണ്ടോ എന്ന് നബി(സ) ചോദിക്കും. വീട്ടാൻ മിച്ചം വെച്ചിട്ടുണ്ടെന്ന് പറഞ്ഞാൽ അവിടുന്ന് നമസ്കരിക്കും. ഇല്ലെങ്കിൽ മുസ്ലിംകളോട് പറയും നിങ്ങളുടെ കൂട്ടുകാരന് വേണ്ടി നമസ്കരിക്കുക- ബു​ഖാരി, മുസ് ലിം)',
+                style: GoogleFonts.anekMalayalam(
+                  fontSize: 20,
+                  color: ColorClass.white,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const SizedBox(height: 20),
               // Improved Prayer Steps Button
               ElevatedButton(
                 onPressed: _showPrayerStepsBottomSheet,
@@ -106,6 +115,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                       children: [
                         Icon(Icons.format_list_bulleted,
                             color: ColorClass.white),
+                            
                         SizedBox(width: 12),
                         Text(
                           'പ്രാർത്ഥനാ ഘട്ടങ്ങൾ',
@@ -140,18 +150,11 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
               ),
               const SizedBox(height: 20),
               // Description Text
-              Text(
-                'ഈ പ്രാർത്ഥന എങ്ങനെ നന്നായി നിർവഹിക്കാമെന്ന് ഈ വിഭാഗം വിവരിക്കുന്നു',
-                style: GoogleFonts.anekMalayalam(
-                  fontSize: 20,
-                  color: ColorClass.white,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
+             
               const SizedBox(height: 20),
               // Prayer Details
               Text(
-                'നിത്യജീവിതത്തിൽ വിശ്വാസി അനിവാര്യമായും അറിഞ്ഞിരിക്കേണ്ട ഒന്നാണ് മയ്യിത്ത് നിസ്കാരം. സ്വന്തം ബന്ധുക്കളുടെയും അല്ലാത്തതുമായി ധാരാളം പേരുടെ മയ്യിത്ത് നിസ്കരിക്കാൻ ഓരോരുത്തർക്കും അവസരമുണ്ടാകും. അതിനാൽ, അത് എങ്ങനെയാണെന്ന് മനസ്സിലാക്കിവെക്കൽ ആവശ്യമാണ്. അതാണ് ഇവിടെ വിവരിക്കുന്നു.',
+                'മയ്യിത്ത് നമസ്കാരം സാമൂഹ്യബാധ്യതയാണ്. സമൂഹത്തിൽ കുറച്ചു പേർ അതു നിർവഹിച്ചാൽ ബാധ്യതയിൽ നിന്ന് എല്ലാവരും മുക്തരാവും. അബൂഹുറൈറ (റ) ഉദ്ധരിക്കുന്നു.',
                 style: GoogleFonts.anekMalayalam(
                   fontSize: 20,
                   color: ColorClass.white,
@@ -160,7 +163,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
               ),
               const SizedBox(height: 20),
               Text(
-                'ഈ സ്വലാത്തിന് രണ്ട് ഭാഗങ്ങളുണ്ട്:',
+                'മയ്യിത്ത് നമസ്കാരത്തിന്റെ നിർബന്ധഘടകങ്ങൾ താഴെ പറയുന്നവയാണ്.',
                 style: GoogleFonts.anekMalayalam(
                   fontSize: 20,
                   color: Colors.white,
@@ -169,8 +172,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
               ),
               const SizedBox(height: 12),
               Text(
-                '1) അല്ലാഹു അക്ബർ എന്ന് നാല് തവണ പറയുക\n\n'
-                '2)  ഖിയാം അഥവാ മൂന്ന് സുന്നത്തെ മുഅക്കദകൾ: അൽ-ഫാതിഹ, ദുറൂദ് ഷരീഫ്, മയ്യിത്തിനു വേണ്ടിയുള്ള ദുആ',
+                '1) നിയ്യത്ത്\n2) സാധിക്കുന്നവൻ നിൽക്കൽ\n3) നാലു തക്ബീർ,',
                 style: GoogleFonts.anekMalayalam(
                   fontSize: 20,
                   color: Colors.white,

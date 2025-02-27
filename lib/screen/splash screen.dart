@@ -72,7 +72,7 @@ class _SplashScreenState extends State<SplashScreen>
                   FadeTransition(
                     opacity: _animation,
                     child: Text(
-                      'Salat Al Janaza',
+                      'Janaza Guide',
                       style: TextStyleClass.black16_400,
                     ),
                   ),
