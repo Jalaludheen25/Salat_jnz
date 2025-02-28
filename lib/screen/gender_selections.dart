@@ -3,8 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:janaza_guide/constants/colorclass.dart';
 import 'package:janaza_guide/provider/genderprovider.dart';
-
-import 'package:janaza_guide/screen/home_screen.dart';
+import 'package:janaza_guide/widget/bottom_nav.dart';
 
 class GenderSelectionScreen extends StatefulWidget {
   const GenderSelectionScreen({super.key});
@@ -185,10 +184,10 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen> {
                       child: InkWell(
                         onTap: isGenderSelected
                             ? () {
-                                Navigator.push(
+                                Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => const HomeScreen(),
+                                    builder: (context) => const BottomNav(),
                                   ),
                                 );
                               }
