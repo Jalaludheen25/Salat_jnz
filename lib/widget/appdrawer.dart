@@ -9,6 +9,7 @@ import 'package:janaza_guide/screen/drawer/contactscreen.dart';
 import 'package:janaza_guide/screen/drawer/donatescreen.dart';
 import 'package:janaza_guide/screen/janazacare.dart';
 import 'package:janaza_guide/screen/payerjanazascreen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AppDrawer extends StatefulWidget {
   const AppDrawer({super.key});
@@ -83,15 +84,11 @@ class _AppDrawerState extends State<AppDrawer> {
                               builder: (context) => SalatAlJanazaScreen()));
                     },
                   ),
-                  if (!Platform.isIOS)
-                    _buildDrawerItem(
-                      icon: Icons.favorite,
-                      title: 'Donate',
-                      onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => DonationDetails())),
-                    ),
+                  _buildDrawerItem(
+                    icon: Icons.favorite,
+                    title: 'Donate',
+                    onTap: () => _openDonationPage(),
+                  ),
                   _buildDrawerItem(
                     icon: Icons.call,
                     title: 'Contact',
@@ -135,5 +132,13 @@ class _AppDrawerState extends State<AppDrawer> {
           style: GoogleFonts.poppins(color: Colors.white, fontSize: 16)),
       onTap: onTap,
     );
+  }
+
+  Future<void> _openDonationPage() async {
+    final Uri donationUri =
+        Uri.parse('https://pages.razorpay.com/janaza-guide');
+    if (await canLaunchUrl(donationUri)) {
+      await launchUrl(donationUri, mode: LaunchMode.externalApplication);
+    }
   }
 }

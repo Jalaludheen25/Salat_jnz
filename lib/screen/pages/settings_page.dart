@@ -5,7 +5,6 @@ import 'package:janaza_guide/constants/appkeys.dart';
 import 'package:janaza_guide/constants/colorclass.dart';
 import 'package:janaza_guide/screen/drawer/aboutscreen.dart';
 import 'package:janaza_guide/screen/drawer/contactscreen.dart';
-import 'package:janaza_guide/screen/drawer/donatescreen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -22,6 +21,14 @@ class SettingsPage extends StatelessWidget {
 
     if (await canLaunchUrl(emailLaunchUri)) {
       await launchUrl(emailLaunchUri);
+    }
+  }
+
+  Future<void> _openDonationPage() async {
+    final Uri donationUri =
+        Uri.parse('https://pages.razorpay.com/janaza-guide');
+    if (await canLaunchUrl(donationUri)) {
+      await launchUrl(donationUri, mode: LaunchMode.externalApplication);
     }
   }
 
@@ -107,17 +114,12 @@ class SettingsPage extends StatelessWidget {
                     subtitle: 'Malayalam',
                     onTap: () => _showLanguageDialog(context),
                   ),
-                  if (!Platform.isIOS)
-                    _buildSettingsItem(
-                      context,
-                      icon: Icons.favorite,
-                      title: 'Donate',
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => DonationDetails()),
-                      ),
-                    ),
+                  _buildSettingsItem(
+                    context,
+                    icon: Icons.favorite,
+                    title: 'Donate',
+                    onTap: _openDonationPage,
+                  ),
                   _buildSettingsItem(
                     context,
                     icon: Icons.call,
