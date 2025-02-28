@@ -25,6 +25,60 @@ class SettingsPage extends StatelessWidget {
     }
   }
 
+  void _showLanguageDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(
+            'Language',
+            style: GoogleFonts.poppins(
+              fontWeight: FontWeight.w600,
+              color: ColorClass.primaryColor,
+            ),
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ListTile(
+                leading: const Icon(
+                  Icons.check_circle,
+                  color: ColorClass.primaryColor,
+                ),
+                title: Text(
+                  'Malayalam',
+                  style: GoogleFonts.poppins(),
+                ),
+                selected: true,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'More languages coming soon!',
+                style: GoogleFonts.poppins(
+                  fontSize: 12,
+                  color: ColorClass.blueGrey1,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text(
+                'Close',
+                style: GoogleFonts.poppins(
+                  color: ColorClass.primaryColor,
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,6 +100,13 @@ class SettingsPage extends StatelessWidget {
             Expanded(
               child: ListView(
                 children: [
+                  _buildSettingsItem(
+                    context,
+                    icon: Icons.language,
+                    title: 'Language',
+                    subtitle: 'Malayalam',
+                    onTap: () => _showLanguageDialog(context),
+                  ),
                   if (!Platform.isIOS)
                     _buildSettingsItem(
                       context,
@@ -105,6 +166,7 @@ class SettingsPage extends StatelessWidget {
     BuildContext context, {
     required IconData icon,
     required String title,
+    String? subtitle,
     required VoidCallback onTap,
   }) {
     return ListTile(
@@ -116,6 +178,15 @@ class SettingsPage extends StatelessWidget {
           fontSize: 16,
         ),
       ),
+      subtitle: subtitle != null
+          ? Text(
+              subtitle,
+              style: GoogleFonts.poppins(
+                color: Colors.white70,
+                fontSize: 12,
+              ),
+            )
+          : null,
       onTap: onTap,
       trailing: const Icon(
         Icons.chevron_right,
