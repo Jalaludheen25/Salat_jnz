@@ -6,7 +6,7 @@ import 'package:salat_al_janaza/provider/audio_service.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PrayerStepsSliderView extends StatefulWidget {
-  const PrayerStepsSliderView({Key? key}) : super(key: key);
+  const PrayerStepsSliderView({super.key});
 
   @override
   _PrayerStepsSliderViewState createState() => _PrayerStepsSliderViewState();

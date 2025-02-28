@@ -10,7 +10,7 @@ import 'package:salat_al_janaza/screen/janazacare.dart';
 import 'package:salat_al_janaza/screen/payerjanazascreen.dart';
 
 class AppDrawer extends StatefulWidget {
-  AppDrawer({Key? key}) : super(key: key);
+  const AppDrawer({super.key});
 
   @override
   State<AppDrawer> createState() => _AppDrawerState();
@@ -108,7 +108,7 @@ class _AppDrawerState extends State<AppDrawer> {
             Container(
               padding: EdgeInsets.all(20),
               child: Text(
-                'Version: ${appkeys.appversion}',
+                'Version: ${Appkeys.appversion}',
                 style: GoogleFonts.poppins(
                   color: ColorClass.blueGrey1,
                   fontSize: 14,

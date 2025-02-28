@@ -4,7 +4,7 @@ import 'package:salat_al_janaza/constants/textstyleclass.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DonationDetails extends StatefulWidget {
-  const DonationDetails({Key? key}) : super(key: key);
+  const DonationDetails({super.key});
 
   @override
   State<DonationDetails> createState() => _DonationDetailsState();

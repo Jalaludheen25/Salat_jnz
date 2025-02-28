@@ -16,6 +16,7 @@ class AudioProvider extends ChangeNotifier {
   String? currentAssetPath;
 
   // Dispose audio resources
+  @override
   void dispose() {
     _audioPlayer.dispose();
     super.dispose();

@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:salat_al_janaza/constants/colorclass.dart';
 import 'package:salat_al_janaza/provider/genderprovider.dart';
 
-import 'package:salat_al_janaza/screen/home%20screen.dart';
+import 'package:salat_al_janaza/screen/home_screen.dart';
 
 
 class GenderSelectionScreen extends StatefulWidget {

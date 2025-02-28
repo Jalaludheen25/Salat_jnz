@@ -4,7 +4,7 @@ import 'package:salat_al_janaza/constants/colorclass.dart';
 import 'package:salat_al_janaza/constants/iconclass.dart';
 
 class AboutPage extends StatefulWidget {
-  const AboutPage({Key? key}) : super(key: key);
+  const AboutPage({super.key});
 
   @override
   State<AboutPage> createState() => _AboutPageState();

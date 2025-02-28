@@ -5,7 +5,7 @@ import 'package:salat_al_janaza/constants/imagesclass.dart';
 import 'package:salat_al_janaza/screen/pages/prayerstepscreen.dart';
 
 class SalatAlJanazaScreen extends StatefulWidget {
-  const SalatAlJanazaScreen({Key? key}) : super(key: key);
+  const SalatAlJanazaScreen({super.key});
 
   @override
   State<SalatAlJanazaScreen> createState() => _SalatAlJanazaScreenState();
@@ -26,17 +26,15 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
             initialChildSize: 0.95, // 95% of screen height
             minChildSize: 0.5,
             maxChildSize: 1.0,
-            builder: (_, controller) => Container(
-              child: Stack(
-                children: [
-                  // Prayer Steps Content
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        top: 70), // Adjust for title space
-                    child: const PrayerStepsSliderView(),
-                  ),
-                ],
-              ),
+            builder: (_, controller) => Stack(
+              children: [
+                // Prayer Steps Content
+                Padding(
+                  padding: const EdgeInsets.only(
+                      top: 70), // Adjust for title space
+                  child: const PrayerStepsSliderView(),
+                ),
+              ],
             ),
           ),
         ),

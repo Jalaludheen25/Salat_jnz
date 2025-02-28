@@ -10,7 +10,7 @@ import 'package:salat_al_janaza/screen/payerjanazascreen.dart';
 import 'package:salat_al_janaza/widget/appdrawer.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               const SizedBox(width: 10),
               Text(
-                appkeys.appname,
+                Appkeys.appname,
                 style: GoogleFonts.lato(
                   fontSize: 24,
                   fontWeight: FontWeight.w600,
