@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:salat_al_janaza/constants/colorclass.dart';
-import 'package:salat_al_janaza/constants/textstyleclass.dart';
-import 'package:salat_al_janaza/model/prayerstepmodel.dart';
-import 'package:salat_al_janaza/provider/audio_service.dart';
+import 'package:janaza_guide/constants/colorclass.dart';
+import 'package:janaza_guide/constants/textstyleclass.dart';
+import 'package:janaza_guide/model/prayerstepmodel.dart';
+import 'package:janaza_guide/provider/audio_service.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PrayerStepsSliderView extends StatefulWidget {
@@ -33,8 +33,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
     ),
     PrayerStepModel(
       title: 'ഖിയാം',
-      description:
-          '4) ഒന്നാമത്തെ തക്ബീറിനുശേഷം ഫാതിഹ ഓതുക.',
+      description: '4) ഒന്നാമത്തെ തക്ബീറിനുശേഷം ഫാതിഹ ഓതുക.',
       arabicTexts: [
         ' بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ\uFD3F١\uFD3E ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ \uFD3F٢\uFD3E ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ \uFD3F٣\uFD3E مَـٰلِكِ يَوْمِ ٱلدِّينِ \uFD3F٤\uFD3E إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ \uFD3F٥\uFD3E ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ \uFD3F٦\uFD3E صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ \uFD3F٧\uFD3E آمِينَ \uFD3F٨\uFD3E'
       ],
@@ -59,7 +58,8 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
       title: 'മയ്യിത്തിന് വേണ്ടി ദുആ',
       description:
           'മൂന്നാമത്തെ തക്ബീറിനു ശേഷം മയ്യിത്തിന് വേണ്ടി പ്രാർത്ഥിക്കുക.',
-      arabicTexts: ['اللهم اغفرله وارحمه واعف عنه وعافه وأكرم نزله ووسع مدخله واغسله بماء وثلج وبرد ونقه من الخطايا كما ينقى الثوب الأبيض من الدنس وأبدله دارا خيرا من داره وأهلا خيرا من أهله وزوجا خيرا من زوجه وقه فتنة القبر وعذاب النار (مسلم)',
+      arabicTexts: [
+        'اللهم اغفرله وارحمه واعف عنه وعافه وأكرم نزله ووسع مدخله واغسله بماء وثلج وبرد ونقه من الخطايا كما ينقى الثوب الأبيض من الدنس وأبدله دارا خيرا من داره وأهلا خيرا من أهله وزوجا خيرا من زوجه وقه فتنة القبر وعذاب النار (مسلم)',
       ],
       imagePath: 'assets/images/qiyyam image.png',
       instructions:
@@ -68,11 +68,8 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
     ),
     PrayerStepModel(
       title: 'സലാം ചൊല്ലുക',
-      description:
-          '7) നാലാമത്തെ തക്ബീറിന് ശേഷം സലാം ചൊല്ലുക.',
-      arabicTexts: [
-        'اللهم لا تحرمنا أجره ولا تفتنا بعده'
-      ],
+      description: '7) നാലാമത്തെ തക്ബീറിന് ശേഷം സലാം ചൊല്ലുക.',
+      arabicTexts: ['اللهم لا تحرمنا أجره ولا تفتنا بعده'],
       imagePath: 'assets/images/qiyyam image.png',
       instructions:
           'ഈ മയ്യിത്തിന്റെ പേരിൽ നമസ്കരിച്ച പ്രതിഫലം ഞങ്ങൾക്ക് തടയാതിരിക്കുകയും ഇദ്ദേഹത്തിന് ശേഷം ഞങ്ങളെ കുഴപ്പത്തിൽ പെടുത്താതിരിക്കുകയും ചെയ്യേണമേ',

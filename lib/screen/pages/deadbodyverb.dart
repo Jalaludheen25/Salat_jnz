@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:salat_al_janaza/constants/colorclass.dart';
+import 'package:janaza_guide/constants/colorclass.dart';
 
-import 'package:salat_al_janaza/model/Deadboadyverbmodel.dart';
+import 'package:janaza_guide/model/Deadboadyverbmodel.dart';
 
 class Deadbodyverbscreen extends StatefulWidget {
   const Deadbodyverbscreen({super.key});
@@ -25,7 +25,8 @@ class _DeadbodyverbscreenState extends State<Deadbodyverbscreen> {
       description:
           'കഫന്‍ ചെയ്യല്‍ ശരീരം മുഴുവൻ മൂടും വിധം മൃതശരീരത്തെ തുണികൊണ്ടോ മറ്റോ പൊതിയുകയാണ് കഫൻ ചെയ്യുന്നതിന്റെ പ്രഥമവും നിർബന്ധവുമായ രീതി.',
       imagePath: 'assets/images/deadbodylaydown.png',
-      instructions: 'ശരീരം മുഴുവൻ മൂടാൻ പറ്റിയ വൃത്തിയുള്ള നല്ല വസ്ത്രം എടുക്കുക. വെളുത്ത വസ്ത്രമാണുത്തമം. ഊദ് കൊണ്ടോ മറ്റോ അത് പുകയ്ക്കുകയും സുഗന്ധദ്രവ്യം തളിക്കുകയും ചെയ്യുക. പുരുഷന് മൂന്നും സ്ത്രീക്ക് അഞ്ചും കഷ്ണം തുണിയാണ് വേണ്ടത്. നബി(സ) പറഞ്ഞതായി അബൂഖതാദ (റ) ഉദ്ധരിക്കുന്നു.',
+      instructions:
+          'ശരീരം മുഴുവൻ മൂടാൻ പറ്റിയ വൃത്തിയുള്ള നല്ല വസ്ത്രം എടുക്കുക. വെളുത്ത വസ്ത്രമാണുത്തമം. ഊദ് കൊണ്ടോ മറ്റോ അത് പുകയ്ക്കുകയും സുഗന്ധദ്രവ്യം തളിക്കുകയും ചെയ്യുക. പുരുഷന് മൂന്നും സ്ത്രീക്ക് അഞ്ചും കഷ്ണം തുണിയാണ് വേണ്ടത്. നബി(സ) പറഞ്ഞതായി അബൂഖതാദ (റ) ഉദ്ധരിക്കുന്നു.',
     ),
     Deadboadyverbmodel(
       title: 'മയ്യിത്ത് കുളിപ്പിക്കല്‍:',

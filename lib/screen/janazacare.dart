@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:salat_al_janaza/constants/colorclass.dart';
-import 'package:salat_al_janaza/constants/imagesclass.dart';
-import 'package:salat_al_janaza/screen/pages/deadbodyverb.dart';
-import 'package:salat_al_janaza/screen/pages/deadbodystepscreen.dart';
+import 'package:janaza_guide/constants/colorclass.dart';
+import 'package:janaza_guide/constants/imagesclass.dart';
+import 'package:janaza_guide/screen/pages/deadbodyverb.dart';
+import 'package:janaza_guide/screen/pages/deadbodystepscreen.dart';
 
 class MayyithScreen extends StatefulWidget {
   const MayyithScreen({super.key});

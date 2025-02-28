@@ -1,7 +1,7 @@
 // import 'package:flutter/material.dart';
-// import 'package:salat_al_janaza/constants/textstyleclass.dart';
-// import 'package:salat_al_janaza/model/prayerstepmodel.dart';
-// import 'package:salat_al_janaza/services/audio_service.dart';
+// import 'package:janaza_guide/constants/textstyleclass.dart';
+// import 'package:janaza_guide/model/prayerstepmodel.dart';
+// import 'package:janaza_guide/services/audio_service.dart';
 
 // class PrayerStepPage extends StatefulWidget {
 //   final PrayerStepModel step;

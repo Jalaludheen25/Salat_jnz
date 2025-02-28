@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:salat_al_janaza/constants/appkeys.dart';
-import 'package:salat_al_janaza/constants/colorclass.dart';
-import 'package:salat_al_janaza/screen/drawer/aboutscreen.dart';
-import 'package:salat_al_janaza/screen/drawer/donatescreen.dart';
+import 'package:janaza_guide/constants/appkeys.dart';
+import 'package:janaza_guide/constants/colorclass.dart';
+import 'package:janaza_guide/screen/drawer/aboutscreen.dart';
+import 'package:janaza_guide/screen/drawer/contactscreen.dart';
+import 'package:janaza_guide/screen/drawer/donatescreen.dart';
+import 'package:janaza_guide/screen/janazacare.dart';
+import 'package:janaza_guide/screen/payerjanazascreen.dart';
 
-import 'package:salat_al_janaza/screen/drawer/contactscreen.dart';
-import 'package:salat_al_janaza/screen/janazacare.dart';
-import 'package:salat_al_janaza/screen/payerjanazascreen.dart';
 
 class AppDrawer extends StatefulWidget {
   const AppDrawer({super.key});

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:salat_al_janaza/constants/colorclass.dart';
-
+import 'package:janaza_guide/constants/colorclass.dart';
 
 class ContactPage extends StatefulWidget {
   const ContactPage({super.key});
@@ -16,8 +15,7 @@ class _ContactPageState extends State<ContactPage> {
     return Scaffold(
       backgroundColor: ColorClass.secondaryColor,
       appBar: AppBar(
-        
-        backgroundColor:  ColorClass.primaryColor.withOpacity(0.5),
+        backgroundColor: ColorClass.primaryColor.withOpacity(0.5),
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
@@ -31,16 +29,16 @@ class _ContactPageState extends State<ContactPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 20),
-               Text(
+              Text(
                 'Get in Touch',
-               style: GoogleFonts.poppins(
+                style: GoogleFonts.poppins(
                   fontSize: 16,
                   color: ColorClass.white,
                   fontWeight: FontWeight.w400,
                 ),
               ),
               const SizedBox(height: 8),
-               Text(
+              Text(
                 "We'd love to hear from you",
                 style: GoogleFonts.poppins(
                   fontSize: 16,
@@ -79,7 +77,8 @@ class _ContactPageState extends State<ContactPage> {
                     _buildContactItem(
                       icon: Icons.location_on,
                       title: 'Address',
-                      content: 'D4media, Hira Centre, Calicut, Kerala,\nPin 673004',
+                      content:
+                          'D4media, Hira Centre, Calicut, Kerala,\nPin 673004',
                       iconColor: Colors.blue,
                     ),
                   ],
@@ -116,17 +115,16 @@ class _ContactPageState extends State<ContactPage> {
             children: [
               Text(
                 title,
-                 style: GoogleFonts.poppins( 
+                style: GoogleFonts.poppins(
                   fontSize: 16,
                   color: ColorClass.white,
                   fontWeight: FontWeight.w400,
                 ),
-                ),
-              
-               SizedBox(height: 4),
+              ),
+              SizedBox(height: 4),
               Text(
                 content,
-                style:  GoogleFonts.poppins(
+                style: GoogleFonts.poppins(
                   fontSize: 16,
                   color: Colors.black87,
                 ),

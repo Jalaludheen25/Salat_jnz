@@ -1,4 +1,4 @@
-import 'package:salat_al_janaza/constants/colorclass.dart';
+import 'package:janaza_guide/constants/colorclass.dart';
 
 import 'package:flutter/material.dart';
 
@@ -12,15 +12,13 @@ class TextStyleClass {
       fontSize: 16,
       fontWeight: FontWeight.w400,
       color: ColorClass.black);
- 
 
   static TextStyle primaryFont300(double size, Color color) => TextStyle(
       fontFamily: primaryFontName,
       fontWeight: FontWeight.w300,
       color: color,
       height: textHeight,
-      fontSize: size
-      );
+      fontSize: size);
 
   static TextStyle primaryFont600(double size, Color color) => TextStyle(
       fontFamily: primaryFontName,
@@ -33,12 +31,12 @@ class TextStyleClass {
           double size, Color color, FontWeight bold, TextAlign center,
           {FontWeight weight = FontWeight.w700}) =>
       TextStyle(
-          fontFamily: 'NotoSansMalyalam',
-          fontWeight: weight,
-          color: color,
-          height: textHeight,
-          fontSize: size,
-           );
+        fontFamily: 'NotoSansMalyalam',
+        fontWeight: weight,
+        color: color,
+        height: textHeight,
+        fontSize: size,
+      );
 
   // Title style
   static TextStyle malayalamTitle = const TextStyle(

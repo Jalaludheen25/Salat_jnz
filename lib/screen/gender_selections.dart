@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:salat_al_janaza/constants/colorclass.dart';
-import 'package:salat_al_janaza/provider/genderprovider.dart';
+import 'package:janaza_guide/constants/colorclass.dart';
+import 'package:janaza_guide/provider/genderprovider.dart';
 
-import 'package:salat_al_janaza/screen/home_screen.dart';
-
+import 'package:janaza_guide/screen/home_screen.dart';
 
 class GenderSelectionScreen extends StatefulWidget {
   const GenderSelectionScreen({super.key});
@@ -13,7 +12,6 @@ class GenderSelectionScreen extends StatefulWidget {
   @override
   State<GenderSelectionScreen> createState() => _GenderSelectionScreenState();
 }
-
 
 class _GenderSelectionScreenState extends State<GenderSelectionScreen> {
   Widget _buildGenderCard({
@@ -190,8 +188,7 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        const HomeScreen(),
+                                    builder: (context) => const HomeScreen(),
                                   ),
                                 );
                               }

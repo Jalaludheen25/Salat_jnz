@@ -1,4 +1,4 @@
-# salat_al_janaza
+# janaza_guide
 
 A new Flutter project.
 
