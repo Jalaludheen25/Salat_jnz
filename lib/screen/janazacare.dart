@@ -17,7 +17,7 @@ class _MayyithScreenState extends State<MayyithScreen> {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.transparent,
+      backgroundColor: ColorClass.transparent,
       builder: (context) => GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () => Navigator.of(context).pop(),
@@ -47,7 +47,7 @@ class _MayyithScreenState extends State<MayyithScreen> {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.transparent,
+      backgroundColor: ColorClass.transparent,
       builder: (context) => GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () => Navigator.of(context).pop(),
@@ -86,7 +86,7 @@ class _MayyithScreenState extends State<MayyithScreen> {
           'മയ്യിത്ത് സംസ്കരണം',
           style: GoogleFonts.anekMalayalam(
             fontSize: 20,
-            color: Colors.white,
+            color: ColorClass.white,
             fontWeight: FontWeight.w700,
           ),
         ),
@@ -182,7 +182,7 @@ class _MayyithScreenState extends State<MayyithScreen> {
                 "സമസ്ത മനുഷ്യരും മരണം രുചിക്കേണ്ടവരാകുന്നു. നിങ്ങളെല്ലാവരുടെയും കര്‍മഫലം അന്ത്യനാളില്‍ പരിപൂര്‍ണമായി നല്‍കപ്പെടും. അവിടെ നരകാഗ്നിയില്‍നിന്ന് അകറ്റപ്പെടുകയും സ്വര്‍ഗത്തില്‍ പ്രവേശിപ്പിക്കപ്പെടുകയും ചെയ്തവനാരോ, അവനത്രെ യഥാര്‍ഥത്തില്‍ വിജയം നേടിയവന്‍. ഈ ഭൗതികജീവിതമാകട്ടെ, വഞ്ചനാത്മകമായ ചരക്കു മാത്രമാകുന്നു'. ( 3:186)",
                 style: GoogleFonts.anekMalayalam(
                   fontSize: 20,
-                  color: Colors.white,
+                  color: ColorClass.white,
                   fontWeight: FontWeight.w500,
                 ),
                 textAlign: TextAlign.left,
@@ -192,7 +192,7 @@ class _MayyithScreenState extends State<MayyithScreen> {
                 'മരണം ഉറപ്പിച്ചാല്‍ നിര്‍വഹിക്കേണ്ട പ്രധാന കര്‍മങ്ങള്‍ നോക്കാം.',
                 style: GoogleFonts.anekMalayalam(
                   fontSize: 20,
-                  color: Colors.white,
+                  color: ColorClass.white,
                   fontWeight: FontWeight.w600,
                 ),
               ),
