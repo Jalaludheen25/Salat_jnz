@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:janaza_guide/constants/appkeys.dart';
@@ -7,7 +9,6 @@ import 'package:janaza_guide/screen/drawer/contactscreen.dart';
 import 'package:janaza_guide/screen/drawer/donatescreen.dart';
 import 'package:janaza_guide/screen/janazacare.dart';
 import 'package:janaza_guide/screen/payerjanazascreen.dart';
-
 
 class AppDrawer extends StatefulWidget {
   const AppDrawer({super.key});
@@ -82,14 +83,15 @@ class _AppDrawerState extends State<AppDrawer> {
                               builder: (context) => SalatAlJanazaScreen()));
                     },
                   ),
-                  _buildDrawerItem(
-                    icon: Icons.favorite,
-                    title: 'Donate',
-                    onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => DonationDetails())),
-                  ),
+                  if (!Platform.isIOS)
+                    _buildDrawerItem(
+                      icon: Icons.favorite,
+                      title: 'Donate',
+                      onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DonationDetails())),
+                    ),
                   _buildDrawerItem(
                     icon: Icons.call,
                     title: 'Contact',
