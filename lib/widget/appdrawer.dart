@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:salat_al_janaza/constants/appkeys.dart';
-import 'package:salat_al_janaza/constants/colorclass.dart';
-import 'package:salat_al_janaza/screen/drawer/aboutscreen.dart';
-import 'package:salat_al_janaza/screen/drawer/donatescreen.dart';
-
-import 'package:salat_al_janaza/screen/drawer/contactscreen.dart';
-import 'package:salat_al_janaza/screen/janazacare.dart';
-import 'package:salat_al_janaza/screen/payerjanazascreen.dart';
+import 'package:janaza_guide/constants/appkeys.dart';
+import 'package:janaza_guide/constants/colorclass.dart';
+import 'package:janaza_guide/screen/drawer/aboutscreen.dart';
+import 'package:janaza_guide/screen/drawer/contactscreen.dart';
+import 'package:janaza_guide/screen/janazacare.dart';
+import 'package:janaza_guide/screen/payerjanazascreen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AppDrawer extends StatefulWidget {
-  AppDrawer({Key? key}) : super(key: key);
+  const AppDrawer({super.key});
 
   @override
   State<AppDrawer> createState() => _AppDrawerState();
@@ -85,10 +84,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   _buildDrawerItem(
                     icon: Icons.favorite,
                     title: 'Donate',
-                    onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => DonationDetails())),
+                    onTap: () => _openDonationPage(),
                   ),
                   _buildDrawerItem(
                     icon: Icons.call,
@@ -108,7 +104,7 @@ class _AppDrawerState extends State<AppDrawer> {
             Container(
               padding: EdgeInsets.all(20),
               child: Text(
-                'Version: ${appkeys.appversion}',
+                'Version: ${Appkeys.appversion}',
                 style: GoogleFonts.poppins(
                   color: ColorClass.blueGrey1,
                   fontSize: 14,
@@ -133,5 +129,13 @@ class _AppDrawerState extends State<AppDrawer> {
           style: GoogleFonts.poppins(color: Colors.white, fontSize: 16)),
       onTap: onTap,
     );
+  }
+
+  Future<void> _openDonationPage() async {
+    final Uri donationUri =
+        Uri.parse('https://pages.razorpay.com/janaza-guide');
+    if (await canLaunchUrl(donationUri)) {
+      await launchUrl(donationUri, mode: LaunchMode.externalApplication);
+    }
   }
 }

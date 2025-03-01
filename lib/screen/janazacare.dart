@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:salat_al_janaza/constants/colorclass.dart';
-import 'package:salat_al_janaza/constants/imagesclass.dart';
-import 'package:salat_al_janaza/screen/pages/deadbodyverb.dart';
-import 'package:salat_al_janaza/screen/pages/deadbodystepscreen.dart';
+import 'package:janaza_guide/constants/colorclass.dart';
+import 'package:janaza_guide/constants/imagesclass.dart';
+import 'package:janaza_guide/screen/pages/deadbodyverb.dart';
+import 'package:janaza_guide/screen/pages/deadbodystepscreen.dart';
 
 class MayyithScreen extends StatefulWidget {
-  const MayyithScreen({Key? key}) : super(key: key);
+  const MayyithScreen({super.key});
 
   @override
   State<MayyithScreen> createState() => _MayyithScreenState();
@@ -27,15 +27,13 @@ class _MayyithScreenState extends State<MayyithScreen> {
             initialChildSize: 0.95,
             minChildSize: 0.5,
             maxChildSize: 1.0,
-            builder: (_, controller) => Container(
-              child: Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 70),
-                    child: const Mayyithstepscreen(),
-                  ),
-                ],
-              ),
+            builder: (_, controller) => Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 70),
+                  child: const Mayyithstepscreen(),
+                ),
+              ],
             ),
           ),
         ),

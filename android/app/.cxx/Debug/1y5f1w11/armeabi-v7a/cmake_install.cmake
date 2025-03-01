@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/d4dx/salat_al_janaza/android/app/.cxx/Debug/1y5f1w11/armeabi-v7a/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/d4dx/janaza_guide/android/app/.cxx/Debug/1y5f1w11/armeabi-v7a/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

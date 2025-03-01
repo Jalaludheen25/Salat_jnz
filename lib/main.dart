@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:janaza_guide/provider/genderprovider.dart';
+import 'package:janaza_guide/screen/splash_screen.dart';
 
-import 'package:salat_al_janaza/provider/genderprovider.dart';
 
-
-import 'package:salat_al_janaza/screen/splash%20screen.dart';
 void main() {
   runApp(
     MultiProvider(
@@ -17,7 +16,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {

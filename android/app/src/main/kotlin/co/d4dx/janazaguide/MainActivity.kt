@@ -1,4 +1,4 @@
-package com.example.salat_al_janaza
+package co.d4dx.janazaguide
 
 import io.flutter.embedding.android.FlutterActivity
 

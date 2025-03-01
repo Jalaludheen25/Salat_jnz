@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:salat_al_janaza/constants/colorclass.dart';
-import 'package:salat_al_janaza/constants/imagesclass.dart';
-import 'package:salat_al_janaza/screen/pages/prayerstepscreen.dart';
+import 'package:janaza_guide/constants/colorclass.dart';
+import 'package:janaza_guide/constants/imagesclass.dart';
+import 'package:janaza_guide/screen/pages/prayerstepscreen.dart';
 
 class SalatAlJanazaScreen extends StatefulWidget {
-  const SalatAlJanazaScreen({Key? key}) : super(key: key);
+  const SalatAlJanazaScreen({super.key});
 
   @override
   State<SalatAlJanazaScreen> createState() => _SalatAlJanazaScreenState();
@@ -26,17 +26,15 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
             initialChildSize: 0.95, // 95% of screen height
             minChildSize: 0.5,
             maxChildSize: 1.0,
-            builder: (_, controller) => Container(
-              child: Stack(
-                children: [
-                  // Prayer Steps Content
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        top: 70), // Adjust for title space
-                    child: const PrayerStepsSliderView(),
-                  ),
-                ],
-              ),
+            builder: (_, controller) => Stack(
+              children: [
+                // Prayer Steps Content
+                Padding(
+                  padding:
+                      const EdgeInsets.only(top: 70), // Adjust for title space
+                  child: const PrayerStepsSliderView(),
+                ),
+              ],
             ),
           ),
         ),
@@ -87,7 +85,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                 ),
               ),
               const SizedBox(height: 20),
-               Text(
+              Text(
                 'മയ്യിത്ത് നമസ്കാരം സാമൂഹ്യബാധ്യതയാണ്. സമൂഹത്തിൽ കുറച്ചു പേർ അതു നിർവഹിച്ചാൽ ബാധ്യതയിൽ നിന്ന് എല്ലാവരും മുക്തരാവും. അബൂഹുറൈറ (റ) ഉദ്ധരിക്കുന്നു.إن النبي كان يؤتى بالرجل المتوفى عليه الدين فيسأل هل ترك لدينه فضلا، فإن حدث أنه ترك وفاء صلى، وإلا قال للمسلمين: صلوا لى صاحبكم(കട ബാധ്യതയോടുകൂട മരിച്ച ആളെ നബി (സ)യുടെ മുമ്പിൽ കൊണ്ടുവരുമായിരുന്നു. അയാൾ കടം വീട്ടാൻ വല്ലതും മിച്ചം വെച്ചിട്ടുണ്ടോ എന്ന് നബി(സ) ചോദിക്കും. വീട്ടാൻ മിച്ചം വെച്ചിട്ടുണ്ടെന്ന് പറഞ്ഞാൽ അവിടുന്ന് നമസ്കരിക്കും. ഇല്ലെങ്കിൽ മുസ്ലിംകളോട് പറയും നിങ്ങളുടെ കൂട്ടുകാരന് വേണ്ടി നമസ്കരിക്കുക- ബു​ഖാരി, മുസ് ലിം)',
                 style: GoogleFonts.anekMalayalam(
                   fontSize: 20,
@@ -115,7 +113,6 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                       children: [
                         Icon(Icons.format_list_bulleted,
                             color: ColorClass.white),
-                            
                         SizedBox(width: 12),
                         Text(
                           'പ്രാർത്ഥനാ ഘട്ടങ്ങൾ',
@@ -150,7 +147,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
               ),
               const SizedBox(height: 20),
               // Description Text
-             
+
               const SizedBox(height: 20),
               // Prayer Details
               Text(

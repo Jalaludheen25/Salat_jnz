@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:salat_al_janaza/constants/colorclass.dart';
-import 'package:salat_al_janaza/constants/iconclass.dart';
+import 'package:janaza_guide/constants/colorclass.dart';
+import 'package:janaza_guide/constants/iconclass.dart';
 
 class AboutPage extends StatefulWidget {
-  const AboutPage({Key? key}) : super(key: key);
+  const AboutPage({super.key});
 
   @override
   State<AboutPage> createState() => _AboutPageState();
@@ -84,7 +84,7 @@ class _AboutPageState extends State<AboutPage> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              
+
               Image.asset(
                 'assets/images/D4DX.png',
                 width: 100,

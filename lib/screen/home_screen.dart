@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:salat_al_janaza/constants/appkeys.dart';
-import 'package:salat_al_janaza/constants/colorclass.dart';
-import 'package:salat_al_janaza/constants/iconclass.dart';
-import 'package:salat_al_janaza/constants/imagesclass.dart';
-import 'package:salat_al_janaza/screen/janazacare.dart';
-import 'package:salat_al_janaza/screen/payerjanazascreen.dart';
+import 'package:janaza_guide/constants/appkeys.dart';
+import 'package:janaza_guide/constants/colorclass.dart';
+import 'package:janaza_guide/constants/iconclass.dart';
+import 'package:janaza_guide/constants/imagesclass.dart';
+import 'package:janaza_guide/screen/janazacare.dart';
+import 'package:janaza_guide/screen/payerjanazascreen.dart';
 
-import 'package:salat_al_janaza/widget/appdrawer.dart';
+import 'package:janaza_guide/widget/appdrawer.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               const SizedBox(width: 10),
               Text(
-                appkeys.appname,
+                Appkeys.appname,
                 style: GoogleFonts.lato(
                   fontSize: 24,
                   fontWeight: FontWeight.w600,

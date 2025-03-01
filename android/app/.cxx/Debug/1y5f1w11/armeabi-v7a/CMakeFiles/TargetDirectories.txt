@@ -1,2 +1,2 @@
-D:/d4dx/salat_al_janaza/android/app/.cxx/Debug/1y5f1w11/armeabi-v7a/CMakeFiles/edit_cache.dir
-D:/d4dx/salat_al_janaza/android/app/.cxx/Debug/1y5f1w11/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+D:/d4dx/janaza_guide/android/app/.cxx/Debug/1y5f1w11/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/d4dx/janaza_guide/android/app/.cxx/Debug/1y5f1w11/armeabi-v7a/CMakeFiles/rebuild_cache.dir

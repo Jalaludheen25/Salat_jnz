@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:salat_al_janaza/constants/colorclass.dart';
-import 'package:salat_al_janaza/model/Mayyithmodel.dart';
+import 'package:janaza_guide/constants/colorclass.dart';
+import 'package:janaza_guide/model/Mayyithmodel.dart';
 
 class Mayyithstepscreen extends StatefulWidget {
   const Mayyithstepscreen({super.key});
@@ -15,7 +15,6 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
   final List<Mayyithmodel> _prayerSteps = [
     Mayyithmodel(
       title: 'കലിമ ചൊല്ലിക്കൊടുക്കല്‍:',
-      
       description:
           'അയാൾക്ക് لآ اِلَهَ اِلّا اللّهُ എന്ന് ചൊല്ലിക്കൊടുക്കുക.القِّنوا مَوْتاكم لا إلهَ إلَّا اللهُ (مسلم، أبوداود، الترمذي) ) (നിങ്ങൾ മരണാസന്നർക്കു لا إله إلا الله എന്ന് ചൊല്ലിക്കൊടുക്കുക) എന്ന് നബി (സ) പറഞ്ഞതായി അബൂസഈദിൽ ഖിദ് രി (റ) ഉദ്ധരിച്ചി ട്ടുണ്ട്. അയാൾ അത് ഒരിക്കൽ ചൊല്ലിയാൽ പിന്നെ മറ്റു വല്ലതും സംസാരിച്ചാൽ മാത്രമേ വീണ്ടും ചൊല്ലിക്കൊടുക്കേണ്ടതുള്ളൂ. അതുചൊല്ലാൻ നിർബന്ധിക്കുകയോ ചൊല്ലാൻ പറയുകപോലുമോ ചെയ്യരുത്.',
       imagePath: 'assets/images/patent man.png',
