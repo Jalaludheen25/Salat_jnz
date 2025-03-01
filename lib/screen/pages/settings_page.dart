@@ -4,6 +4,7 @@ import 'package:janaza_guide/constants/appkeys.dart';
 import 'package:janaza_guide/constants/colorclass.dart';
 import 'package:janaza_guide/screen/drawer/aboutscreen.dart';
 import 'package:janaza_guide/screen/drawer/contactscreen.dart';
+import 'package:janaza_guide/screen/drawer/donatescreen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -117,7 +118,10 @@ class SettingsPage extends StatelessWidget {
                     context,
                     icon: Icons.favorite,
                     title: 'Donate',
-                    onTap: _openDonationPage,
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DonationDetails()),
+                    ),
                   ),
                   _buildSettingsItem(
                     context,

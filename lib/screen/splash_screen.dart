@@ -60,10 +60,13 @@ class _SplashScreenState extends State<SplashScreen>
                     opacity: _animation,
                     child: ScaleTransition(
                       scale: _animation,
-                      child: Image.asset(
-                        'assets/icons/app logo.png',
-                        width: 200,
-                        height: 200,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20.0),
+                        child: Image.asset(
+                          'assets/icons/app logo.png',
+                          width: 200,
+                          height: 200,
+                        ),
                       ),
                     ),
                   ),
@@ -84,7 +87,7 @@ class _SplashScreenState extends State<SplashScreen>
             child: FadeTransition(
               opacity: _animation,
               child: Image.asset(
-                'assets/images/D4DX.png', // Make sure to add this image to your assets
+                'assets/images/D4DX.png',
                 width: 100,
                 height: 40,
               ),

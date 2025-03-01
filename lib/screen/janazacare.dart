@@ -13,6 +13,8 @@ class MayyithScreen extends StatefulWidget {
 }
 
 class _MayyithScreenState extends State<MayyithScreen> {
+  bool get isPortrait => MediaQuery.of(context).orientation == Orientation.portrait;
+
   void _showMayyithStepsBottomSheet() {
     showModalBottomSheet(
       context: context,
@@ -98,15 +100,23 @@ class _MayyithScreenState extends State<MayyithScreen> {
             children: [
               const SizedBox(height: 20),
               // Prayer Icon Card
+              // Prayer Icon Card with orientation awareness
               Container(
                 width: double.infinity,
-                height: 200,
+                height: isPortrait
+                    ? MediaQuery.of(context).size.height *
+                        0.25 // 25% in portrait
+                    : MediaQuery.of(context).size.height *
+                        0.4, // 40% in landscape
+                margin:
+                    EdgeInsets.all(MediaQuery.of(context).size.width * 0.04),
                 decoration: BoxDecoration(
                   color: Colors.grey[900],
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding:
+                      EdgeInsets.all(MediaQuery.of(context).size.width * 0.03),
                   child: Image.asset(
                     ImageClass.bgmayyith,
                     fit: BoxFit.cover,

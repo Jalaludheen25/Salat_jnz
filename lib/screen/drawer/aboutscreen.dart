@@ -46,7 +46,7 @@ class _AboutPageState extends State<AboutPage> {
                   height: 120,
                   decoration: BoxDecoration(
                     color: const Color(0xFF009688),
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(20),
                   ),
                   child: Image.asset(
                     IconClass.applogo,

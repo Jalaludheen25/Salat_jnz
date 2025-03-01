@@ -196,77 +196,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
             ),
 
             // Navigation buttons positioned at the bottom
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: 20,
-              child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    if (_currentIndex > 0)
-                      Container(
-                        width: 56, // Increased button size
-                        height: 56, // Increased button size
-                        decoration: BoxDecoration(
-                          color: ColorClass.white,
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.2),
-                              spreadRadius: 1,
-                              blurRadius: 4,
-                              offset: const Offset(0, 2),
-                            ),
-                          ],
-                        ),
-                        child: IconButton(
-                          onPressed: _goToPreviousPage,
-                          icon: Icon(
-                            Icons.arrow_back,
-                            color: ColorClass.primaryColor,
-                            size: 32, // Increased icon size
-                          ),
-                          padding: EdgeInsets.zero, // Remove default padding
-                        ),
-                      )
-                    else
-                      const SizedBox(width: 56), // Match button width
-
-                    if (_currentIndex < _prayerSteps.length - 1)
-                      Container(
-                        width: 56, // Increased button size
-                        height: 56, // Increased button size
-                        decoration: BoxDecoration(
-                          color: ColorClass.white,
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.2),
-                              spreadRadius: 1,
-                              blurRadius: 4,
-                              offset: const Offset(0, 2),
-                            ),
-                          ],
-                        ),
-                        child: IconButton(
-                          onPressed: _goToNextPage,
-                          icon: Icon(
-                            Icons.arrow_forward,
-                            color: ColorClass.primaryColor,
-                            size: 32, // Increased icon size
-                          ),
-                          padding: EdgeInsets.zero, // Remove default padding
-                        ),
-                      )
-                    else
-                      const SizedBox(width: 56), // Match button width
-                  ],
-                ),
-              ),
-            ),
+           
           ],
         ),
       ),

@@ -15,11 +15,19 @@ class _ContactPageState extends State<ContactPage> {
     return Scaffold(
       backgroundColor: ColorClass.secondaryColor,
       appBar: AppBar(
-        backgroundColor: ColorClass.primaryColor.withOpacity(0.5),
+        backgroundColor: ColorClass.primaryColor,
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () => Navigator.pop(context),
+        ),
+        title: Text(
+          'Contact us',
+          style: GoogleFonts.poppins(
+            fontSize: 20,
+            color: ColorClass.white,
+            fontWeight: FontWeight.w500,
+          ),
         ),
       ),
       body: SafeArea(
@@ -49,7 +57,7 @@ class _ContactPageState extends State<ContactPage> {
               Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: ColorClass.primaryColor.withOpacity(0.5),
+                  color: ColorClass.primaryColor,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(
