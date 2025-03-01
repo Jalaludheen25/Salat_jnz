@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:janaza_guide/constants/colorclass.dart';
 
-import 'package:janaza_guide/model/Deadboadyverbmodel.dart';
+import 'package:janaza_guide/model/deadboadyverbmodel.dart';
 
 class Deadbodyverbscreen extends StatefulWidget {
   const Deadbodyverbscreen({super.key});

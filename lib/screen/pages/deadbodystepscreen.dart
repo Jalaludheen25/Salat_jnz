@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:janaza_guide/constants/colorclass.dart';
-import 'package:janaza_guide/model/Mayyithmodel.dart';
+import 'package:janaza_guide/model/mayyithmodel.dart';
 
 class Mayyithstepscreen extends StatefulWidget {
   const Mayyithstepscreen({super.key});

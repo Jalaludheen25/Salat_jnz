@@ -4,9 +4,8 @@ import 'package:janaza_guide/constants/colorclass.dart';
 import 'package:janaza_guide/constants/imagesclass.dart';
 import 'package:janaza_guide/screen/pages/prayerstepscreen.dart';
 
-
 class SalatAlJanazaScreen extends StatefulWidget {
-  const SalatAlJanazaScreen({Key? key}) : super(key: key);
+  const SalatAlJanazaScreen({super.key});
 
   @override
   State<SalatAlJanazaScreen> createState() => _SalatAlJanazaScreenState();
@@ -14,8 +13,9 @@ class SalatAlJanazaScreen extends StatefulWidget {
 
 class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
   // Constants for texts that contain Arabic
-  static const String hadithText = 'മയ്യിത്ത് നമസ്കാരം സാമൂഹ്യബാധ്യതയാണ്. സമൂഹത്തിൽ കുറച്ചു പേർ അതു നിർവഹിച്ചാൽ ബാധ്യതയിൽ നിന്ന് എല്ലാവരും മുക്തരാവും. അബൂഹുറൈറ (റ) ഉദ്ധരിക്കുന്നു. إن النبي كان يؤتى بالرجل المتوفى عليه الدين فيسأل هل ترك لدينه فضلا، فإن حدث أنه ترك وفاء صلى، وإلا قال للمسلمين: صلوا لى صاحبكم';
-  
+  static const String hadithText =
+      'മയ്യിത്ത് നമസ്കാരം സാമൂഹ്യബാധ്യതയാണ്. സമൂഹത്തിൽ കുറച്ചു പേർ അതു നിർവഹിച്ചാൽ ബാധ്യതയിൽ നിന്ന് എല്ലാവരും മുക്തരാവും. അബൂഹുറൈറ (റ) ഉദ്ധരിക്കുന്നു. إن النبي كان يؤتى بالرجل المتوفى عليه الدين فيسأل هل ترك لدينه فضلا، فإن حدث أنه ترك وفاء صلى، وإلا قال للمسلمين: صلوا لى صاحبكم';
+
   void _showPrayerStepsBottomSheet() {
     showModalBottomSheet(
       context: context,
@@ -89,7 +89,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                 ),
               ),
               const SizedBox(height: 20),
-              
+
               // Mixed text with Arabic and Malayalam
               Text(
                 hadithText,
@@ -108,7 +108,8 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                 style: ElevatedButton.styleFrom(
                   foregroundColor: ColorClass.white,
                   backgroundColor: ColorClass.secondaryColor,
-                  padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -118,7 +119,8 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.format_list_bulleted, color: ColorClass.white),
+                        Icon(Icons.format_list_bulleted,
+                            color: ColorClass.white),
                         SizedBox(width: 12),
                         Text(
                           'പ്രാർത്ഥനാ ഘട്ടങ്ങൾ',
@@ -151,7 +153,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                   ],
                 ),
               ),
-              
+
               const SizedBox(height: 20),
               // Prayer details with Malayalam text
               Text(
@@ -162,7 +164,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              
+
               const SizedBox(height: 20),
               Text(
                 'മയ്യിത്ത് നമസ്കാരത്തിന്റെ നിർബന്ധഘടകങ്ങൾ താഴെ പറയുന്നവയാണ്.',
@@ -172,7 +174,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              
+
               const SizedBox(height: 12),
               Text(
                 '1) നിയ്യത്ത്\n2) സാധിക്കുന്നവൻ നിൽക്കൽ\n3) നാലു തക്ബീർ,',
