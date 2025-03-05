@@ -98,7 +98,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                   color: ColorClass.white,
                   fontWeight: FontWeight.w600,
                 ),
-                textAlign: TextAlign.justify,
+                textAlign: TextAlign.start ,
               ),
 
               const SizedBox(height: 20),
@@ -154,17 +154,8 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                 ),
               ),
 
-              const SizedBox(height: 20),
-              // Prayer details with Malayalam text
-              Text(
-                'മയ്യിത്ത് നമസ്കാരം സാമൂഹ്യബാധ്യതയാണ്. സമൂഹത്തിൽ കുറച്ചു പേർ അതു നിർവഹിച്ചാൽ ബാധ്യതയിൽ നിന്ന് എല്ലാവരും മുക്തരാവും.',
-                style: GoogleFonts.anekMalayalam(
-                  fontSize: 20,
-                  color: ColorClass.white,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-
+            
+              
               const SizedBox(height: 20),
               Text(
                 'മയ്യിത്ത് നമസ്കാരത്തിന്റെ നിർബന്ധഘടകങ്ങൾ താഴെ പറയുന്നവയാണ്.',

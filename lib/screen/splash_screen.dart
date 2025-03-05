@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:janaza_guide/constants/appkeys.dart';
+import 'package:janaza_guide/constants/colorclass.dart';
 import 'package:janaza_guide/constants/textstyleclass.dart';
 import 'package:janaza_guide/screen/gender_selections.dart';
 
@@ -27,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen>
     );
     _controller.forward();
 
-    Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 3), () {
       if (mounted) {
         Navigator.pushReplacement(
           context,
@@ -48,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           Expanded(
@@ -82,6 +85,14 @@ class _SplashScreenState extends State<SplashScreen>
               ),
             ),
           ),
+            Text(
+                'Version: ${Appkeys.appversion}',
+                style: GoogleFonts.poppins(
+                  color: ColorClass.blueGrey1,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
           Padding(
             padding: const EdgeInsets.only(bottom: 32.0),
             child: FadeTransition(
