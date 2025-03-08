@@ -80,8 +80,8 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                   color: Colors.grey[900],
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
                   child: Image.asset(
                     ImageClass.bgjanza,
                     fit: BoxFit.fill,

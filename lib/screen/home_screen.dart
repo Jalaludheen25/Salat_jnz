@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
       'screen': const MayyithScreen(),
     },
     {
-      'title': 'ജനാസ നമസ്കാരം',
+      'title': 'ജനാസ\nനമസ്കാരം',
       'icon': IconClass.prayericon,
       'screen': const SalatAlJanazaScreen(),
     },
@@ -144,26 +144,29 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                item['icon'],
-                color: ColorClass.primaryColor,
-                width: 60,
-                height: 60,
-              ),
-              const SizedBox(height: 10),
-              Text(
-                item['title'],
-                textAlign: TextAlign.center,
-                style: const TextStyle(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  item['icon'],
                   color: ColorClass.primaryColor,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+                  width: 60,
+                  height: 60,
                 ),
-              ),
-            ],
+                const SizedBox(height: 10),
+                Text(
+                  item['title'],
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: ColorClass.primaryColor,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

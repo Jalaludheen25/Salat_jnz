@@ -1,95 +1,115 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
 import 'package:just_audio/just_audio.dart';
 
-/// A service to handle audio playback for prayer steps
-class AudioProvider extends ChangeNotifier {
-  static final AudioProvider _instance = AudioProvider._internal();
-  factory AudioProvider() => _instance;
-  AudioProvider._internal();
-
+class AudioProvider with ChangeNotifier {
   final AudioPlayer _audioPlayer = AudioPlayer();
-  String? _currentAssetPath;
   bool _isPlaying = false;
+  String? _currentAssetPath;
+  double _progress = 0.0;
+  Duration _duration = Duration.zero;
+  Duration _position = Duration.zero;
 
   bool get isPlaying => _isPlaying;
-  String? currentAssetPath;
+  String? get currentAssetPath => _currentAssetPath;
+  double get progress => _progress;
+  Duration get duration => _duration;
+  Duration get position => _position;
 
-  // Dispose audio resources
-  @override
-  void dispose() {
-    _audioPlayer.dispose();
-    super.dispose();
+  AudioProvider() {
+    _setupAudioPlayer();
   }
-  /// Play or pause the audio based on the current state
-  Future<void> playPauseAudio(String assetPath) async {
-    currentAssetPath = assetPath;
-    try {
-      if (_isPlaying) {
-        await _audioPlayer.pause();
-        _isPlaying = false;
-      } else {
-        // If it's a different audio file or no audio is loaded
-        if (_currentAssetPath != assetPath) {
-          await _audioPlayer.stop();
-          await _audioPlayer.setAsset(assetPath);
-          _currentAssetPath = assetPath;
-        }
-        await _audioPlayer.play();
-        _isPlaying = true;
+
+  void _setupAudioPlayer() {
+    _audioPlayer.playerStateStream.listen((PlayerState state) {
+      _isPlaying = state.playing;
+      notifyListeners();
+    });
+
+    _audioPlayer.positionStream.listen((Duration p) {
+      _position = p;
+      if (_duration.inMilliseconds > 0) {
+        _progress = p.inMilliseconds / _duration.inMilliseconds;
       }
       notifyListeners();
-    } catch (e) {
-      debugPrint('Error playing/pausing audio: $e');
-      _isPlaying = false;
+    });
+
+    _audioPlayer.durationStream.listen((Duration? d) {
+      _duration = d ?? Duration.zero;
       notifyListeners();
+    });
+
+    _audioPlayer.playerStateStream.listen((PlayerState state) {
+      if (state.processingState == ProcessingState.completed) {
+        _isPlaying = false;
+        _position = Duration.zero;
+        _progress = 0.0;
+        notifyListeners();
+      }
+    });
+  }
+
+  Future<void> loadAudio(String assetPath) async {
+    if (_currentAssetPath != assetPath) {
+      await stop();
+      _currentAssetPath = assetPath;
+      await _audioPlayer.setAsset(assetPath);
+      notifyListeners();
+    }
+  }
+
+  Future<void> playPauseAudio(String assetPath) async {
+    try {
+      if (_currentAssetPath != assetPath) {
+        // Load new audio
+        await loadAudio(assetPath);
+        await play();
+      } else {
+        // Toggle play/pause for current audio
+        if (_isPlaying) {
+          await pause();
+        } else {
+          await play();
+        }
+      }
+    } catch (e) {
+      print('Error in playPauseAudio: $e');
       rethrow;
     }
   }
 
-  /// Resume playback from the current position
-Future<void> resume() async {
-  try {
-    if (_currentAssetPath != null && !_isPlaying) {
+  Future<void> play() async {
+    try {
       await _audioPlayer.play();
       _isPlaying = true;
       notifyListeners();
+    } catch (e) {
+      print('Error playing audio: $e');
+      rethrow;
     }
-  } catch (e) {
-    debugPrint('Error resuming audio: $e');
-    rethrow;
   }
-}
 
-  /// Stop the current audio playback
+  Future<void> pause() async {
+    try {
+      await _audioPlayer.pause();
+      _isPlaying = false;
+      notifyListeners();
+    } catch (e) {
+      print('Error pausing audio: $e');
+      rethrow;
+    }
+  }
+
   Future<void> stop() async {
     try {
       await _audioPlayer.stop();
       _isPlaying = false;
+      _position = Duration.zero;
+      _progress = 0.0;
       notifyListeners();
     } catch (e) {
-      debugPrint('Error stopping audio: $e');
+      print('Error stopping audio: $e');
       rethrow;
     }
   }
-
-  /// Replay the current audio from the beginning
-  Future<void> replay() async {
-    try {
-      if (_currentAssetPath != null) {
-        await _audioPlayer.stop();
-        await _audioPlayer.setAsset(_currentAssetPath!);
-        await _audioPlayer.play();
-        _isPlaying = true;
-        notifyListeners();
-      }
-    } catch (e) {
-      debugPrint('Error replaying audio: $e');
-      _isPlaying = false;
-      notifyListeners();
-      rethrow;
-    }
-  }
-
-
 }

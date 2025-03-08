@@ -45,7 +45,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
     PrayerStepModel(
       title: 'തശഹ്ഹുദ്',
       description:
-          'രണ്ടാമത്തെ തക്ബീറിനുശേഷം നബി(സ)യുടെ പേരിൽ സ്വലാത് ചൊല്ലുക.',
+          'രണ്ടാമത്തെ തക്ബീറിനുശേഷം നബി(സ)യുടെ പേരിൽ സ്വലാത് ചൊല്ലുക.',
       arabicTexts: [
         'اللهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ اَلَّلهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ',
       ],
@@ -59,7 +59,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
       description:
           'മൂന്നാമത്തെ തക്ബീറിനു ശേഷം മയ്യിത്തിന് വേണ്ടി പ്രാർത്ഥിക്കുക.',
       arabicTexts: [
-        'اللهم اغفرله وارحمه واعف عنه وعافه وأكرم نزله ووسع مدخله واغسله بماء وثلج وبرد ونقه من الخطايا كما ينقى الثوب الأبيض من الدنس وأبدله دارا خيرا من داره وأهلا خيرا من أهله وزوجا خيرا من زوجه وقه فتنة القبر وعذاب النار (مسلم)',
+        ' اَلَّلهُمَّ أغْفِرْلَهُ وَرْحَمْهُ وَعْفُ عَنْهُ وَعَافِهِ وَاَكْرِمْ نُزُلَهُ وَوَسِّعْ مَدْخَلَهُ وَغْسِلْهُ بِالْمَاءِ وَثَّلْجِ وَالْبَرَدِ وَنَقِّهِ مِنَالْخَطَايَا كَمَا يُنَقَّ الْثَّوْبُ الْاَبْيَضُ مِنَ الدَّنٍَسِ وَاَبْدِلْهُ دَارً خَيْرً مِنْ دَارِهِ وَاَهْلً خَيْرً مِّنْ اَهْلِهِ وَزَوْجً خَيْرًمِّنْ زَوْجِهِ وَاَدْخِلْهُ الْجَنَّتَ وَاَعِذْهُ مِنْ عَذَابِ الْقَبْرِ وَفِتْنَتِهِ وَمِنْ عَذَابِ الْنَّارٍ',
       ],
       imagePath: 'assets/images/qiyyam image.png',
       instructions:
@@ -68,12 +68,12 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
     ),
     PrayerStepModel(
       title: 'സലാം ചൊല്ലുക',
-      description: '7) നാലാമത്തെ തക്ബീറിന് ശേഷം സലാം ചൊല്ലുക.',
-      arabicTexts: ['اللهم لا تحرمنا أجره ولا تفتنا بعده'],
+      description: '7) നാലാമത്തെ തക്ബീറിന് ശേഷം സലാം ചൊല്ലുക.',
+      arabicTexts: ['اللهم لا تحرمنا أجره ولا تفتنا بعده'],
       imagePath: 'assets/images/qiyyam image.png',
       instructions:
           'ഈ മയ്യിത്തിന്റെ പേരിൽ നമസ്കരിച്ച പ്രതിഫലം ഞങ്ങൾക്ക് തടയാതിരിക്കുകയും ഇദ്ദേഹത്തിന് ശേഷം ഞങ്ങളെ കുഴപ്പത്തിൽ പെടുത്താതിരിക്കുകയും ചെയ്യേണമേ',
-      audioPath: 'assets/audio/salam dua.mp3',
+       audioPath: 'assets/audio/salam dua.mp3',
     ),
   ];
 
@@ -91,14 +91,17 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
   @override
   void dispose() {
     _pageController.dispose();
-    _audioService.removeListener(() {
-      setState(() {});
-    });
+    _audioService.dispose(); // Make sure to dispose the audio service properly
     super.dispose();
   }
 
   void _goToNextPage() {
     if (_currentIndex < _prayerSteps.length - 1) {
+      // Pause current audio before moving to next page
+      if (_audioService.isPlaying) {
+        _audioService.pause();
+      }
+      
       _pageController.nextPage(
           duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
       setState(() {
@@ -109,6 +112,11 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
 
   void _goToPreviousPage() {
     if (_currentIndex > 0) {
+      // Pause current audio before moving to previous page
+      if (_audioService.isPlaying) {
+        _audioService.pause();
+      }
+      
       _pageController.previousPage(
           duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
       setState(() {
@@ -186,6 +194,11 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
                       );
                     },
                     onPageChanged: (index) {
+                      // Automatically pause audio when page changes
+                      if (_audioService.isPlaying) {
+                        _audioService.pause();
+                      }
+                      
                       setState(() {
                         _currentIndex = index;
                       });
@@ -196,7 +209,17 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
             ),
 
             // Navigation buttons positioned at the bottom
-           
+            // Positioned(
+            //   bottom: 20,
+            //   left: 0,
+            //   right: 0,
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //     children: [
+                  
+            //     ],
+            //   ),
+            // ),
           ],
         ),
       ),
@@ -308,7 +331,11 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
                         icon: Icons.replay,
                         onTap: () async {
                           try {
-                            await _audioService.replay();
+                            // Load the current step's audio first if not already loaded
+                            if (_audioService.currentAssetPath != step.audioPath) {
+                              await _audioService.loadAudio(step.audioPath);
+                            }
+                            await _audioService.play();
                           } catch (e) {
                             if (mounted) {
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -322,23 +349,26 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
                       ),
                       const SizedBox(width: 8),
                       _buildAudioButton(
-                        icon: _audioService.isPlaying
+                        icon: _audioService.isPlaying && _audioService.currentAssetPath == step.audioPath
                             ? Icons.pause
                             : Icons.play_arrow,
                         onTap: () async {
                           try {
-                            if (_audioService.isPlaying) {
-                              await _audioService
-                                  .playPauseAudio(step.audioPath);
-                            } else {
-                              // Try to resume if it's the same file, otherwise start playing
-                              if (_audioService.currentAssetPath ==
-                                  step.audioPath) {
-                                await _audioService.resume();
+                            // If another audio is playing, stop it first
+                            if (_audioService.isPlaying && _audioService.currentAssetPath != step.audioPath) {
+                              await _audioService.stop();
+                            }
+                            
+                            // Check if current file is already loaded
+                            if (_audioService.currentAssetPath == step.audioPath) {
+                              if (_audioService.isPlaying) {
+                                await _audioService.pause();
                               } else {
-                                await _audioService
-                                    .playPauseAudio(step.audioPath);
+                                await _audioService.play();
                               }
+                            } else {
+                              // Load and play the new audio
+                              await _audioService.playPauseAudio(step.audioPath);
                             }
                           } catch (e) {
                             if (mounted) {

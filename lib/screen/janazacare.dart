@@ -101,25 +101,18 @@ class _MayyithScreenState extends State<MayyithScreen> {
               const SizedBox(height: 20),
               // Prayer Icon Card
               // Prayer Icon Card with orientation awareness
-              Container(
+           Container(
                 width: double.infinity,
-                height: isPortrait
-                    ? MediaQuery.of(context).size.height *
-                        0.25 // 25% in portrait
-                    : MediaQuery.of(context).size.height *
-                        0.4, // 40% in landscape
-                margin:
-                    EdgeInsets.all(MediaQuery.of(context).size.width * 0.04),
+                height: 200,
                 decoration: BoxDecoration(
                   color: Colors.grey[900],
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Padding(
-                  padding:
-                      EdgeInsets.all(MediaQuery.of(context).size.width * 0.03),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
                   child: Image.asset(
                     ImageClass.bgmayyith,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fill,
                   ),
                 ),
               ),
