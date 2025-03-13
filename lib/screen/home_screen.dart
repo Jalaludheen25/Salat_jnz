@@ -5,7 +5,7 @@ import 'package:janaza_guide/constants/colorclass.dart';
 import 'package:janaza_guide/constants/iconclass.dart';
 import 'package:janaza_guide/constants/imagesclass.dart';
 import 'package:janaza_guide/screen/janazacare.dart';
-import 'package:janaza_guide/screen/payerjanazascreen.dart';
+import 'package:janaza_guide/screen/prayerjanazascreen.dart';
 
 import 'package:janaza_guide/widget/appdrawer.dart';
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:janaza_guide/constants/colorclass.dart';
 import 'package:janaza_guide/constants/imagesclass.dart';
+import 'package:janaza_guide/screen/pages/prayersinhadith.dart';
 import 'package:janaza_guide/screen/pages/prayerstepscreen.dart';
 
 class SalatAlJanazaScreen extends StatefulWidget {
@@ -39,6 +40,34 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                   ),
                 ],
               ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _showPrayersinhadithBottomSheet() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: ColorClass.transparent,
+      builder: (context) => GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () => Navigator.of(context).pop(),
+        child: GestureDetector(
+          onTap: () {}, // Prevent taps from closing the bottom sheet
+          child: DraggableScrollableSheet(
+            initialChildSize: 0.95,
+            minChildSize: 0.5,
+            maxChildSize: 1.0,
+            builder: (_, controller) => Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 70),
+                  child: Prayersinhadith(),
+                ),
+              ],
             ),
           ),
         ),
@@ -151,8 +180,57 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                 ),
                 textAlign: TextAlign.start ,
               ),
-
               const SizedBox(height: 20),
+               ElevatedButton(
+                onPressed: _showPrayersinhadithBottomSheet,
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: ColorClass.white,
+                  backgroundColor: ColorClass.secondaryColor,
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.format_list_bulleted,
+                            color: ColorClass.white),
+                        SizedBox(width: 12),
+                        Text(
+                          'ഹദീഥുകളിൽ വന്ന പ്രാർഥനകൾ ',
+                          style: GoogleFonts.anekMalayalam(
+                            fontSize: 14,
+                            color: ColorClass.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'View All',
+                          style: GoogleFonts.poppins(
+                            color: ColorClass.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        SizedBox(width: 4),
+                        Icon(
+                          Icons.arrow_forward_rounded,
+                          color: ColorClass.white,
+                          size: 18,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
               // Prayer Steps Button
              
 
@@ -177,6 +255,15 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                   fontWeight: FontWeight.w600,
                 ),
               ),
+              Text(
+                'ജാബിർ (റ) പറയുന്നു:إن النبي ﷺ صلى على النجاشي فكبر أربعا (البخاري، مسلم))(നബി(സ) നജാശിക്കുവേണ്ടി നമസ്കരിച്ചു. നാലു തക്ബീർ ചൊല്ലി.\n4) ഒന്നാമത്തെ തക്ബീറിനുശേഷം ഫാതിഹ ഓതുക.\n5) രണ്ടാമത്തെ തക്ബീറിനുശേഷം നബി(സ)യുടെ പേരിൽ സ്വലാത് ചൊല്ലുക.\n6) മൂന്നാമത്തെ തക്ബീറിനു ശേഷം മയ്യിത്തിന് വേണ്ടി പ്രാർത്ഥിക്കുക.\n 7) നാലാമത്തെ തക്ബീറിന് ശേഷം സലാം ചൊല്ലുക.',
+                style: GoogleFonts.anekMalayalam(
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              
             ],
           ),
         ),
