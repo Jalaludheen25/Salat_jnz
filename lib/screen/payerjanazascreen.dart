@@ -14,7 +14,7 @@ class SalatAlJanazaScreen extends StatefulWidget {
 class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
   // Constants for texts that contain Arabic
   static const String hadithText =
-      'മയ്യിത്ത് നമസ്കാരം സാമൂഹ്യബാധ്യതയാണ്. സമൂഹത്തിൽ കുറച്ചു പേർ അതു നിർവഹിച്ചാൽ ബാധ്യതയിൽ നിന്ന് എല്ലാവരും മുക്തരാവും. അബൂഹുറൈറ (റ) ഉദ്ധരിക്കുന്നു. إن النبي كان يؤتى بالرجل المتوفى عليه الدين فيسأل هل ترك لدينه فضلا، فإن حدث أنه ترك وفاء صلى، وإلا قال للمسلمين: صلوا لى صاحبكم';
+      'മയ്യിത്ത് നമസ്കാരം സാമൂഹ്യബാധ്യതയാണ്. സമൂഹത്തിൽ കുറച്ചു പേർ അതു നിർവഹിച്ചാൽ ബാധ്യതയിൽ നിന്ന് എല്ലാവരും മുക്തരാവും. അബൂഹുറൈറ (റ) ഉദ്ധരിക്കുന്നു. إن النبي كان يؤتى بالرجل المتوفى عليه الدين فيسأل هل ترك لدينه فضلا، فإن حدث أنه ترك وفاء صلى، وإلا قال للمسلمين: صلوا لى صاحبكم  (കട ബാധ്യതയോടുകൂടി മരിച്ച ആളെ നബി (സ)യുടെ മുമ്പിൽ കൊണ്ടുവരുമായിരുന്നു. അയാൾ കടം വീട്ടാൻ വല്ലതും മിച്ചം വെച്ചിട്ടുണ്ടോ എന്ന് നബി(സ) ചോദിക്കും. വീട്ടാൻ മിച്ചം വെച്ചിട്ടുണ്ടെന്ന് പറഞ്ഞാൽ അവിടുന്ന് നമസ്കരിക്കും. ഇല്ലെങ്കിൽ മുസ്ലിംകളോട് പറയും നിങ്ങളുടെ കൂട്ടുകാരന് വേണ്ടി നമസ്കരിക്കുക- ബുഖാരി, മുസ് ലിം)മയ്യിത്ത് നമസ്കാരം ഏറെ പ്രധാനപ്പെട്ട കാര്യമാണ്. നബി (സ) പറഞ്ഞതായി അബൂഹുറൈറ(റ) ഉദ്ധരിക്കുന്നു.من تبع جنازة وصلى عليها فله قيراط ومن تبعها حتى يفرغ منها فله قيراطان أحدهما مثل أحد (رواه الجماعة)(മയ്യിത്തിനെ പിന്തുടർന്നു ജനാസ നമസ്കരിച്ചവന് ഒരു ഖീറാത്ത് പ്രതിഫലമുണ്ട്. സംസ്കരണത്തിൽ നിന്ന് പൂർണമായി വിരമിക്കുംവരെ അതിനെ പിന്തുടരുന്നവന്ന് രണ്ട് ഖീറാത്താണ് പ്രതിഫലം. ഒരു ഖീറാത്ത് ഉഹ്ദു മലയ്ക്ക് തുല്യമാണ്.)';
 
   void _showPrayerStepsBottomSheet() {
     showModalBottomSheet(
@@ -89,21 +89,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                 ),
               ),
               const SizedBox(height: 20),
-
-              // Mixed text with Arabic and Malayalam
-              Text(
-                hadithText,
-                style: GoogleFonts.anekMalayalam(
-                  fontSize: 20,
-                  color: ColorClass.white,
-                  fontWeight: FontWeight.w600,
-                ),
-                textAlign: TextAlign.start ,
-              ),
-
-              const SizedBox(height: 20),
-              // Prayer Steps Button
-              ElevatedButton(
+               ElevatedButton(
                 onPressed: _showPrayerStepsBottomSheet,
                 style: ElevatedButton.styleFrom(
                   foregroundColor: ColorClass.white,
@@ -153,6 +139,22 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                   ],
                 ),
               ),
+              SizedBox(height: 20),
+
+              // Mixed text with Arabic and Malayalam
+              Text(
+                hadithText,
+                style: GoogleFonts.anekMalayalam(
+                  fontSize: 20,
+                  color: ColorClass.white,
+                  fontWeight: FontWeight.w600,
+                ),
+                textAlign: TextAlign.start ,
+              ),
+
+              const SizedBox(height: 20),
+              // Prayer Steps Button
+             
 
             
               

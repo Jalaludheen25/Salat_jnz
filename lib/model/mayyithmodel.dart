@@ -9,7 +9,7 @@ class Mayyithmodel {
     required this.title,
     required this.description,
     
-    required this.imagePath,
+    required this.imagePath, required String instructions,
  
     
    
