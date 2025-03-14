@@ -77,12 +77,19 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Check if this is being shown in a bottom sheet
+    final bool isInBottomSheet = ModalRoute.of(context)?.settings.name == null;
+    
     return Scaffold(
       backgroundColor: ColorClass.detailprimary,
       appBar: AppBar(
-        backgroundColor: ColorClass.secondaryColor,
+        backgroundColor: isInBottomSheet ? Colors.transparent : ColorClass.secondaryColor,
+        elevation: isInBottomSheet ? 0 : 4,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: ColorClass.white),
+          icon: Icon(
+            isInBottomSheet ? Icons.close : Icons.arrow_back, 
+            color: ColorClass.white
+          ),
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(

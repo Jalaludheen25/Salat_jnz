@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:janaza_guide/constants/colorclass.dart';
-import 'package:janaza_guide/constants/textstyleclass.dart';
+
 import 'package:janaza_guide/provider/audio_service.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -289,7 +289,7 @@ class _PrayersinhadithState extends State<Prayersinhadith> {
               child: Center(
                 child: Text(
                   '${stepIndex + 1}',
-                  style: const TextStyle(
+                  style: GoogleFonts.anekMalayalam(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
@@ -507,9 +507,9 @@ class _PrayersinhadithState extends State<Prayersinhadith> {
         text,
         textAlign: TextAlign.right,
         textDirection: TextDirection.rtl,
-        style: TextStyleClass.primaryFontArabic(
-          fontSize,
-          Colors.white,
+        style: GoogleFonts.notoSansArabic(
+          fontSize: fontSize,
+          color: Colors.white,
         ).copyWith(height: 2.0),
       ),
     );
