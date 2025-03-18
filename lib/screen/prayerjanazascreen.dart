@@ -145,7 +145,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                             color: ColorClass.white),
                         SizedBox(width: 12),
                         Text(
-                          'പ്രാർത്ഥനാ ഘട്ടങ്ങൾ',
+                          'മയ്യിത്ത് നമസ്കാരം',
                           style: GoogleFonts.anekMalayalam(
                             fontSize: 18,
                             color: ColorClass.white,

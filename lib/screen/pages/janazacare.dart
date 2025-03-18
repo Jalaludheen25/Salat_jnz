@@ -84,7 +84,7 @@ class _JanazacaredetailsState extends State<Janazacaredetails> {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(
-          'ജനാസ സംസ്കരണം',
+          'ജനാസനാന്തര കാര്യങ്ങൾ',
           style: GoogleFonts.anekMalayalam(
             color: ColorClass.white,
             fontSize: 20,

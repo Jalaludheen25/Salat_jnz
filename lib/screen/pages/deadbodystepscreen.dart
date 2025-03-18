@@ -26,7 +26,7 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
       imagePath: 'assets/images/patientman.png', instructions: '',
     ),
     Mayyithmodel(
-      title: 'ഖുര്‍ആന്‍ പാരായണം:',
+      title: 'സൂറ യാസീൻ ഓതുക:',
       description:
           ' മരണാസന്നന്റെ സമീപം സൂറ യാസീൻ ഓതുക. നബി (സ) പറഞ്ഞതായി അബൂദർറും അബുദ്ദർദാഉം (റ) ഉദ്ധരിക്കുന്നു.ا ما منْ ميتٍ يموتُ، فيُقرأُ عندهُ سورةُ ( يس )، إلا هوَّنَ اللهُ عز وجل عليهِ (مسند الفردوس)(മരിച്ചുകൊണ്ടിരിക്കുന്ന ഏതൊരാളുടെ അരികിൽ വെച്ചും യാസീൻ ഓതിയാൽ അല്ലാഹു അയാൾക്ക് ആശ്വാസം നൽകാതിരിക്കയില്ല.)',
       imagePath: 'assets/images/recitingquran.png', instructions: '',
@@ -38,7 +38,7 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
       imagePath: 'assets/images/closing eyes.png', instructions: '',
     ),
     Mayyithmodel(
-      title: 'കഫന്‍ ചെയ്യല്‍',
+      title: 'ശരീരം മുഴുവൻ മൂടുക.',
       description:
           'ശരീരം മുഴുവൻ ഒരു വസ്ത്രം കൊണ്ടു മൂടുക. തിരുശരീരം വരകളുള്ള വസ്ത്രം കൊണ്ട് മൂടിയിരുന്നതായി ആയിശ(റ) ഉദ്ധരിച്ചിട്ടുണ്ട്. മൃതശരീരം ചുംബിക്കാവുന്നതാണ്. നബി (സ) ഉഥ്മാനുബ്നു മള്ഊനിനെയും അബൂബകർ (റ) നബി (സ)യെയും മരണശേഷം ചുംബിച്ചതായി റിപ്പോർട്ടുകളുണ്ട്',
       imagePath: 'assets/images/deadbody covering.png', instructions: '',
