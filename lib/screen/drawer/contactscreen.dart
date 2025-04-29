@@ -13,7 +13,7 @@ class _ContactPageState extends State<ContactPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorClass.secondaryColor,
+      backgroundColor: ColorClass.white,
       appBar: AppBar(
         backgroundColor: ColorClass.primaryColor,
         elevation: 0,
@@ -41,7 +41,7 @@ class _ContactPageState extends State<ContactPage> {
                 'Get in Touch',
                 style: GoogleFonts.poppins(
                   fontSize: 16,
-                  color: ColorClass.white,
+                  color: ColorClass.primaryColor,
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -134,7 +134,7 @@ class _ContactPageState extends State<ContactPage> {
                 content,
                 style: GoogleFonts.poppins(
                   fontSize: 16,
-                  color: Colors.black87,
+                  color: Colors.white,
                 ),
               ),
             ],

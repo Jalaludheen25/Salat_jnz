@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:janaza_guide/constants/colorclass.dart';
-import 'package:janaza_guide/screen/home_screen.dart';
+import 'package:janaza_guide/screen/homescreen/home_screen.dart';
 import 'package:janaza_guide/screen/pages/settings_page.dart';
 
 class BottomNav extends StatefulWidget {

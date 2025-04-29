@@ -42,7 +42,7 @@ class _DonationDetailsState extends State<DonationDetails> {
       body: Container(
         padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
-          color: ColorClass.secondaryColor, // Background color
+          color: ColorClass.white, // Background color
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +51,7 @@ class _DonationDetailsState extends State<DonationDetails> {
               'Contact',
               style: TextStyleClass.primaryFont600(
                 16,
-                Colors.white,
+                Colors.black,
               ),
             ),
             const SizedBox(height: 8),
@@ -69,7 +69,7 @@ class _DonationDetailsState extends State<DonationDetails> {
               'Email: info@D4media',
               style: TextStyleClass.primaryFont300(
                 16,
-                Colors.white,
+                Colors.black,
               ),
             ),
             const SizedBox(height: 20),
@@ -77,7 +77,7 @@ class _DonationDetailsState extends State<DonationDetails> {
               'Account Details:',
               style: TextStyleClass.primaryFont300(
                 16,
-                Colors.white,
+                Colors.black,
               ),
             ),
             const SizedBox(height: 10),
@@ -107,7 +107,7 @@ class _DonationDetailsState extends State<DonationDetails> {
               label,
               style: const TextStyle(
                 fontWeight: FontWeight.w500,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
           ),
@@ -116,7 +116,7 @@ class _DonationDetailsState extends State<DonationDetails> {
               value,
               style: const TextStyle(
                 fontWeight: FontWeight.w500,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
           ),

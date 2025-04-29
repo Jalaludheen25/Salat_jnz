@@ -40,6 +40,7 @@ dependencies:
   path_provider: ^2.1.2
   just_audio: ^0.9.36
   shared_preferences: ^2.2.2
+  shake_flutter: ^17.0.1
   url_launcher: ^6.3.1
   google_fonts: ^6.2.1
   flutter_svg: ^2.0.17

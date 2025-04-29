@@ -11,24 +11,23 @@ class Mayyithstepscreen extends StatefulWidget {
 }
 
 class _MayyithstepscreenState extends State<Mayyithstepscreen> {
-  // Data model for prayer steps remains the same
   final List<Mayyithmodel> _prayerSteps = [
     Mayyithmodel(
-      title: 'കലിമ ചൊല്ലിക്കൊടുക്കല്‍:',
-      description:
-          ' لآ اِلَهَ اِلّا اللّهُ എന്ന് ചൊല്ലിക്കൊടുക്കുക.القِّنوا مَوْتاكم لا إلهَ إلَّا اللهُ (مسلم، أبوداود، الترمذي) ) (നിങ്ങൾ മരണാസന്നർക്കു لا إله إلا الله എന്ന് ചൊല്ലിക്കൊടുക്കുക) എന്ന് നബി (സ) പറഞ്ഞതായി അബൂസഈദിൽ ഖിദ് രി (റ) ഉദ്ധരിച്ചി ട്ടുണ്ട്. അയാൾ അത് ഒരിക്കൽ ചൊല്ലിയാൽ പിന്നെ മറ്റു വല്ലതും സംസാരിച്ചാൽ മാത്രമേ വീണ്ടും ചൊല്ലിക്കൊടുക്കേണ്ടതുള്ളൂ. അതുചൊല്ലാൻ നിർബന്ധിക്കുകയോ ചൊല്ലാൻ പറയുകപോലുമോ ചെയ്യരുത്.',
-      imagePath: 'assets/images/reciting the kalima.png', instructions: '',
+      title: 'കലിമ ചൊല്ലിക്കൊടുക്കല്‍',
+      description: ' لآ اِلَهَ اِلّا اللّهُ എന്ന് ചൊല്ലിക്കൊടുക്കുക.القِّنوا مَوْتاكم لا إلهَ إلَّا اللهُ (مسلم، أبوداود، الترمذي) ) (നിങ്ങൾ മരണാസന്നർക്കു لا إله إلا الله എന്ന് ചൊല്ലിക്കൊടുക്കുക) എന്ന് നബി (സ) പറഞ്ഞതായി അബൂസഈദിൽ ഖിദ് രി (റ) ഉദ്ധരിച്ചി ട്ടുണ്ട്. അയാൾ അത് ഒരിക്കൽ ചൊല്ലിയാൽ പിന്നെ മറ്റു വല്ലതും സംസാരിച്ചാൽ മാത്രമേ വീണ്ടും ചൊല്ലിക്കൊടുക്കേണ്ടതുള്ളൂ. അതുചൊല്ലാൻ നിർബന്ധിക്കുകയോ ചൊല്ലാൻ പറയുകപോലുമോ ചെയ്യരുത്.',
+      imagePath: 'assets/images/reciting the kalima.png',
+      instructions: '',
     ),
     Mayyithmodel(
       title: 'മരണാസന്നനെ കിടത്തല്‍:',
       description:
-          ' ഖിബ് ലക്കഭിമുഖമായി വലതുഭാഗത്തേക്ക് ചരിച്ച് കിടത്തുക. ഭൂരിപക്ഷം പണ്ഡിതന്മാരുടെയും അഭിപ്രായം ഇതാണ്. എന്നാൽ കാൽ രണ്ടും ഖിബ് ലയുടെ നേരെയാക്കി തല അല്പം ഉയർത്തി വെച്ച് മലർത്തിക്കിടത്തണമെന്നാണ് ഇമാം ശാഫിഈ (റ) യുടെ അഭിപ്രായം.',
+          'ഖിബ് ലക്കഭിമുഖമായി വലതുഭാഗത്തേക്ക് ചരിച്ച് കിടത്തുക. ഭൂരിപക്ഷം പണ്ഡിതന്മാരുടെയും അഭിപ്രായം ഇതാണ്. എന്നാൽ കാൽ രണ്ടും ഖിബ് ലയുടെ നേരെയാക്കി തല അല്പം ഉയർത്തി വെച്ച് മലർത്തിക്കിടത്തണമെന്നാണ് ഇമാം ശാഫിഈ (റ) യുടെ അഭിപ്രായം.',
       imagePath: 'assets/images/patientman.png', instructions: '',
     ),
     Mayyithmodel(
       title: 'സൂറ യാസീൻ ഓതുക:',
       description:
-          ' മരണാസന്നന്റെ സമീപം സൂറ യാസീൻ ഓതുക. നബി (സ) പറഞ്ഞതായി അബൂദർറും അബുദ്ദർദാഉം (റ) ഉദ്ധരിക്കുന്നു.ا ما منْ ميتٍ يموتُ، فيُقرأُ عندهُ سورةُ ( يس )، إلا هوَّنَ اللهُ عز وجل عليهِ (مسند الفردوس)(മരിച്ചുകൊണ്ടിരിക്കുന്ന ഏതൊരാളുടെ അരികിൽ വെച്ചും യാസീൻ ഓതിയാൽ അല്ലാഹു അയാൾക്ക് ആശ്വാസം നൽകാതിരിക്കയില്ല.)',
+          'മരണാസന്നന്റെ സമീപം സൂറ യാസീൻ ഓതുക. നബി (സ) പറഞ്ഞതായി അബൂദർറും അബുദ്ദർദാഉം (റ) ഉദ്ധരിക്കുന്നു.ا ما منْ ميتٍ يموتُ، فيُقرأُ عندهُ سورةُ ( يس )، إلا هوَّنَ اللهُ عز وجل عليهِ (مسند الفردوس)(മരിച്ചുകൊണ്ടിരിക്കുന്ന ഏതൊരാളുടെ അരികിൽ വെച്ചും യാസീൻ ഓതിയാൽ അല്ലാഹു അയാൾക്ക് ആശ്വാസം നൽകാതിരിക്കയില്ല.)',
       imagePath: 'assets/images/recitingquran.png', instructions: '',
     ),
     Mayyithmodel(
@@ -66,235 +65,156 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
       
   ];
 
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
-
-  final PageController _pageController = PageController();
-  int _currentIndex = 0;
-
-  void _goToNextPage() {
-    if (_currentIndex < _prayerSteps.length - 1) {
-      _pageController.nextPage(
-          duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
-      setState(() {
-        _currentIndex++;
-      });
-    }
-  }
-
-  void _goToPreviousPage() {
-    if (_currentIndex > 0) {
-      _pageController.previousPage(
-          duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
-      setState(() {
-        _currentIndex--;
-      });
-    }
-  }
+  int? _expandedIndex;
 
   @override
   Widget build(BuildContext context) {
-    // Get screen size
-    final Size screenSize = MediaQuery.of(context).size;
-    final bool isPortrait =
-        MediaQuery.of(context).orientation == Orientation.portrait;
-
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            ColorClass.bottomsheet1,
-            ColorClass.bottomsheet2,
-          ],
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: ColorClass.black),
+          onPressed: () => Navigator.pop(context),
         ),
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(10),
-          topRight: Radius.circular(10),
+        title: Text(
+          'മയ്യിത്ത് സംസ്കരണം',
+          style: GoogleFonts.anekMalayalam(
+            fontSize: 20,
+            color: ColorClass.black,
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          leading: IconButton(
-            icon: Icon(Icons.close, color: ColorClass.white),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-          title: Text(
-            'മരണാസന്ന കർമ്മങ്ങൾ',
-            style: GoogleFonts.anekMalayalam(
-              color: ColorClass.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          centerTitle: true,
-        ),
-        body: Stack(
-          children: [
-            // Main content
-            Column(
-              children: [
-                _buildBottomIndicator(),
-                Expanded(
-                  child: PageView.builder(
-                    controller: _pageController,
-                    itemCount: _prayerSteps.length,
-                    itemBuilder: (context, index) {
-                      return _buildPrayerStepPage(
-                          _prayerSteps[index], screenSize, isPortrait);
-                    },
-                    onPageChanged: (index) {
-                      setState(() {
-                        _currentIndex = index;
-                      });
-                    },
-                  ),
-                ),
-              ],
-            ),
-
-            // Navigation buttons
-           
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildPrayerStepPage(
-      Mayyithmodel step, Size screenSize, bool isPortrait) {
-    // Calculate responsive dimensions
-    final double imageHeight = isPortrait
-        ? screenSize.height * 0.35 // 35% of screen height in portrait
-        : screenSize.height * 0.5; // 50% of screen height in landscape
-
-    final double horizontalPadding =
-        screenSize.width * 0.04; // 4% of screen width
-    final double verticalPadding =
-        screenSize.height * 0.02; // 2% of screen height
-
-    return SingleChildScrollView(
-      child: Column(
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Image Container
-          Container(
-            width: double.infinity,
-            height: imageHeight,
-            margin: EdgeInsets.all(horizontalPadding),
-            decoration: BoxDecoration(
-              color: Colors.grey[900],
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image.asset(
-                step.imagePath,
-                fit: BoxFit.cover,
-                width: double.infinity,
-                height: double.infinity,
-              ),
-            ),
-          ),
-
-          // Title
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             child: Text(
-              step.title,
+              'മരണാസന്നനായി ബന്ധപ്പെട്ട് നിർവഹിക്കേണ്ടത്',
               style: GoogleFonts.anekMalayalam(
-                fontSize: 20,
-                color: Colors.white,
+                fontSize: 16,
+                color: ColorClass.black.withOpacity(0.6),
                 fontWeight: FontWeight.w500,
               ),
             ),
           ),
+          Expanded(
+            child: ListView.builder(
+              padding: const EdgeInsets.all(16),
+              itemCount: _prayerSteps.length,
+              itemBuilder: (context, index) {
+                final step = _prayerSteps[index];
+                final isExpanded = _expandedIndex == index;
 
-          // Description
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: horizontalPadding,
-              vertical: verticalPadding,
-            ),
-            child: Text(
-              step.description,
-              style: GoogleFonts.anekMalayalam(
-                fontSize: 20,
-                color: Colors.white,
-                fontWeight: FontWeight.w500,
-              ),
+                return Column(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(bottom: 12),
+                      decoration: BoxDecoration(
+                        color: isExpanded ? ColorClass.primaryColor.withOpacity(0.1) : Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: ColorClass.primaryColor.withOpacity(0.2),
+                          width: 1,
+                        ),
+                      ),
+                      child: Theme(
+                        data: Theme.of(context).copyWith(
+                          dividerColor: Colors.transparent,
+                        ),
+                        child: ExpansionTile(
+                          onExpansionChanged: (expanded) {
+                            setState(() {
+                              _expandedIndex = expanded ? index : null;
+                            });
+                          },
+                          initiallyExpanded: isExpanded,
+                          title: Row(
+                            children: [
+                              Container(
+                                width: 32,
+                                height: 32,
+                                decoration: BoxDecoration(
+                                  color: ColorClass.primaryColor.withOpacity(0.1),
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    '${index + 1}',
+                                    style: TextStyle(
+                                      color: ColorClass.primaryColor,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Text(
+                                  step.title,
+                                  style: GoogleFonts.anekMalayalam(
+                                    fontSize: 16,
+                                    color: ColorClass.primaryColor,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          trailing: Icon(
+                            isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                            color: ColorClass.primaryColor,
+                          ),
+                          children: [
+                            if (step.imagePath.isNotEmpty)
+                              Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(12),
+                                  child: Image.asset(
+                                    step.imagePath,
+                                    width: double.infinity,
+                                    height: 200,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Text(
+                                step.description,
+                                style: GoogleFonts.anekMalayalam(
+                                  fontSize: 16,
+                                  color: ColorClass.black,
+                                  height: 1.5,
+                                ),
+                              ),
+                            ),
+                            if (step.instructions.isNotEmpty)
+                              Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Text(
+                                  step.instructions,
+                                  style: GoogleFonts.anekMalayalam(
+                                    fontSize: 16,
+                                    color: ColorClass.black,
+                                    height: 1.5,
+                                  ),
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              },
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildBottomIndicator() {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 4,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: List.generate(_prayerSteps.length * 2 - 1, (index) {
-          if (index % 2 == 0) {
-            final stepIndex = index ~/ 2;
-            final currentPage =
-                (_pageController.hasClients ? _pageController.page ?? 0 : 0)
-                    .round();
-            final isActive = stepIndex == currentPage;
-            final isCompleted = stepIndex < currentPage;
-
-            return Container(
-              width: 30,
-              height: 30,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: isCompleted
-                    ? ColorClass.secondaryColor
-                    : isActive
-                        ? ColorClass.secondaryColor
-                        : Colors.grey[700],
-              ),
-              child: Center(
-                child: Text(
-                  '${stepIndex + 1}',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            );
-          } else {
-            final lineIndex = index ~/ 2;
-            final currentPage =
-                (_pageController.hasClients ? _pageController.page ?? 0 : 0)
-                    .round();
-            return Container(
-              width: 20,
-              height: 2,
-              color: lineIndex < currentPage
-                  ? ColorClass.secondaryColor
-                  : Colors.grey[700],
-            );
-          }
-        }),
       ),
     );
   }

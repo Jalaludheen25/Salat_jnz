@@ -5,6 +5,8 @@ import 'package:janaza_guide/constants/colorclass.dart';
 import 'package:janaza_guide/screen/drawer/aboutscreen.dart';
 import 'package:janaza_guide/screen/drawer/contactscreen.dart';
 import 'package:janaza_guide/screen/drawer/donatescreen.dart';
+import 'package:shake_flutter/enums/shake_screen.dart';
+import 'package:shake_flutter/shake_flutter.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -20,7 +22,7 @@ class _AppDrawerState extends State<AppDrawer> {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: ColorClass.secondaryColor,
+        color: ColorClass.white,
         child: Column(
           children: [
             Expanded(
@@ -78,6 +80,14 @@ class _AppDrawerState extends State<AppDrawer> {
                     onTap: () => Navigator.push(context,
                         MaterialPageRoute(builder: (context) => AboutPage())),
                   ),
+                  _buildDrawerItem(
+                    icon: Icons.info,
+                    title: 'Raise a bug',
+                     onTap: () {
+            Navigator.pop(context);
+            Shake.show(ShakeScreen.home);
+          },
+                  ),
                 ],
               ),
             ),
@@ -104,9 +114,9 @@ class _AppDrawerState extends State<AppDrawer> {
     required VoidCallback onTap,
   }) {
     return ListTile(
-      leading: Icon(icon, color: Colors.white),
+      leading: Icon(icon, color: ColorClass.primaryColor),
       title: Text(title,
-          style: GoogleFonts.poppins(color: Colors.white, fontSize: 16)),
+          style: GoogleFonts.poppins(color: ColorClass.primaryColor, fontSize: 16)),
       onTap: onTap,
     );
   }

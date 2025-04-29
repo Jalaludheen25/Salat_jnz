@@ -1,3 +1,4 @@
+import 'package:google_fonts/google_fonts.dart';
 import 'package:janaza_guide/constants/colorclass.dart';
 
 import 'package:flutter/material.dart';
@@ -75,4 +76,22 @@ class TextStyleClass {
       color: color,
       height: textHeight,
       fontSize: size);
+
+
+      static TextStyle abelDefault({
+    double? fontSize,
+    Color? color,
+    FontWeight? fontWeight,
+    double? letterSpacing,
+    TextDecoration? decoration,
+    FontStyle? fontStyle,
+  }) =>
+      GoogleFonts.abel(
+        color: color,
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        letterSpacing: letterSpacing,
+        decoration: decoration,
+        fontStyle: fontStyle,
+      );
 }

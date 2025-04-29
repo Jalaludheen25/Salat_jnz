@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ColorClass {
-  static const Color primaryColor = Color(0xFF276AB3);
+  static const Color primaryColor = Color(0xFF421882);
   static const Color secondaryColor = Color(0xFF003463);
   static const Color detailprimary = Color.fromRGBO(39, 106, 179, 0.7);
+  static const Color primaryLight = Color(0xFFBF97FC);
   static const Color bottomsheet1 =  Color(0xFF1E3C72);
   static const Color bottomsheet2 =  Color(0xFF2A5298);
 

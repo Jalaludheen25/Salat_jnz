@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:janaza_guide/constants/appkeys.dart';
 import 'package:provider/provider.dart';
 import 'package:janaza_guide/provider/genderprovider.dart';
-import 'package:janaza_guide/screen/splash_screen.dart';
+import 'package:janaza_guide/screen/splash_screen/splash_screen.dart';
 
+
+import 'dart:io' show Platform;
+
+import 'package:shake_flutter/shake_flutter.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  // Initialize shake detection
+  Shake.start(Platform.isAndroid
+      ? Appkeys.androidShakeKey
+      : Appkeys.iosShakeKey)
+      .then((_) => debugPrint('📱 Shake detection initialized'));
+
   runApp(
     MultiProvider(
       providers: [
