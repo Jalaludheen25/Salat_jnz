@@ -7,6 +7,8 @@ class ColorClass {
   static const Color primaryLight = Color(0xFFBF97FC);
   static const Color bottomsheet1 =  Color(0xFF1E3C72);
   static const Color bottomsheet2 =  Color(0xFF2A5298);
+    static const Color backgroundColor = Color(0xFAFAFAFA);
+
 
   static const Color white = Color(0xffFFFFFF);
   static const Color white70 = Color(0xA4FFFFFF);

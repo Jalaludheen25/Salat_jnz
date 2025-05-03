@@ -4,5 +4,6 @@ class ImageClass {
   static const String bgmayyith = '${imageRoot}deadbodylaydown.png';
   static const String bgjanza = '${imageRoot}janaza cover.png';
   static const String homebg = '${imageRoot}homebg.jpeg';
+  static const String d4dxLogo = '${imageRoot}d4dx_logo.png';
 
 }

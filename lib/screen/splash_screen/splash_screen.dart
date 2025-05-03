@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:janaza_guide/constants/appkeys.dart';
-import 'package:janaza_guide/constants/colorclass.dart';
 import 'package:janaza_guide/constants/iconclass.dart';
-import 'package:janaza_guide/constants/textstyleclass.dart';
-import 'package:janaza_guide/screen/gender_selection/gender_selections.dart';
 import 'package:janaza_guide/screen/homescreen/home_screen.dart';
+import 'package:janaza_guide/widget/force_update.dart';
+import 'package:provider/provider.dart';
+import 'package:janaza_guide/provider/version_check_provider.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -33,16 +30,35 @@ class _SplashScreenState extends State<SplashScreen>
     );
     _controller.forward();
 
-    Future.delayed(const Duration(seconds: 3), () {
-      if (mounted) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => HomeScreen(),
-          ),
-        );
-      }
+    // Use Future.microtask to schedule the version check after the current build phase
+    Future.microtask(() {
+      _checkVersionAndNavigate();
     });
+  }
+
+  Future<void> _checkVersionAndNavigate() async {
+    if (!mounted) return;
+    
+    final versionProvider = Provider.of<VersionCheckProvider>(context, listen: false);
+    await versionProvider.checkVersion();
+
+    if (!mounted) return;
+
+    if (versionProvider.needsUpdate) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const ForceUpdatePage(),
+        ),
+      );
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const HomeScreen(),
+        ),
+      );
+    }
   }
 
   @override

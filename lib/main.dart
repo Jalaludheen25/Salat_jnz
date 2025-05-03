@@ -3,7 +3,7 @@ import 'package:janaza_guide/constants/appkeys.dart';
 import 'package:provider/provider.dart';
 import 'package:janaza_guide/provider/genderprovider.dart';
 import 'package:janaza_guide/screen/splash_screen/splash_screen.dart';
-
+import 'package:janaza_guide/provider/version_check_provider.dart';
 
 import 'dart:io' show Platform;
 
@@ -22,6 +22,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => GenderProvider()),
+        ChangeNotifierProvider(create: (_) => VersionCheckProvider()),
       ],
       child: const MyApp(),
     ),
