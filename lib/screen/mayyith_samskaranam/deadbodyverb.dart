@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:janaza_guide/constants/colorclass.dart';
+import 'package:janaza_guide/constants/imagesclass.dart';
 import 'package:janaza_guide/model/deadboadyverbmodel.dart';
 
 class Deadbodyverbscreen extends StatefulWidget {
@@ -17,37 +18,37 @@ class _DeadbodyverbscreenState extends State<Deadbodyverbscreen> {
     Deadboadyverbmodel(
       title: 'കലിമ ചൊല്ലിക്കൊടുക്കല്‍',
       description: 'മരണാസന്നനായ വ്യക്തിയുടെ അടുത്ത് ഇരുന്ന് കലിമ ചൊല്ലിക്കൊടുക്കുക.',
-      imagePath: 'assets/images/deadbody bathing.png',
+      imagePath: ImageClass.kalima,
       instructions: 'മരണാസന്നനായ വ്യക്തിയുടെ അടുത്ത് ഇരുന്ന് കലിമ ചൊല്ലിക്കൊടുക്കുക. അദ്ദേഹത്തിന്റെ അവസാന വാക്ക് ലാ ഇലാഹ ഇല്ലല്ലാഹ് ആയിരിക്കാനാണ് ഇത്.',
     ),
     Deadboadyverbmodel(
       title: 'മരണാസന്നനെ കിടത്തല്‍',
       description: 'മരണാസന്നനെ ഖിബ്‌ലയിലേക്ക് തിരിച്ച് കിടത്തുക.',
-      imagePath: 'assets/images/deadbodylaydown.png',
+      imagePath: ImageClass.kalima,
       instructions: 'മരണാസന്നനെ വലതുവശം ഖിബ്‌ലയിലേക്ക് തിരിച്ച് കിടത്തുക. അത് സാധിക്കുന്നില്ലെങ്കിൽ മുഖം ഖിബ്‌ലയിലേക്ക് തിരിച്ച് മല്ലാക്കം കിടത്തുക.',
     ),
     Deadboadyverbmodel(
       title: 'ഖുര്‍ആന്‍ പാരായണം',
       description: 'മരണാസന്നന്റെ അടുത്തിരുന്ന് സൂറത്തു യാസീൻ ഓതുക.',
-      imagePath: 'assets/images/deadbodylaydown.png',
+      imagePath: ImageClass.quran,
       instructions: 'മരണാസന്നന്റെ അടുത്തിരുന്ന് സൂറത്തു യാസീൻ ഓതുക. നബി(സ) പറഞ്ഞു: നിങ്ങളുടെ മരണാസന്നരുടെ അടുത്ത് യാസീൻ ഓതുക.',
     ),
     Deadboadyverbmodel(
       title: 'കണ്ണുകള്‍ അടക്കല്‍',
       description: 'മരണം സംഭവിച്ചാൽ കണ്ണുകൾ അടച്ചുവെക്കുക.',
-      imagePath: 'assets/images/deadbodylaydown.png',
+      imagePath: ImageClass.eyeclosing,
       instructions: 'മരണം സംഭവിച്ചാൽ കണ്ണുകൾ അടച്ചുവെക്കുക. നബി(സ) അബൂസലമയുടെ കണ്ണുകൾ അടച്ചുവെച്ചു.',
     ),
     Deadboadyverbmodel(
       title: 'കഫന്‍ ചെയ്യല്‍',
       description: 'മൃതദേഹം വൃത്തിയായി കഫൻ ചെയ്യുക.',
-      imagePath: 'assets/images/deadbodylaydown.png',
+      imagePath: ImageClass.covering,
       instructions: 'മൃതദേഹം വൃത്തിയായി കഫൻ ചെയ്യുക. പുരുഷന് മൂന്നും സ്ത്രീക്ക് അഞ്ചും തുണി ഉപയോഗിക്കാം.',
     ),
     Deadboadyverbmodel(
       title: 'മയ്യിത്ത് സംസ്കരിക്കല്‍',
       description: 'ജനാസ നമസ്കാരത്തിന് ശേഷം മയ്യിത്ത് ഖബറിൽ സംസ്കരിക്കുക.',
-      imagePath: 'assets/images/deadbodylaydown.png',
+      imagePath: ImageClass.cremation,
       instructions: 'ജനാസ നമസ്കാരത്തിന് ശേഷം മയ്യിത്ത് ഖബറിൽ സംസ്കരിക്കുക. ഖബർ വലതുവശത്തേക്ക് ചരിച്ച് കിടത്തി ഖിബ്‌ലയിലേക്ക് മുഖം തിരിച്ചുവെക്കുക.',
     ),
   ];

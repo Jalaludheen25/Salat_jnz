@@ -60,7 +60,7 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
                   child: Image.asset(
-                    ImageClass.bgjanza,
+                    ImageClass.salat,
                     fit: BoxFit.fill,
                   ),
                 ),

@@ -117,7 +117,7 @@ class _MayyithScreenState extends State<MayyithScreen> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
                   child: Image.asset(
-                    ImageClass.bgmayyith,
+                    ImageClass.kalima,
                     fit: BoxFit.fill,
                   ),
                 ),
