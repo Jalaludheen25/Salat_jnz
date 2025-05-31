@@ -13,64 +13,90 @@ class PrayerStepsSliderView extends StatefulWidget {
 }
 
 class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
-  late AudioProvider _audioService;
+  late List<ExpansionTileController> _controllers;
   int? _expandedIndex;
+  late AudioProvider _audioService;
   String? _currentAudioPath;
 
   final List<PrayerStepModel> _prayerSteps = [
     PrayerStepModel(
-      title: 'തക്ബീർ',
+      title: 'ഒന്നാം തക്ബീർ',
       description: 'തക്ബീർ പറയുക:',
       arabicTexts: ['الله أكبر'],
       meaning: 'അല്ലാഹു ഏറ്റവും വലിയവനാണ്.',
       imagePath: ImageClass.thakbir,
-      instructions: 'പുരുഷന്മാർ കൈകൾ ചെവികളോളം ഉയർത്തണം. സ്ത്രീകൾ തോളോളം ഉയർത്തിയാൽ മതി.',
-      audioPath: 'assets/audio/allahakbarvoice.mp3',
-    ),
-    PrayerStepModel(
-      title: 'ഖിയാം',
-      description: '4) ഒന്നാമത്തെ തക്ബീറിനുശേഷം ഫാതിഹ ഓതുക.',
-      arabicTexts: [' بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ\uFD3F١\uFD3E ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ \uFD3F٢\uFD3E ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ \uFD3F٣\uFD3E مَـٰلِكِ يَوْمِ ٱلدِّينِ \uFD3F٤\uFD3E إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ \uFD3F٥\uFD3E ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ \uFD3F٦\uFD3E صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ \uFD3F٧\uFD3E آمِينَ \uFD3F٨\uFD3E'],
-      imagePath: ImageClass.salat,
-      instructions: 'പരമദയാലുവും കരുണാവാരിധിയുമായ അല്ലാഹുവിന്റെ നാമത്തില്‍. സര്‍വലോകത്തിന്റെയും റബ്ബായ3 അല്ലാഹുവിനു മാത്രമാകുന്നു സ്‌തോത്രം. അളവറ്റ ദയാപരനും കരുണാവാരിധിയുമാണവന്‍.പ്രതിഫലദിവസത്തിന്നധിപനായവന്‍.നിനക്കുമാത്രം ഞങ്ങള്‍ ഇബാദത്തുചെയ്യുന്നു.നിന്നോടുമാത്രം ഞങ്ങള്‍ സഹായം തേടുന്നു.നീ ഞങ്ങളെ നേര്‍വഴിയില്‍ നയിക്കേണമേ! നീ അനുഗ്രഹിച്ചവരുടെ മാര്‍ഗത്തില്‍ കോപത്തിനിരയായവരുടെയും വ്യതിചലിച്ചവരുടെയും മാര്‍ഗത്തിലല്ല.',
+      instructions: 'പുരുഷന്മാർ കൈകൾ ചെവികളോളം ഉയർത്തണം. സ്ത്രീകൾ തോളോളം ഉയർത്തിയാൽ മതി.\n\nഒന്നാമത്തെ തക്ബീറിനുശേഷം ഫാതിഹ ഓതുക.\n\n\n ب  بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ ۝١ ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ ۝٢ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ ۝٣ مَـٰلِكِ يَوْمِ ٱلدِّينِ ۝٤ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ۝٥ ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ ۝٦ صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ ۝٧'   '\n\nപരമദയാലുവും കരുണാവാരിധിയുമായ അല്ലാഹുവിന്റെ നാമത്തില്‍. സര്‍വലോകത്തിന്റെയും റബ്ബായ അല്ലാഹുവിനു മാത്രമാകുന്നു സ്‌തോത്രം. അളവറ്റ ദയാപരനും കരുണാവാരിധിയുമാണവന്‍.പ്രതിഫലദിവസത്തിന്നധിപനായവന്‍.നിനക്കുമാത്രം ഞങ്ങള്‍ ഇബാദത്തുചെയ്യുന്നു.നിന്നോടുമാത്രം ഞങ്ങള്‍ സഹായം തേടുന്നു.നീ ഞങ്ങളെ നേര്‍വഴിയില്‍ നയിക്കേണമേ! നീ അനുഗ്രഹിച്ചവരുടെ മാര്‍ഗത്തില്‍ കോപത്തിനിരയായവരുടെയും വ്യതിചലിച്ചവരുടെയും മാര്‍ഗത്തിലല്ല.',
       audioPath: 'assets/audio/SuratAl-Fatihah.mp3',
     ),
     PrayerStepModel(
-      title: 'തശഹ്ഹുദ്',
+      title: 'രണ്ടാം തക്ബീർ ',
       description: 'രണ്ടാമത്തെ തക്ബീറിനുശേഷം നബി(സ)യുടെ പേരിൽ സ്വലാത് ചൊല്ലുക.',
       arabicTexts: ['اللهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ اَلَّلهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ'],
-      imagePath:  ImageClass.salat,
-      instructions: 'അല്ലാഹുവേ പറയുക! ഇബ്രാഹിമിനും ഇബ്രാഹിമിൻ്റെ കുടുംബത്തിനും നീ സമാധാനം അയച്ചതുപോലെ, നിൻ്റെ ദാസനും നിൻ്റെ ദൂതനും മുഹമ്മദിനും സമാധാനം നൽകേണമേ , ഇബ്രാഹിമിനും ഇബ്രാഹിമിൻ്റെ കുടുംബത്തിനും നീ അനുഗ്രഹം അയച്ചതുപോലെ മുഹമ്മദിനും മുഹമ്മദിൻ്റെ കുടുംബത്തിനും നീ അനുഗ്രഹം നൽകണമേ',
+      imagePath: ImageClass.salat,
+      instructions: 'അല്ലാഹുവേ... നിന്റെ അനുഗ്രഹം മുഹമ്മദിനും  കുടുംബത്തിനും നീ ചൊരിയേണമേ, (ഇബ്രാഹീമിനേയും കുടുംബത്തെയും നീ അനുഗ്രഹിച്ചത് പോലെ) തീര്‍ച്ചായും നീ മാത്രമാണ് മഹോന്നതനായ സ്തുത്യര്‍ഹന്‍. അല്ലാഹുവേ.. നിന്റെ ബര്‍കത്ത് മുഹമ്മദിനും കുടുംബത്തിനും നീ ചൊരിയേണമേ (ഇബ്രാഹീമിനും കുടുംബത്തിനും നീ ബര്‍ക്കത്ത് ചൈതത് പോലെ)തീര്‍ച്ചായും നീ മാത്രമാണ് മഹോന്നതനായ സ്തുത്യര്‍ഹന്‍.',
       audioPath: 'assets/audio/durood e ibrahimi.mp3',
     ),
     PrayerStepModel(
-      title: 'മയ്യിത്തിന് വേണ്ടി ദുആ',
-      description: 'മൂന്നാമത്തെ തക്ബീറിനു ശേഷം മയ്യിത്തിന് വേണ്ടി പ്രാർത്ഥിക്കുക.',
+      title: 'മൂന്നാം തക്ബീർ ',
+      description:  'മൂന്നാമത്തെ തക്ബീറിനു ശേഷം മയ്യിത്തിന് വേണ്ടി പ്രാർത്ഥിക്കുക.',
       arabicTexts: [' اَلَّلهُمَّ أغْفِرْلَهُ وَرْحَمْهُ وَعْفُ عَنْهُ وَعَافِهِ وَاَكْرِمْ نُزُلَهُ وَوَسِّعْ مَدْخَلَهُ وَغْسِلْهُ بِالْمَاءِ وَثَّلْجِ وَالْبَرَدِ وَنَقِّهِ مِنَالْخَطَايَا كَمَا يُنَقَّ الْثَّوْبُ الْاَبْيَضُ مِنَ الدَّنٍَسِ وَاَبْدِلْهُ دَارً خَيْرً مِنْ دَارِهِ وَاَهْلً خَيْرً مِّنْ اَهْلِهِ وَزَوْجً خَيْرًمِّنْ زَوْجِهِ وَاَدْخِلْهُ الْجَنَّتَ وَاَعِذْهُ مِنْ عَذَابِ الْقَبْرِ وَفِتْنَتِهِ وَمِنْ عَذَابِ الْنَّارٍ'],
       imagePath:  ImageClass.salat,
-      instructions: 'അല്ലാഹുവേ, അവനോട് പൊറുക്കുകയും കരുണ കാണിക്കുകയും അവന് ശക്തി നൽകുകയും ക്ഷമിക്കുകയും ചെയ്യേണമേ. അവനോട് ഉദാരമായി പെരുമാറുകയും അവൻ്റെ പ്രവേശനം വിശാലമാക്കുകയും വെള്ളവും മഞ്ഞും ആലിപ്പഴവും കൊണ്ട് അവനെ കഴുകുകയും ചെയ്യുക. വെള്ളവസ്ത്രം കറകളിൽനിന്ന് ശുദ്ധീകരിക്കപ്പെടുന്നതുപോലെ അവൻ്റെ അതിക്രമങ്ങളിൽനിന്നു അവനെ ശുദ്ധീകരിക്കേണമേ. അവൻ്റെ വീടിനേക്കാൾ ഉത്തമമായ ഒരു വാസസ്ഥലവും അവൻ്റെ കുടുംബത്തേക്കാൾ ഉത്തമമായ ഒരു കുടുംബവും അവൻ്റെ ഭാര്യയെക്കാൾ ഉത്തമമായ ഒരു ഭാര്യയും അവന് നൽകേണമേ. അവനെ സ്വർഗത്തിൽ പ്രവേശിപ്പിക്കുകയും ഖബറിലെ ശിക്ഷയിൽ നിന്നും [നരകാഗ്നിയുടെ ശിക്ഷയിൽ നിന്നും] അവനെ സംരക്ഷിക്കുകയും ചെയ്യുക.',
+      instructions: 'അല്ലാഹുവേ നീ ഈ വ്യക്തിക്ക് പൊറുത്ത് കൊടുക്കുകയും കാരുണ്യം ചൊരിയുകയും പാപമോചനം നല്‍കുകയും, വാസസ്ഥലത്തെ ബഹുമാനിക്കുകയും ഖബറിനെ വിശാലമാക്കി കൊടുക്കകയും ചെയ്യേണമേ. ഇദ്ധേഹത്തെ പരിശുദ്ധ വെള്ളം കൊണ്ടും മഞ്ഞുവെള്ളം കൊണ്ടും ആലിപ്പഴം കൊണ്ടും കുളിപ്പിക്കുകയും വെള്ള വസ്ത്രത്തെ അലക്കി വൃത്തിയാക്കും വിധം ഇയാളുടെ ദോഷങ്ങളെ നീ ശുദ്ധിയാക്കുകയും ദുരിതങ്ങളെ അകറ്റുകയും ചെയ്യേണമേ.സ്വത്തിനേക്കാള്‍ നല്ല സ്വത്തിനേയും കുടുംബത്തെക്കാള്‍ നല്ല കുടുംബത്തേയും ഇണകളില്‍ വെച്ചേറ്റവും നല്ല ഇണകളേയും പ്രതിഫലം നല്‍കേണമേ, ഇയാളെ സ്വര്‍ഗ്ഗത്തില്‍ കടത്തുകയും കബറിലെ ശിക്ഷകളില്‍ നിന്ന് രക്ഷിക്കുകയും ചൈയ്യണേമേ',
       audioPath: 'assets/audio/Dua janaza.mp3',
     ),
     PrayerStepModel(
-      title: 'സലാം ചൊല്ലുക',
-      description: '7) നാലാമത്തെ തക്ബീറിന് ശേഷം സലാം ചൊല്ലുക.',
-      arabicTexts: ['اللهم لا تحرمنا أجره ولا تفتنا بعده'],
-      imagePath:  ImageClass.endSalat,
-      instructions: 'ഈ മയ്യിത്തിന്റെ പേരിൽ നമസ്കരിച്ച പ്രതിഫലം ഞങ്ങൾക്ക് തടയാതിരിക്കുകയും ഇദ്ദേഹത്തിന് ശേഷം ഞങ്ങളെ കുഴപ്പത്തിൽ പെടുത്താതിരിക്കുകയും ചെയ്യേണമേ',
+      title: 'നാലാം തക്ബീർ',
+      description: '',
+      arabicTexts: ['اَلَّلهُمَّ لاَ تُحَرِّمْنَا اَجْرَهُ وَ لاَ تَفْتِنَّا بَعْدَهُ وَغْفِرْلَنَا وَلَهُ رَبَّنَا اَتِنَا فِي الدُّنْياَ حَسَنَتً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَبَ النَّارِ'],
+      imagePath:  ImageClass.salat,
+      instructions: 'അല്ലാഹുവേ ഞങ്ങളെ നീ ഇതിന്റെ പ്രതിഫലത്തില്‍ നിന്നും തടയപ്പെട്ടവരാക്കല്ലേ, അദ്ധേഹത്തിന് ശേഷം നാശത്തിലകപ്പെട്ടവരുമാക്കല്ലേ...അയാള്‍കും ഞങ്ങള്‍കും നീ പൊറുത്ത് തരികയും ചൈയ്യേണമേ. ഞങ്ങളുടെ രക്ഷിതാവേ... ഞങ്ങള്‍ക് നീ ഇഹലോകത്തെ ഗുണങ്ങളും പരലോകത്തെ ഗുണങ്ങളും നല്‍കേണമേ\n\nശേഷം അസ്സലാമു അലൈകും വറഹ്‌മത്തുല്ലാഹി വബറക്കാത്തുഹൂഎന്ന് ചൊല്ലി സലാം വീട്ടുക.',
       audioPath: 'assets/audio/salam dua.mp3',
     ),
+    // PrayerStepModel(
+    //   title: 'സലാം ചൊല്ലുക',
+    //   description: '',
+    //   arabicTexts: ['اللهم لا تحرمنا أجره ولا تفتنا بعده'],
+    //   imagePath:  ImageClass.endSalat,
+    //   instructions: 'ഈ മയ്യിത്തിന്റെ പേരിൽ നമസ്കരിച്ച പ്രതിഫലം ഞങ്ങൾക്ക് തടയാതിരിക്കുകയും ഇദ്ദേഹത്തിന് ശേഷം ഞങ്ങളെ കുഴപ്പത്തിൽ പെടുത്താതിരിക്കുകയും ചെയ്യേണമേ',
+    //   audioPath: 'assets/audio/salam dua.mp3',
+    // ),
   ];
 
   @override
   void initState() {
     super.initState();
     _audioService = AudioProvider();
+    _controllers = List.generate(
+      _prayerSteps.length,
+      (_) => ExpansionTileController(),
+    );
   }
 
   @override
   void dispose() {
     _audioService.dispose();
     super.dispose();
+  }
+
+  void _handleExpansion(int index, bool isExpanded) {
+    setState(() {
+      if (isExpanded) {
+        if (_expandedIndex != null && _expandedIndex != index) {
+          _controllers[_expandedIndex!].collapse();
+          if (_currentAudioPath != null) {
+            _audioService.stop();
+            _currentAudioPath = null;
+          }
+        }
+        _expandedIndex = index;
+      } else if (_expandedIndex == index) {
+        _expandedIndex = null;
+        if (_currentAudioPath != null) {
+          _audioService.stop();
+          _currentAudioPath = null;
+        }
+      }
+    });
   }
 
   Future<void> _handleAudioPlayback(String audioPath) async {
@@ -116,7 +142,7 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
           },
         ),
         title: Text(
-          'നമസ്കാര കർമ്മങ്ങൾ',
+          'നാല് തക്ബീറുകൾ',
           style: GoogleFonts.anekMalayalam(
             fontSize: 20,
             color: ColorClass.black,
@@ -127,17 +153,17 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-            child: Text(
-              'നമസ്കാരത്തിന്റെ ഘട്ടങ്ങൾ',
-              style: GoogleFonts.anekMalayalam(
-                fontSize: 16,
-                color: ColorClass.black.withOpacity(0.6),
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          //   child: Text(
+          //     'നമസ്കാരത്തിന്റെ ഘട്ടങ്ങൾ',
+          //     style: GoogleFonts.anekMalayalam(
+          //       fontSize: 16,
+          //       color: ColorClass.black.withOpacity(0.6),
+          //       fontWeight: FontWeight.w500,
+          //     ),
+          //   ),
+          // ),
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.all(16),
@@ -164,16 +190,8 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
                           dividerColor: Colors.transparent,
                         ),
                         child: ExpansionTile(
-                          onExpansionChanged: (expanded) {
-                            setState(() {
-                              if (!expanded && _currentAudioPath == step.audioPath) {
-                                _audioService.stop();
-                                _currentAudioPath = null;
-                              }
-                              _expandedIndex = expanded ? index : null;
-                            });
-                          },
-                          initiallyExpanded: isExpanded,
+                          controller: _controllers[index],
+                          onExpansionChanged: (expanded) => _handleExpansion(index, expanded),
                           title: Row(
                             children: [
                               Container(

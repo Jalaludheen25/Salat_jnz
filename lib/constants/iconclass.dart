@@ -10,6 +10,7 @@ class IconClass {
   static const String bottomimage = '${iconRoot}bottom image.png';
   static const String d4dx = '${iconRoot}dx.png';
   static const String deadbody2 = '${iconRoot}dead-body2.png';
+  static const String logo = '${iconRoot}logo.png';
 
 
 

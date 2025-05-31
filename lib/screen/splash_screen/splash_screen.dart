@@ -91,18 +91,12 @@ class _SplashScreenState extends State<SplashScreen>
             ),
             // Center logo with animation
             Center(
-              child: FadeTransition(
-                opacity: _animation,
-                child: ScaleTransition(
-                  scale: _animation,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20.0),
-                    child: Image.asset(
-                      IconClass.applogo,
-                      width: 200,
-                      height: 171,
-                    ),
-                  ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20.0),
+                child: Image.asset(
+                  IconClass.logo,
+                  width: 300,
+                  height: 300,
                 ),
               ),
             ),

@@ -4,7 +4,10 @@ import 'package:janaza_guide/constants/appkeys.dart';
 import 'package:janaza_guide/constants/colorclass.dart';
 import 'package:janaza_guide/constants/iconclass.dart';
 import 'package:janaza_guide/constants/textstyleclass.dart';
-import 'package:janaza_guide/screen/mayyith_samskaranam/janazacare.dart';
+import 'package:janaza_guide/screen/bathing_corpse/bathing_corpse_screen.dart';
+import 'package:janaza_guide/screen/janaza_samskaranam/janaza_samskaranam.dart';
+import 'package:janaza_guide/screen/kafan/kafan_screen.dart';
+import 'package:janaza_guide/screen/mayyith_samskaranam/mayyith_samskaranam.dart';
 import 'package:janaza_guide/screen/after_janaza/after_janazacare.dart';
 
 import 'package:janaza_guide/screen/salat_janaza/prayerjanazascreen.dart';
@@ -27,12 +30,27 @@ class _HomeScreenState extends State<HomeScreen> {
       'screen': const MayyithScreen(),
     },
     {
+      'title': 'മയ്യിത്ത് കുളിപ്പിക്കല്‍',
+      'icon': IconClass.deadbodyicon,
+      'screen': const BathingCorpseScreen(),
+    },
+    {
+      'title': 'കഫന്‍ ചെയ്യല്‍',
+      'icon': IconClass.deadbody2,
+      'screen': const KafanScreen(),
+    },
+    {
       'title': 'മയ്യിത്ത് നമസ്കാരം',
       'icon': IconClass.prayericon,
       'screen': const SalatAlJanazaScreen(),
     },
     {
-      'title': 'ജനാസാന്തര കാര്യങ്ങൾ',
+      'title': 'ജനാസ സംസ്കരണം',
+      'icon': IconClass.prayericon,
+      'screen': const JanazaSamskaranam(),
+    },
+    {
+      'title': 'അറിയേണ്ട മറ്റു കാര്യങ്ങൾ',
       'icon': IconClass.deadbody2,
       'screen': const Janazacaredetails(),
     },
@@ -89,17 +107,17 @@ class _HomeScreenState extends State<HomeScreen> {
                         textAlign: TextAlign.center,
                         textDirection: TextDirection.rtl,
                         style: GoogleFonts.amiri(
-                          fontSize: 20,
+                          fontSize: 18,
                           height: 2,
                           color: ColorClass.black,
                         ),
                       ),
                       const SizedBox(height: 12),
                       Text(
-                        'സമസ്ത മനുഷ്യരും മരണം രുചിക്കേണ്ടവരാകുന്നു. നിങ്ങളെല്ലാവരുടെയും കര്‍മഫലം അന്ത്യനാളില്‍ പരിപൂര്‍ണമായി നല്‍കപ്പെടും. അവിടെ നരകാഗ്നിയില്‍നിന്ന് അകറ്റപ്പെടുകയും സ്വര്‍ഗത്തില്‍ പ്രവേശിപ്പിക്കപ്പെടുകയും ചെയ്തവനാരോ, അവനത്രെ യഥാര്‍ഥത്തില്‍ വിജയം നേടിയവന്‍. ഈ ഭൗതികജീവിതമാകട്ടെ, വഞ്ചനാത്മകമായ ചരക്കു മാത്രമാകുന്നു.(3:185)',
+                        'എല്ലാ മനുഷ്യരും മരണം രുചിക്കുന്നവരാണ്. നിങ്ങളുടെ കര്‍മഫലമെല്ലാം ഉയിര്‍ത്തെഴുന്നേല്‍പുനാളില്‍ മാത്രമാണ് പൂര്‍ണമായും നിങ്ങള്‍ക്കു നല്‍കുക. അപ്പോള്‍ നരകത്തീയില്‍ നിന്നകറ്റപ്പെടുകയും സ്വര്‍ഗത്തില്‍ പ്രവേശിപ്പിക്കപ്പെടുകയും ചെയ്യുന്നവനാണ് വിജയംവരിച്ചവന്‍. ഐഹികജീവിതം ചതിക്കുന്ന ചരക്കല്ലാതൊന്നുമല്ല. ( 3:185)',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.anekMalayalam(
-                          fontSize: 16,
+                          fontSize: 15 ,
                           letterSpacing: 0.1,
                           color: ColorClass.primaryColor,
                           fontWeight: FontWeight.w500,
@@ -121,8 +139,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 decoration: BoxDecoration(
                   color: ColorClass.primaryColor,
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(50),
-                    topRight: Radius.circular(50)
+                    topLeft: Radius.circular(45),
+                    topRight: Radius.circular(45)
                   ),
                 ),
                 child: Column(
@@ -139,7 +157,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildMenuItem(Map<String, dynamic> item) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 12.0),
+      padding: const EdgeInsets.only(bottom: 10.0),
       child: GestureDetector(
         onTap: () {
           Navigator.push(
@@ -148,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         },
         child: Container(
-          height: 65,
+          height: 45,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(15),
@@ -157,8 +175,8 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               const SizedBox(width: 20),
               Container(
-                width: 40,
-                height: 40,
+                width: 30,
+                height: 30,
                 decoration: BoxDecoration(
                   color: ColorClass.primaryColor.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(10),
@@ -167,8 +185,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Image.asset(
                     item['icon'],
                     color: ColorClass.primaryColor,
-                    width: 24,
-                    height: 24,
+                    width: 18,
+                    height: 18,
                   ),
                 ),
               ),
@@ -178,7 +196,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   item['title'],
                   style: GoogleFonts.anekMalayalam(
                     color: ColorClass.primaryColor,
-                    fontSize: 18,
+                    fontSize: 14,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
