@@ -75,7 +75,7 @@ class _ContactPageState extends State<ContactPage> {
                     _buildContactItem(
                       icon: Icons.email,
                       title: 'Email',
-                      content: 'info@d4media.in',
+                      content: 'mail@d4dx.co',
                       iconColor: Colors.blue,
                     ),
                     const Padding(
@@ -86,7 +86,7 @@ class _ContactPageState extends State<ContactPage> {
                       icon: Icons.location_on,
                       title: 'Address',
                       content:
-                          'D4media, Hira Centre, Calicut, Kerala,\nPin 673004',
+                          'D4DX, Hira Centre, Calicut, Kerala,\nPin 673004',
                       iconColor: Colors.blue,
                     ),
                   ],
