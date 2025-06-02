@@ -43,7 +43,7 @@ class _AboutPageState extends State<AboutPage> {
                child: ClipRRect(
                         borderRadius: BorderRadius.circular(20.0),
                         child: Image.asset(
-                          'assets/icons/app logo.png',
+                          'assets/icons/appicon.png',
                           width: 100,
                           height: 100,
                         ),

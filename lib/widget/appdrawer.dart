@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:janaza_guide/constants/appkeys.dart';
 import 'package:janaza_guide/constants/colorclass.dart';
+import 'package:janaza_guide/constants/iconclass.dart';
+import 'package:janaza_guide/constants/imagesclass.dart';
 import 'package:janaza_guide/screen/drawer/aboutscreen.dart';
 import 'package:janaza_guide/screen/drawer/contactscreen.dart';
 import 'package:janaza_guide/screen/drawer/donatescreen.dart';
@@ -40,7 +42,7 @@ class _AppDrawerState extends State<AppDrawer> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(60),
                           child: Image.asset(
-                            'assets/icons/app logo.png',
+                            IconClass.logo,
                             height: 80,
                           ),
                         ),

@@ -5,6 +5,7 @@ import 'package:janaza_guide/constants/imagesclass.dart';
 import 'package:janaza_guide/model/salatjanazamodel.dart';
 import 'package:janaza_guide/screen/salat_janaza/prayersinhadith.dart';
 import 'package:janaza_guide/screen/salat_janaza/prayerstepscreen.dart';
+import 'package:janaza_guide/screen/salat_janaza/samshaya_nivaranam.dart';
 
 class SalatAlJanazaScreen extends StatefulWidget {
   const SalatAlJanazaScreen({super.key});
@@ -254,6 +255,70 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                                 width: 200,
                                 child: Text(
                                   'ഹദീസുകളിൽ വന്ന പ്രാർത്ഥനകൾ',
+                                  style: GoogleFonts.anekMalayalam(
+                                    fontSize: 18,
+                                    color: ColorClass.primaryColor,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Icon(
+                            Icons.chevron_right,
+                            color: ColorClass.primaryColor,
+                            size: 24,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SamshayaNivaranam(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+                      decoration: BoxDecoration(
+                        color: ColorClass.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            offset: const Offset(0, 2),
+                            blurRadius: 6,
+                            spreadRadius: 0,
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  color: ColorClass.primaryColor.withOpacity(0.1),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Icon(
+                                  Icons.format_list_bulleted,
+                                  color: ColorClass.primaryColor,
+                                  size: 20,
+                                ),
+                              ),
+                              SizedBox(width: 12),
+                              SizedBox(
+                                width: 200,
+                                child: Text(
+                                  'സംശയ നിവാരണം',
                                   style: GoogleFonts.anekMalayalam(
                                     fontSize: 18,
                                     color: ColorClass.primaryColor,
