@@ -86,7 +86,7 @@ class _ContactPageState extends State<ContactPage> {
                       icon: Icons.location_on,
                       title: 'Address',
                       content:
-                          'D4DX, Hira Centre, Calicut, Kerala,\nPin 673004',
+                          'D4DX Innovations LLP\nMavoor Road, Calicut, Kerala,\nPin 673004',
                       iconColor: Colors.blue,
                     ),
                   ],

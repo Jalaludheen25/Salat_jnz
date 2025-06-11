@@ -4,7 +4,7 @@ import 'package:janaza_guide/constants/appkeys.dart';
 import 'package:janaza_guide/constants/colorclass.dart';
 import 'package:janaza_guide/screen/drawer/aboutscreen.dart';
 import 'package:janaza_guide/screen/drawer/contactscreen.dart';
-import 'package:janaza_guide/screen/drawer/donatescreen.dart';
+// import 'package:janaza_guide/screen/drawer/donatescreen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -24,13 +24,13 @@ class SettingsPage extends StatelessWidget {
     }
   }
 
-  Future<void> _openDonationPage() async {
-    final Uri donationUri =
-        Uri.parse('https://pages.razorpay.com/janaza-guide');
-    if (await canLaunchUrl(donationUri)) {
-      await launchUrl(donationUri, mode: LaunchMode.externalApplication);
-    }
-  }
+  // Future<void> _openDonationPage() async {
+  //   final Uri donationUri =
+  //       Uri.parse('https://pages.razorpay.com/janaza-guide');
+  //   if (await canLaunchUrl(donationUri)) {
+  //     await launchUrl(donationUri, mode: LaunchMode.externalApplication);
+  //   }
+  // }
 
   void _showLanguageDialog(BuildContext context) {
     showDialog(
@@ -118,10 +118,12 @@ class SettingsPage extends StatelessWidget {
                     context,
                     icon: Icons.favorite,
                     title: 'Donate',
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => DonationDetails()),
-                    ),
+                    onTap: () async {
+                      final Uri url = Uri.parse('https://rzp.io/rzp/janaza-guide');
+                      if (await canLaunchUrl(url)) {
+                        await launchUrl(url);
+                      }
+                    },
                   ),
                   _buildSettingsItem(
                     context,

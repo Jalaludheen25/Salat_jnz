@@ -67,8 +67,17 @@ class _AppDrawerState extends State<AppDrawer> {
                   _buildDrawerItem(
                     icon: Icons.favorite,
                     title: 'Donate',
-                     onTap: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (context) =>  DonationDetails())),
+                    onTap: () async {
+                      final Uri url = Uri.parse('https://rzp.io/rzp/janaza-guide');
+                      try {
+                        await launchUrl(
+                          url,
+                          mode: LaunchMode.externalApplication,
+                        );
+                      } catch (e) {
+                        debugPrint('Could not launch $url: $e');
+                      }
+                    },
                   ),
                   _buildDrawerItem(
                     icon: Icons.call,

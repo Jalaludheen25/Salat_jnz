@@ -61,7 +61,7 @@ class _AboutPageState extends State<AboutPage> {
               ),
               const SizedBox(height: 40),
               Text(
-                ' Janaza Guide is a dedicated app designed to provide guidance on performing Janaza (funeral) prayers in accordance with Islamic traditions. It offers step-by-step instructions, supplications, and essential rulings related to the funeral prayer, ensuring that users can fulfill their religious duties with clarity and confidence. Whether you\'re attending a Janaza for the first time or seeking to deepen your understanding, this app serves as a reliable companion for all essential aspects of the prayer.\n\nThe app also includes information on the significance of Janaza prayer, etiquette to follow, and the proper way to offer condolences. With a simple and user-friendly interface, Janaza Gudie ensures accessibility for users of all backgrounds. Designed for both learning and reference, it aims to help Muslims perform this important act of worship with ease and correctness.',
+                ' When someone dies, it is the responsibility of the living to give them a proper burial according to Islamic law. It is one of the Fard Kifayah, or social obligations.\n\nThis is a simple yet comprehensive guide that describes the rules, methods, and etiquettes to be followed at various stages of funeral rites, from visiting the deceased to burying the deceased. We welcome your comments and suggestions.',
                 style: GoogleFonts.poppins(
                   fontSize: 16,
                   color: ColorClass.black,
