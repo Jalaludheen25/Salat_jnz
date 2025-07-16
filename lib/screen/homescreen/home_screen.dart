@@ -9,7 +9,6 @@ import 'package:janaza_guide/screen/janaza_samskaranam/janaza_samskaranam.dart';
 import 'package:janaza_guide/screen/kafan/kafan_screen.dart';
 import 'package:janaza_guide/screen/mayyith_samskaranam/mayyith_samskaranam.dart';
 import 'package:janaza_guide/screen/after_janaza/after_janazacare.dart';
-
 import 'package:janaza_guide/screen/salat_janaza/prayerjanazascreen.dart';
 import 'package:janaza_guide/widget/appdrawer.dart';
 

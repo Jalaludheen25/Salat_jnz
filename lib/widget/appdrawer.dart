@@ -11,6 +11,9 @@ import 'package:shake_flutter/enums/shake_screen.dart';
 import 'package:shake_flutter/shake_flutter.dart';
 
 import 'package:url_launcher/url_launcher.dart';
+import 'package:provider/provider.dart';
+import 'package:janaza_guide/constants/app_constants.dart';
+import 'package:janaza_guide/provider/version_check_provider.dart';
 
 class AppDrawer extends StatefulWidget {
   const AppDrawer({super.key});
@@ -99,18 +102,101 @@ class _AppDrawerState extends State<AppDrawer> {
             Shake.show(ShakeScreen.home);
           },
                   ),
+                 Padding(
+                   padding: const EdgeInsets.symmetric(vertical: 16.0),
+                   child: Column(
+                     children: [
+                       Text(
+                         'Powered by',
+                         style: GoogleFonts.poppins(
+                           color: ColorClass.blueGrey1,
+                           fontSize: 14,
+                           fontWeight: FontWeight.w500,
+                         ),
+                       ),
+                       const SizedBox(height: 8),
+                       GestureDetector(
+                         onTap: () async {
+                           final Uri url = Uri.parse('https://d4dx.co/');
+                           if (await canLaunchUrl(url)) {
+                             await launchUrl(url, mode: LaunchMode.externalApplication);
+                           }
+                         },
+                         child: Image.asset(
+                           IconClass.d4dxblue,
+                           height: 60,
+                         ),
+                       ),
+                     ],
+                   ),
+                 ),
                 ],
               ),
             ),
             Container(
               padding: EdgeInsets.all(20),
-              child: Text(
-                'Version: ${Appkeys.appversion}',
-                style: GoogleFonts.poppins(
-                  color: ColorClass.blueGrey1,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                ),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        onTap: () => _launchPlayStore(),
+                        child: Image.asset(
+                          IconClass.playstore,
+                          height: 40,
+                        //  fit: BoxFit.contain,
+                        ),
+                      ),
+                      SizedBox(width: 16),
+                      GestureDetector(
+                        onTap: () => _launchAppStore(),
+                        child: Image.asset(
+                          IconClass.appstore,
+                          height: 40,
+                        //  fit: BoxFit.fill,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 16),
+                  Consumer<VersionCheckProvider>(
+                    builder: (context, versionProvider, child) {
+                      if (versionProvider == null) {
+                        return Text(
+                          'Version: ${AppConstants.appVersion}',
+                          style: GoogleFonts.poppins(
+                            color: ColorClass.blueGrey1,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        );
+                      }
+                      return Column(
+                        children: [
+                          Text(
+                            'Version: ${AppConstants.appVersion}',
+                            style: GoogleFonts.poppins(
+                              color: ColorClass.blueGrey1,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          if (versionProvider.newVersion != null &&
+                              versionProvider.newVersion != AppConstants.appVersion)
+                            Text(
+                              'Latest: ${versionProvider.newVersion}',
+                              style: GoogleFonts.poppins(
+                                color: ColorClass.blueGrey1,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                        ],
+                      );
+                    },
+                  ),
+                ],
               ),
             ),
           ],
@@ -130,6 +216,30 @@ class _AppDrawerState extends State<AppDrawer> {
           style: GoogleFonts.poppins(color: ColorClass.primaryColor, fontSize: 16)),
       onTap: onTap,
     );
+  }
+
+  Future<void> _launchPlayStore() async {
+    final Uri playStoreUri = Uri.parse('https://play.google.com/store/apps/details?id=co.d4dx.janazaguide&pcampaignid=web_share');
+    try {
+      await launchUrl(
+        playStoreUri,
+        mode: LaunchMode.externalApplication,
+      );
+    } catch (e) {
+      debugPrint('Could not launch Play Store: $e');
+    }
+  }
+
+  Future<void> _launchAppStore() async {
+    final Uri appStoreUri = Uri.parse('https://apps.apple.com/in/app/janaza-guide/id6742624606');
+    try {
+      await launchUrl(
+        appStoreUri,
+        mode: LaunchMode.externalApplication,
+      );
+    } catch (e) {
+      debugPrint('Could not launch App Store: $e');
+    }
   }
 
   Future<void> _openDonationPage() async {

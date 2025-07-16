@@ -139,7 +139,7 @@ class _MayyithScreenState extends State<MayyithScreen> {
               // Prayer Icon Card
               // Prayer Icon Card with orientation awareness
               Container(
-                width: double.infinity,
+                width: 360,
                 height: 200,
                 decoration: BoxDecoration(
                   color: Colors.grey[900],

@@ -11,7 +11,9 @@ class IconClass {
   static const String d4dx = '${iconRoot}dx.png';
   static const String deadbody2 = '${iconRoot}dead-body2.png';
   static const String logo = '${iconRoot}logo.png';
-
+  static const String playstore = '${iconRoot}gplay.png';
+  static const String appstore = '${iconRoot}apple.png';
+  static const String d4dxblue = '${iconRoot}dx_blue.png';
 
 
 }
