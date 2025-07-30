@@ -96,7 +96,7 @@ class _JanazaSamskaranamState extends State<JanazaSamskaranam> {
       'arabicText': '',
       'translation': '',
       'source': 'ഹിശാമുബ്നു ആമിർ (റ)',
-      'imagePath': ImageClass.cremation,
+      'imagePath': ImageClass.kabrKuzhikkunnu,
     },
     {
       'title': 'മയ്യിത്ത് ഖബറിൽ താഴ്ത്തേണ്ട വിധം',
@@ -115,7 +115,7 @@ class _JanazaSamskaranamState extends State<JanazaSamskaranam> {
       'translation':
           'നിങ്ങളുടെ സഹോദരന് വേണ്ടി മാപ്പിരക്കുക, അദ്ദേഹത്തിന് സ്ഥര്യത്തിന് അപേക്ഷിക്കുക. അദ്ദേഹം ഇപ്പോൾ ചോദ്യം ചെയ്യപ്പെടാൻ പോവുകയാണ്.',
       'source': 'നബി(സ)',
-      'imagePath': ImageClass.cremation,
+      'imagePath': ImageClass.kabarZiyarath,
     },
     {
       'title': 'കബറിന് അടയാളം വെക്കൽ',
@@ -125,7 +125,7 @@ class _JanazaSamskaranamState extends State<JanazaSamskaranam> {
       'translation':
           'അതുവഴി ഞാൻ എന്റെ സഹോദരന്റെ ഖബർ തിരിച്ചറിയും. എന്റെ കുടുംബക്കാരിൽ മരിക്കുന്നവരെ അതിന്നടുത്തു ഞാൻ ഖബറടക്കുകയും ചെയ്യും.',
       'source': 'നബി(സ)',
-      'imagePath': ImageClass.cremation,
+      'imagePath': ImageClass.kabarZiyarath,
     },
   ];
 

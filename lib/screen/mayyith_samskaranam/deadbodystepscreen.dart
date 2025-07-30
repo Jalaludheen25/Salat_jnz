@@ -35,7 +35,7 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
       title: 'ഖിബ് ലക്കഭിമുഖമായി വലതുഭാഗത്തേക്ക് ചരിച്ച് കിടത്തുക',
       description:
           'ഭൂരിപക്ഷം പണ്ഡിതന്മാരുടെയും അഭിപ്രായം ഇതാണ്. എന്നാൽ കാൽ രണ്ടും ഖിബ് ലയുടെ നേരെയാക്കി തല അല്പം ഉയർത്തി വെച്ച് മലർത്തിക്കിടത്തണമെന്നാണ് ഇമാം ശാഫിഈ (റ) യുടെ അഭിപ്രായം.',
-      imagePath: ImageClass.kalima, instructions: '',
+      imagePath: ImageClass.visit, instructions: '',
     ),
     Mayyithmodel(
       title: 'സൂറ യാസീൻ ഓതുക:',
@@ -65,7 +65,7 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
       title: 'കടബാധ്യതയുണ്ടെങ്കിൽ  കൊടുത്തു തീര്ക്കുക',
       description:
           'മയ്യിത്തിന് കടബാധ്യതയുണ്ടെങ്കിൽ കഴിയുംവേഗം അത് കൊടുത്തു തീർക്കണം. അതു കഴിഞ്ഞേ അയാളുടെ സമ്പത്ത് ഭാഗിക്കാൻ പാടുള്ളൂ. നബി (സ) പറഞ്ഞതായി അബൂഹുറൈറ (റ) ഉദ്ധരിക്കുന്നു.\n نفس المؤمن مُعلَّقة بدَيْنِه حتى يُقْضَى عنه  (أحمد، ابن ماجه، الترمذي)   \n(വിശ്വാസിയുടെ ആത്മാവ് അവന്റെ കടം വീട്ടുംവരെ അതുമായി കെട്ടുപിണഞ്ഞിരിക്കും.)',
-      imagePath: 'assets/images/debt man.png',
+      imagePath: ImageClass.kadamVeettunnu,
       instructions:'കടം വീട്ടാതെ മരിച്ച ആളുകൾക്ക് വേണ്ടി നബി (സ) ജനാസ നമസ്കരിക്കാതെ മറ്റു സഹാബിമാരോട് നമസ്കരിക്കാൻ പറയുകയാണു ചെയ്തിരുന്നത്. '
     ),
     // Mayyithmodel(
@@ -196,7 +196,7 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
                                     step.imagePath,
                                     width: double.infinity,
                                     height: 200,
-                                    fit: BoxFit.cover,
+                                    fit: BoxFit.fill,
                                   ),
                                 ),
                               ),
