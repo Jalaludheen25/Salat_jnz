@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:janaza_guide/constants/appkeys.dart';
 import 'package:janaza_guide/constants/colorclass.dart';
 import 'package:janaza_guide/constants/iconclass.dart';
-import 'package:janaza_guide/constants/imagesclass.dart';
+import 'package:janaza_guide/constants/app_constants.dart';
 import 'package:janaza_guide/screen/drawer/aboutscreen.dart';
 import 'package:janaza_guide/screen/drawer/contactscreen.dart';
-import 'package:janaza_guide/screen/drawer/donatescreen.dart';
-import 'package:shake_flutter/enums/shake_screen.dart';
-import 'package:shake_flutter/shake_flutter.dart';
-
-import 'package:url_launcher/url_launcher.dart';
 import 'package:provider/provider.dart';
-import 'package:janaza_guide/constants/app_constants.dart';
 import 'package:janaza_guide/provider/version_check_provider.dart';
+import 'package:janaza_guide/provider/language_provider.dart';
+import 'package:shake_flutter/shake_flutter.dart';
+import 'package:shake_flutter/enums/shake_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AppDrawer extends StatefulWidget {
   const AppDrawer({super.key});
@@ -35,9 +32,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 padding: EdgeInsets.zero,
                 children: [
                   DrawerHeader(
-                    decoration: BoxDecoration(
-                      color: ColorClass.primaryColor,
-                    ),
+                    decoration: BoxDecoration(color: ColorClass.primaryColor),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -49,9 +44,9 @@ class _AppDrawerState extends State<AppDrawer> {
                             height: 80,
                           ),
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Text(
-                          'Janaza Guide',
+                          'Salat Al Janaza',
                           style: GoogleFonts.poppins(
                             color: Colors.white,
                             fontSize: 20,
@@ -61,147 +56,239 @@ class _AppDrawerState extends State<AppDrawer> {
                       ],
                     ),
                   ),
-                  _buildDrawerItem(
-                    icon: Icons.home,
-                    title: 'Home',
-                    onTap: () => Navigator.pop(context),
-                  ),
-                 
-                  _buildDrawerItem(
-                    icon: Icons.favorite,
-                    title: 'Donate',
-                    onTap: () async {
-                      final Uri url = Uri.parse('https://rzp.io/rzp/janaza-guide');
-                      try {
-                        await launchUrl(
-                          url,
-                          mode: LaunchMode.externalApplication,
-                        );
-                      } catch (e) {
-                        debugPrint('Could not launch $url: $e');
-                      }
-                    },
-                  ),
-                  _buildDrawerItem(
-                    icon: Icons.call,
-                    title: 'Contact',
-                    onTap: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ContactPage())),
-                  ),
-                  _buildDrawerItem(
-                    icon: Icons.info,
-                    title: 'About',
-                    onTap: () => Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => AboutPage())),
-                  ),
-                  _buildDrawerItem(
-                    icon: Icons.info,
-                    title: 'Raise a bug',
-                     onTap: () {
-            Navigator.pop(context);
-            Shake.show(ShakeScreen.home);
-          },
-                  ),
-                 Padding(
-                   padding: const EdgeInsets.symmetric(vertical: 16.0),
-                   child: Column(
-                     children: [
-                       Text(
-                         'Powered by',
-                         style: GoogleFonts.poppins(
-                           color: ColorClass.blueGrey1,
-                           fontSize: 14,
-                           fontWeight: FontWeight.w500,
-                         ),
-                       ),
-                       const SizedBox(height: 8),
-                       GestureDetector(
-                         onTap: () async {
-                           final Uri url = Uri.parse('https://d4dx.co/');
-                           if (await canLaunchUrl(url)) {
-                             await launchUrl(url, mode: LaunchMode.externalApplication);
-                           }
-                         },
-                         child: Image.asset(
-                           IconClass.d4dxblue,
-                           height: 60,
-                         ),
-                       ),
-                     ],
-                   ),
-                 ),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  Column(
                     children: [
-                      GestureDetector(
-                        onTap: () => _launchPlayStore(),
-                        child: Image.asset(
-                          IconClass.playstore,
-                          height: 40,
-                        //  fit: BoxFit.contain,
+                      _buildDrawerItem(
+                        icon: Icons.home,
+                        title: 'Home',
+                        onTap: () => Navigator.pop(context),
+                      ),
+
+                      // Language Selector Button
+                      _buildDrawerItem(
+                        icon: Icons.language,
+                        title: 'Select Language',
+                        onTap: () => _showLanguageDialog(context),
+                      ),
+
+                      _buildDrawerItem(
+                        icon: Icons.favorite,
+                        title: 'Donate',
+                        onTap: () async {
+                          final Uri url =
+                              Uri.parse('https://rzp.io/rzp/janaza-guide');
+                          await launchUrl(url,
+                              mode: LaunchMode.externalApplication);
+                        },
+                      ),
+                      _buildDrawerItem(
+                        icon: Icons.call,
+                        title: 'Contact',
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ContactPage()),
                         ),
                       ),
-                      SizedBox(width: 16),
-                      GestureDetector(
-                        onTap: () => _launchAppStore(),
-                        child: Image.asset(
-                          IconClass.appstore,
-                          height: 40,
-                        //  fit: BoxFit.fill,
+                      _buildDrawerItem(
+                        icon: Icons.info,
+                        title: 'About',
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => AboutPage()),
                         ),
+                      ),
+                      _buildDrawerItem(
+                        icon: Icons.bug_report,
+                        title: 'Report Bug',
+                        onTap: () {
+                          Navigator.pop(context);
+                          Shake.show(ShakeScreen.home);
+                        },
                       ),
                     ],
                   ),
-                  SizedBox(height: 16),
-                  Consumer<VersionCheckProvider>(
-                    builder: (context, versionProvider, child) {
-                      if (versionProvider == null) {
-                        return Text(
-                          'Version: ${AppConstants.appVersion}',
+                ],
+              ),
+            ),
+
+            // Bottom Section with Version Info
+            Container(
+              padding: const EdgeInsets.all(20),
+              child: Consumer<VersionCheckProvider>(
+                builder: (context, versionProvider, child) {
+                  return Column(
+                    children: [
+                      Text(
+                        "Version: ${AppConstants.appVersion}",
+                        style: GoogleFonts.poppins(
+                          color: ColorClass.blueGrey1,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      if (versionProvider.newVersion != null &&
+                          versionProvider.newVersion != AppConstants.appVersion)
+                        Text(
+                          "Latest: ${versionProvider.newVersion}",
                           style: GoogleFonts.poppins(
                             color: ColorClass.blueGrey1,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
                           ),
-                        );
-                      }
-                      return Column(
-                        children: [
-                          Text(
-                            'Version: ${AppConstants.appVersion}',
-                            style: GoogleFonts.poppins(
-                              color: ColorClass.blueGrey1,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          if (versionProvider.newVersion != null &&
-                              versionProvider.newVersion != AppConstants.appVersion)
-                            Text(
-                              'Latest: ${versionProvider.newVersion}',
-                              style: GoogleFonts.poppins(
-                                color: ColorClass.blueGrey1,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                        ],
-                      );
-                    },
-                  ),
-                ],
+                        ),
+                    ],
+                  );
+                },
               ),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  void _showLanguageDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext dialogContext) {
+        return AlertDialog(
+          title: Text(
+            'Select Language',
+            style: GoogleFonts.poppins(
+              color: ColorClass.primaryColor,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _buildLanguageOption(
+                dialogContext,
+                'ml',
+                'മലയാളം',
+                'Malayalam',
+              ),
+              const SizedBox(height: 8),
+              _buildLanguageOption(
+                dialogContext,
+                'en',
+                'English',
+                'English',
+              ),
+              const SizedBox(height: 8),
+              _buildLanguageOption(
+                dialogContext,
+                'ur',
+                'اردو',
+                'Urdu',
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(dialogContext).pop(),
+              child: Text(
+                'Cancel',
+                style: GoogleFonts.poppins(
+                  color: ColorClass.primaryColor,
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _buildLanguageOption(
+    BuildContext context,
+    String langCode,
+    String nativeName,
+    String englishName,
+  ) {
+    return Consumer<LanguageProvider>(
+      builder: (context, langProvider, child) {
+        final isSelected = langProvider.lang == langCode;
+
+        return InkWell(
+          onTap: () {
+            // Try to access the language provider
+            try {
+              langProvider.loadLanguage(langCode);
+
+              Navigator.of(context).pop();
+
+              // Show confirmation
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Language changed to $englishName'),
+                  duration: const Duration(seconds: 2),
+                  backgroundColor: ColorClass.primaryColor,
+                ),
+              );
+            } catch (e) {
+              Navigator.of(context).pop();
+
+              // Show error message
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Language feature will be available soon'),
+                  duration: const Duration(seconds: 2),
+                ),
+              );
+            }
+          },
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(
+                color: Colors.grey.withValues(alpha: 0.3),
+              ),
+            ),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.language,
+                  color: ColorClass.primaryColor,
+                  size: 20,
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        nativeName,
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black87,
+                        ),
+                      ),
+                      if (nativeName != englishName)
+                        Text(
+                          englishName,
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            color: Colors.grey[600],
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+                Icon(
+                  isSelected ? Icons.check : Icons.crop_square,
+                  color: ColorClass.primaryColor,
+                  size: 16,
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 
@@ -212,41 +299,14 @@ class _AppDrawerState extends State<AppDrawer> {
   }) {
     return ListTile(
       leading: Icon(icon, color: ColorClass.primaryColor),
-      title: Text(title,
-          style: GoogleFonts.poppins(color: ColorClass.primaryColor, fontSize: 16)),
+      title: Text(
+        title,
+        style: GoogleFonts.poppins(
+          color: ColorClass.primaryColor,
+          fontSize: 16,
+        ),
+      ),
       onTap: onTap,
     );
-  }
-
-  Future<void> _launchPlayStore() async {
-    final Uri playStoreUri = Uri.parse('https://play.google.com/store/apps/details?id=co.d4dx.janazaguide&pcampaignid=web_share');
-    try {
-      await launchUrl(
-        playStoreUri,
-        mode: LaunchMode.externalApplication,
-      );
-    } catch (e) {
-      debugPrint('Could not launch Play Store: $e');
-    }
-  }
-
-  Future<void> _launchAppStore() async {
-    final Uri appStoreUri = Uri.parse('https://apps.apple.com/in/app/janaza-guide/id6742624606');
-    try {
-      await launchUrl(
-        appStoreUri,
-        mode: LaunchMode.externalApplication,
-      );
-    } catch (e) {
-      debugPrint('Could not launch App Store: $e');
-    }
-  }
-
-  Future<void> _openDonationPage() async {
-    final Uri donationUri =
-        Uri.parse('https://pages.razorpay.com/janaza-guide');
-    if (await canLaunchUrl(donationUri)) {
-      await launchUrl(donationUri, mode: LaunchMode.externalApplication);
-    }
   }
 }

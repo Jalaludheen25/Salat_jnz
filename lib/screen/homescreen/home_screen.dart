@@ -11,6 +11,8 @@ import 'package:janaza_guide/screen/mayyith_samskaranam/mayyith_samskaranam.dart
 import 'package:janaza_guide/screen/after_janaza/after_janazacare.dart';
 import 'package:janaza_guide/screen/salat_janaza/prayerjanazascreen.dart';
 import 'package:janaza_guide/widget/appdrawer.dart';
+import 'package:janaza_guide/provider/language_provider.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,135 +24,140 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final List<Map<String, dynamic>> menuItems = [
-    {
-      'title': 'മയ്യിത്ത് സംസ്കരണം',
-      'icon': IconClass.deadbodyicon,
-      'screen': const MayyithScreen(),
-    },
-    {
-      'title': 'മയ്യിത്ത് കുളിപ്പിക്കല്‍',
-      'icon': IconClass.deadbodyicon,
-      'screen': const BathingCorpseScreen(),
-    },
-    {
-      'title': 'കഫന്‍ ചെയ്യല്‍',
-      'icon': IconClass.deadbody2,
-      'screen': const KafanScreen(),
-    },
-    {
-      'title': 'മയ്യിത്ത് നമസ്കാരം',
-      'icon': IconClass.prayericon,
-      'screen': const SalatAlJanazaScreen(),
-    },
-    {
-      'title': 'ജനാസ സംസ്കരണം',
-      'icon': IconClass.prayericon,
-      'screen': const JanazaSamskaranam(),
-    },
-    {
-      'title': 'അറിയേണ്ട മറ്റു കാര്യങ്ങൾ',
-      'icon': IconClass.deadbody2,
-      'screen': const Janazacaredetails(),
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorClass.white,
-      key: _scaffoldKey,
-      extendBodyBehindAppBar: true,
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(65.0),
-        child: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          leading: Container(
-            margin: const EdgeInsets.only(left: 8),
-            child: IconButton(
-              icon: const Icon(
-                Icons.menu_rounded,
-                color: ColorClass.black,
-                size: 30,
+    return Consumer<LanguageProvider>(
+      builder: (context, langProvider, child) {
+        final menuItems = [
+          {
+            'title': langProvider.t('home.mayyith'),
+            'icon': IconClass.deadbodyicon,
+            'screen': const MayyithScreen(),
+          },
+          {
+            'title': langProvider.t('home.bathing'),
+            'icon': IconClass.deadbodyicon,
+            'screen': const BathingCorpseScreen(),
+          },
+          {
+            'title': langProvider.t('home.kafan'),
+            'icon': IconClass.deadbody2,
+            'screen': const KafanScreen(),
+          },
+          {
+            'title': langProvider.t('home.prayer'),
+            'icon': IconClass.prayericon,
+            'screen': const SalatAlJanazaScreen(),
+          },
+          {
+            'title': langProvider.t('home.janaza'),
+            'icon': IconClass.prayericon,
+            'screen': const JanazaSamskaranam(),
+          },
+          {
+            'title': langProvider.t('home.after'),
+            'icon': IconClass.deadbody2,
+            'screen': const Janazacaredetails(),
+          },
+        ];
+
+        return Scaffold(
+          backgroundColor: ColorClass.white,
+          key: _scaffoldKey,
+          extendBodyBehindAppBar: true,
+          appBar: PreferredSize(
+            preferredSize: const Size.fromHeight(65.0),
+            child: AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              leading: Container(
+                margin: const EdgeInsets.only(left: 8),
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.menu_rounded,
+                    color: ColorClass.black,
+                    size: 30,
+                  ),
+                  onPressed: () => _scaffoldKey.currentState?.openDrawer(),
+                ),
               ),
-              onPressed: () => _scaffoldKey.currentState?.openDrawer(),
+              title: Text(
+                langProvider.t('home.header'),
+                style: TextStyleClass.abelDefault(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                  color: ColorClass.black,
+                  letterSpacing: 0.8,
+                ),
+              ),
             ),
           ),
-          title: Text(
-            Appkeys.appname,
-            style: TextStyleClass.abelDefault(
-              fontSize: 24,
-              fontWeight: FontWeight.w600,
-              color: ColorClass.black,
-              letterSpacing: 0.8,
-            ),
-          ),
-        ),
-      ),
-      drawer: AppDrawer(),
-      body: SafeArea(
-        child: Stack(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  const SizedBox(height: 25),
-                  // Quranic Verse Container
-                  Column(
+          drawer: AppDrawer(),
+          body: SafeArea(
+            child: Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Text(
-                        'كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ ۗ وَإِنَّمَا تُوَفَّوْنَ أُجُورَكُمْ يَوْمَ الْقِيَامَةِ ۖ فَمَن زُحْزِحَ عَنِ النَّارِ وَأُدْخِلَ الْجَنَّةَ فَقَدْ فَازَ ۗ وَمَا الْحَيَاةُ الدُّنْيَا إِلَّا مَتَاعُ الْغُرُورِ ﴿١٨٥﴾',
-                        textAlign: TextAlign.center,
-                        textDirection: TextDirection.rtl,
-                        style: GoogleFonts.amiri(
-                          fontSize: 18,
-                          height: 2,
-                          color: ColorClass.black,
-                        ),
+                      const SizedBox(height: 25),
+                      // Quranic Verse Container
+                      Column(
+                        children: [
+                          Text(
+                            'كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ ۗ وَإِنَّمَا تُوَفَّوْنَ أُجُورَكُمْ يَوْمَ الْقِيَامَةِ ۖ فَمَن زُحْزِحَ عَنِ النَّارِ وَأُدْخِلَ الْجَنَّةَ فَقَدْ فَازَ ۗ وَمَا الْحَيَاةُ الدُّنْيَا إِلَّا مَتَاعُ الْغُرُورِ ﴿١٨٥﴾',
+                            textAlign: TextAlign.center,
+                            textDirection: TextDirection.rtl,
+                            style: GoogleFonts.amiri(
+                              fontSize: 18,
+                              height: 2,
+                              color: ColorClass.black,
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                          Text(
+                            langProvider.t('home.quran_translation'),
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.anekMalayalam(
+                              fontSize: 15,
+                              letterSpacing: 0.1,
+                              color: ColorClass.primaryColor,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 12),
-                      Text(
-                        'എല്ലാ മനുഷ്യരും മരണം രുചിക്കുന്നവരാണ്. നിങ്ങളുടെ കര്‍മഫലമെല്ലാം ഉയിര്‍ത്തെഴുന്നേല്‍പുനാളില്‍ മാത്രമാണ് പൂര്‍ണമായും നിങ്ങള്‍ക്കു നല്‍കുക. അപ്പോള്‍ നരകത്തീയില്‍ നിന്നകറ്റപ്പെടുകയും സ്വര്‍ഗത്തില്‍ പ്രവേശിപ്പിക്കപ്പെടുകയും ചെയ്യുന്നവനാണ് വിജയംവരിച്ചവന്‍. ഐഹികജീവിതം ചതിക്കുന്ന ചരക്കല്ലാതൊന്നുമല്ല. ( 3:185)',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.anekMalayalam(
-                          fontSize: 15 ,
-                          letterSpacing: 0.1,
-                          color: ColorClass.primaryColor,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
+                      const SizedBox(height: 15),
                     ],
                   ),
-                  const SizedBox(height: 15),
-                ],
-              ),
-            ),
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: 0,
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: ColorClass.primaryColor,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(45),
-                    topRight: Radius.circular(45)
+                ),
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: ColorClass.primaryColor,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(45),
+                          topRight: Radius.circular(45)),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: menuItems
+                          .map((item) => _buildMenuItem(item))
+                          .toList(),
+                    ),
                   ),
                 ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: menuItems.map((item) => _buildMenuItem(item)).toList(),
-                ),
-              ),
+              ],
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 
@@ -177,7 +184,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: 30,
                 height: 30,
                 decoration: BoxDecoration(
-                  color: ColorClass.primaryColor.withOpacity(0.2),
+                  color: ColorClass.primaryColor.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Center(

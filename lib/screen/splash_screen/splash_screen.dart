@@ -38,8 +38,9 @@ class _SplashScreenState extends State<SplashScreen>
 
   Future<void> _checkVersionAndNavigate() async {
     if (!mounted) return;
-    
-    final versionProvider = Provider.of<VersionCheckProvider>(context, listen: false);
+
+    final versionProvider =
+        Provider.of<VersionCheckProvider>(context, listen: false);
     await versionProvider.checkVersion();
 
     if (!mounted) return;

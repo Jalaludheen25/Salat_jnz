@@ -78,6 +78,7 @@ flutter:
     - assets/audio/
     - assets/fonts/
     - assets/icons/
+    - assets/i18n/
 
   fonts:
     - family: NotoSansMalyalam
