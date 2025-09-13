@@ -4,6 +4,7 @@ import '../../constants/colorclass.dart';
 import '../../constants/imagesclass.dart';
 import '../../model/bathing_corpse_model.dart';
 import '../../provider/language_provider.dart';
+import '../../widget/custom_header.dart';
 import 'package:provider/provider.dart';
 
 class MenBathingCorpseScreen extends StatefulWidget {
@@ -20,7 +21,7 @@ class _MenBathingCorpseScreenState extends State<MenBathingCorpseScreen> {
   @override
   void initState() {
     super.initState();
-    _controllers = List.generate(5, (_) => ExpansionTileController());
+    _controllers = List.generate(2, (_) => ExpansionTileController());
   }
 
   void _handleExpansion(int index, bool isExpanded) {
@@ -43,18 +44,6 @@ class _MenBathingCorpseScreenState extends State<MenBathingCorpseScreen> {
         description: langProvider.t('men_bathing.who_desc'),
       ),
       BathingCorpseModel(
-        title: langProvider.t('men_bathing.special_title'),
-        description: langProvider.t('men_bathing.special_desc'),
-      ),
-      BathingCorpseModel(
-        title: langProvider.t('men_bathing.preparation_title'),
-        description: langProvider.t('men_bathing.preparation_desc'),
-      ),
-      BathingCorpseModel(
-        title: langProvider.t('men_bathing.method_title'),
-        description: langProvider.t('men_bathing.method_desc'),
-      ),
-      BathingCorpseModel(
         title: langProvider.t('men_bathing.complete_title'),
         description: langProvider.t('men_bathing.complete_desc'),
       ),
@@ -65,25 +54,8 @@ class _MenBathingCorpseScreenState extends State<MenBathingCorpseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: ColorClass.black),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: Consumer<LanguageProvider>(
-          builder: (context, langProvider, child) {
-            return Text(
-              langProvider.t('men_bathing.title'),
-              style: GoogleFonts.anekMalayalam(
-                fontSize: 22,
-                color: ColorClass.primaryColor,
-                fontWeight: FontWeight.w600,
-              ),
-            );
-          },
-        ),
+      appBar: const CustomHeader(
+        showBackButton: true,
       ),
       body: Consumer<LanguageProvider>(
         builder: (context, langProvider, child) {
@@ -91,6 +63,21 @@ class _MenBathingCorpseScreenState extends State<MenBathingCorpseScreen> {
 
           return Column(
             children: [
+              // Screen Title
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16.0),
+                color: Colors.grey[50],
+                child: Text(
+                  langProvider.t('men_bathing.title'),
+                  style: GoogleFonts.poppins(
+                    fontSize: 18,
+                    color: ColorClass.primaryColor,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Container(

@@ -12,7 +12,7 @@
     "kafan.title": "Shrouding (Kafan)",
     "bathing_corpse.title": "Bathing the Deceased",
     "common.cancel": "Cancel",
-    
+    "language.select": "Select Language",
     "mayyith.title": "Deceased Preparation",
     "mayyith.care_title": "Deceased Care:",
     "mayyith.steps_button": "Things to Pay Attention to Regarding the Dying Person",
@@ -23,8 +23,7 @@
     "mayyith.death_announcement_title": "Announcing Death News",
     "mayyith.death_announcement_content": "It is good to inform relatives and friends about the death. This is so that they can all participate in the funeral rites. The Prophet (PBUH) informed the companions about Najashi's death in Ethiopia and prayed the funeral prayer with them. The Prophet (PBUH) used to inform the companions about the martyrdom of Zaid ibn Haritha, Ja'far ibn Abi Talib, and Abdullah ibn Rawaha (RA) in battle.",
     "mayyith.mourning_title": "Wailing and Lamenting for the Deceased",
-    "mayyith.mourning_content": "Wailing and lamenting for the deceased is prohibited. Weeping and shedding tears without noise and commotion is not wrong. It is a sign of natural human grief. When his son Ibrahim died and when Zainab's daughter Umaimah died, the Prophet (PBUH) wept and sobbed.\n\nHowever, crying loudly for the dead, loosening hair, beating the face, and tearing clothes to express grief is not permissible. Abu Musa al-Ash'ari (RA) is quoted as saying:\nأنا بريئ ممن برئ منه رسول الله ﷺ إن رسول الله برئ من الصالقة والحالقة والشاقة (متفق عليه)\n(I have no connection with those whom the Prophet (PBUH) has no connection with. The Prophet (PBUH) has no connection with those who cry loudly (for the dead), those who shave their heads, and those who tear their chests.)", 
-    
+    "mayyith.mourning_content": "Wailing and lamenting for the deceased is prohibited. Weeping and shedding tears without noise and commotion is not wrong. It is a sign of natural human grief. When his son Ibrahim died and when Zainab's daughter Umaimah died, the Prophet (PBUH) wept and sobbed.\n\nHowever, crying loudly for the dead, loosening hair, beating the face, and tearing clothes to express grief is not permissible. Abu Musa al-Ash'ari (RA) is quoted as saying:\nأنا بريئ ممن برئ منه رسول الله ﷺ إن رسول الله برئ من الصالقة والحالقة والشاقة (متفق عليه)\n(I have no connection with those whom the Prophet (PBUH) has no connection with. The Prophet (PBUH) has no connection with those who cry loudly (for the dead), those who shave their heads, and those who tear their chests.)",
     "steps.screen_title": "Things to Pay Attention to Regarding the Dying Person",
     "steps.screen_subtitle": "Things Others Should Pay Attention to Regarding the Dying Person",
     "steps.kalima_title": "Teaching لآ اِلَهَ اِلّا اللّهُ",
@@ -42,7 +41,6 @@
     "steps.debt_title": "Pay Off Debts if Any",
     "steps.debt_desc": "If the deceased has debts, they should be paid off as soon as possible. Only after that can his wealth be distributed. Abu Huraira (RA) narrates that the Prophet (PBUH) said:\n نفس المؤمن مُعلَّقة بدَيْنِه حتى يُقْضَى عنه  (أحمد، ابن ماجه، الترمذي)   \n(The soul of a believer remains tied to his debt until it is paid off.)",
     "steps.debt_instructions": "The Prophet (PBUH) used to ask other companions to pray for those who died with unpaid debts, rather than praying for them himself.",
-
     "bathing.main_title": "Bathing the Deceased",
     "bathing.men_button": "How to Bathe a Male Deceased",
     "bathing.women_button": "How to Bathe a Female Deceased",
@@ -60,7 +58,6 @@
     "bathing.spouse_translation": "(If I had known then what I know now, none would have washed the Prophet (PBUH) except his wives - Ahmad, Abu Dawud, Hakim)",
     "bathing.children_title": "Women Can Bathe Young Boys",
     "bathing.children_desc": "There is no dispute that women can bathe young boys.",
-
     "men_bathing.title": "How to Bathe a Male Deceased",
     "men_bathing.who_title": "Who Should Bathe a Male Deceased?",
     "men_bathing.who_desc": "A male should be bathed by males. However, a husband can bathe his wife and a wife can bathe her husband.\n\nThe best people to bathe a male deceased are in this order: father, grandfather, son, grandson, brother, nephew, paternal uncle, their male children, other family members, then other men.",
@@ -72,7 +69,6 @@
     "men_bathing.method_desc": "1. Cover the deceased's private parts with some cloth.\n\n2. Raise the head slightly above the waist and gently massage the stomach. The person bathing should wear gloves or wrap cloth around hands.\n\n3. Clean the private parts.\n\n4. Perform ablution as for prayer.\n\n5. Wash the head and beard with soap.\n\n6. Wash the right side first, then the left side. This should be done three times. If anything comes out again, clean it and wash again.\n\n7. If not clean after three times, it can be washed five or seven times.\n\n8. Dry the body after bathing.\n\n9. Apply fragrance to the places of prostration, private parts, and armpits. It's good to apply to the whole body.\n\n10. Cut mustache and nails if they are long.",
     "men_bathing.complete_title": "Complete Method of Bathing",
     "men_bathing.complete_desc": "Place the deceased on a bed or plank in a private place away from public view, with the head on the elevated part.\n\nCover the entire body with cloth. The person bathing should stand on the left side of the deceased. Then support the deceased and place your right knee against the deceased's back on the bed. Hold with the right thumb in the armpit. Press and massage the stomach repeatedly with the left hand.\n\nSit leaning on the knee and gently massage the stomach with the left hand (this is done to expel everything from the stomach). During this time, the assistant should keep pouring water.\n\nLay flat and clean the private parts wearing gloves or with cloth wrapped around hands.\n\nAfter washing hands, wrap another cloth and clean the teeth and nostrils with the left index finger.\n\nPerform ablution as for prayer. Wash the head and beard with sidr, soap or shampoo.\n\nComb the beard and hair. First wash the right side, then the left side (from head to feet). Then turn to the left side and wash the right back, then turn to the right side and wash the left back. Washing three times is sunnah. If not clean, the number can be increased to five or seven (odd numbers are sunnah).\n\nUse shampoo or soap in the first wash.\n\nAfter washing away the sidr or soap, pour clean water three times. In this third time, or at the very end, using camphor, musk, and other fragrances is sunnah. Soften the joints and wipe away water with cloth.",
-
     "women_bathing.title": "How to Bathe a Female Deceased",
     "women_bathing.who_title": "How to Bathe a Female Deceased",
     "women_bathing.who_desc": "A female should be bathed by females. However, a husband can bathe his wife and a wife can bathe her husband.",
@@ -88,8 +84,6 @@
     "women_bathing.method_desc": "1. Cover the deceased's private parts with some cloth.\n\n2. Raise the head slightly above the waist and gently massage the stomach. The person bathing should wear gloves or wrap cloth around hands.\n\n3. Clean the private parts.\n\n4. Perform ablution as for prayer.\n\n5. Wash the head with soap.\n\n6. Wash the right side first, then the left side. This should be done three times.\n\n7. If not clean after three times, it can be washed five or seven times.\n\n8. Dry the body after bathing.\n\n9. Apply fragrance to the places of prostration, private parts, and armpits. It's good to apply to the whole body.\n\n10. Cut nails if they are long.\n\n11. Divide the woman's hair into three parts and place them at the back.",
     "women_bathing.complete_title": "Complete Method of Bathing",
     "women_bathing.complete_desc": "Place the deceased on a bed or plank in a private place away from public view, with the head on the elevated part.\n\nCover the entire body with cloth. The person bathing should stand on the left side of the deceased. Then support the deceased and place your right knee against the deceased's back on the bed.\n\nHold with the right thumb in the armpit. Press and massage the stomach repeatedly with the left hand. At this time, there's a possibility of excretions coming out from the private parts, so pour plenty of water.\n\nThen lay in the original position. Clean the private parts with cloth wrapped around the left hand. Then clean the teeth with the right hand. Similarly, remove dirt from the nostrils. Then perform complete ablution. However, when rinsing the mouth, tilt the head to prevent water from entering inside.\n\nRemove dirt between nails with a soft stick. Wash the head with water mixed with soap or sidr. Then wash the right front part from chest to feet using soapy water. Then wash the left front part similarly.\n\nThen turn the deceased to the left side and wash the right back part from chest to feet with soapy water. Then turn to the right side and wash the left back part similarly. Then lay flat and pour water once from head to feet.\n\nThen make the intention 'I am giving the obligatory bath' and pour clean water from head to feet three times. In the final stage, water mixed with a little camphor can be poured in the aforementioned manner or by sitting the deceased up. Then dry the entire body with a good cloth.",
-
-
     "kafan.mandatory_title": "Mandatory Shrouding",
     "kafan.mandatory_desc": "Wrapping the entire body of the deceased with cloth or other material to cover the whole body is the primary and mandatory method of shrouding.",
     "kafan.procedure_title": "Procedure of Shrouding",
@@ -121,8 +115,6 @@
     "kafan.hajj_translation": "(While a man was standing with the Messenger (PBUH) at Arafat, he fell from his mount and broke his neck and died. The incident was reported to the Prophet (PBUH), and he said: Bathe him with water and sidr, shroud him in his two garments, do not apply perfume or cover his head, for Allah will resurrect him on the Day of Judgment in a state of talbiyah.)",
     "kafan.guidelines_title": "Shrouding: Main Guidelines",
     "kafan.guidelines_desc": "The shroud should be moderate and inexpensive. Unnecessary expenses should be avoided. Silk clothing is forbidden for men, so their shroud should not be silk either. Funeral expenses should be borne from the deceased's own wealth. If they have no wealth, those who take responsibility for them should bear the cost. If there are no such people, then from Baitul Mal.",
-
-
     "prayer_step_screen.title": "Four Takbirs",
     "prayer_step_screen.step1_title": "First Takbir",
     "prayer_step_screen.step1_desc": "Say the Takbir:",
@@ -141,7 +133,6 @@
     "prayer_step_screen.step4_desc": "",
     "prayer_step_screen.step4_arabic": "اَلَّلهُمَّ لاَ تُحَرِّمْنَا اَجْرَهُ وَ لاَ تَفْتِنَّا بَعْدَهُ وَغْفِرْلَنَا وَلَهُ رَبَّنَا اَتِنَا فِي الدُّنْياَ حَسَنَتً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَبَ النَّارِ",
     "prayer_step_screen.step4_instructions": "O Allah, do not deprive us of his reward and do not test us after him. Forgive us and him. Our Lord, give us good in this world and good in the next world, and save us from the punishment of the Fire.\n\nThen say 'Assalamu alaikum wa rahmatullahi wa barakatuh' and give salam.",
-
     "salat_janaza.title": "Funeral Prayer",
     "salat_janaza.prayer_steps": "Funeral Prayer Steps",
     "salat_janaza.hadith_prayers": "Prayers from Hadith",
@@ -175,9 +166,8 @@
     "salat_janaza.leadership_title": "Who Should Lead the Prayer",
     "salat_janaza.leadership_desc": "According to Imam Shafi'i (RA), the leadership of funeral prayer should be in the following order:",
     "salat_janaza.leadership_list": "1) Father \n2) Grandfather\n3) Son\n4) Son's son\n5) Brother\n6) Brother's son\n7) Paternal uncle\n8) Paternal uncle's son",
-
- 
-   "prayers_hadith.title": "Prayers in Hadith",
+    
+    "prayers_hadith.title": "Prayers in Hadith",
     "prayers_hadith.hadith1_title": "Hadith 1 - Abu Huraira (RA)",
     "prayers_hadith.hadith1_desc": "Abu Huraira (RA) narrates that the Prophet (PBUH) said:",
     "prayers_hadith.hadith1_arabic": "إِذَا صَلَّيْتُمْ عَلَى الْمَيِّتِ فَأَخْلِصُوا لَهُ الدُّعَاءَ",
@@ -193,7 +183,6 @@
     "prayers_hadith.hadith3_arabic": "مَا مِنْ مُسْلِمٍ يَمُوتُ فَيُصَلِّي عَلَيْهِ ثَلاَثَةُ صُفُوفٍ مِنَ الْمُسْلِمِينَ إِلاَّ أَوْجَبَ",
     "prayers_hadith.hadith3_translation": "(No Muslim dies and three rows of Muslims pray for him but it makes (Paradise) certain for him.)",
     "prayers_hadith.hadith3_source": "(Ahmad, Abu Dawud, Tirmidhi)",
-
     "samshaya.title": "Frequently Asked Questions",
     "samshaya.q1_title": "Question 1: Where can Janaza prayer be performed?",
     "samshaya.q1_answer": "Janaza prayer can be performed in the mosque or outside the mosque in any clean place. The Prophet (PBUH) performed Janaza prayer both inside and outside the mosque.",
@@ -207,7 +196,6 @@
     "samshaya.q5_answer": "Janaza prayer can only be performed once for one deceased. However, those who could not participate in the first Janaza can perform it separately later.",
     "samshaya.q6_title": "Question 6: Can Ghaiban prayer (prayer in absentia) be performed?",
     "samshaya.q6_answer": "Ghaiban prayer is performing Janaza prayer without the deceased being present. The Prophet (PBUH) performed Ghaiban prayer for Najashi in Ethiopia. This is permissible in special circumstances.",
-
     "janaza_samskaranam.title": "Funeral Rites",
     "janaza_samskaranam.step1_title": "Expedite the Funeral Process",
     "janaza_samskaranam.step1_desc": "The funeral process should be expedited as much as possible. The same applies to carrying the deceased to the burial ground. Do not walk slowly, but walk with some haste.",
@@ -248,8 +236,6 @@
     "janaza_samskaranam.step9_arabic": "أتعلم بها قبر أخي وأدفن إليه من مات من أهلي",
     "janaza_samskaranam.step9_translation": "By this I will recognize my brother's grave and bury near it those of my family who die.",
     "janaza_samskaranam.step9_source": "Prophet (PBUH)",
-
-    
     "after_janaza.step1_title": "\"Ta'ziyah\" (Condolence)",
     "after_janaza.step1_desc": "Consoling the grieving family of the deceased is Sunnah, even if the deceased is a non-Muslim. All family members - men, women, elders, and children - can be consoled without distinction. This can be done before or after the burial. Generally, the time for Ta'ziyah is up to three days. If someone couldn't do it due to travel or other reasons, it can be done even after three days.\n\nAny words that provide comfort and encourage patience and forbearance can be used in Ta'ziyah. Scholars have quoted the following as words of consolation.\n\nThe consoled person should say 'Ameen' and say to the consoler 'Ajrakallah' (May Allah reward you!).\n\nBoth should part after saying words of consolation.\n\nAccording to Imam Shafi'i, gathering for Ta'ziyah and preparing food for this purpose is an un-Islamic practice (Bid'ah). The same applies to the practices of Chavadi Anthiram (death anniversary gatherings) and celebrations on the 15th, 40th, and annual days that are common in many places. None of these have precedent in the Prophet's practice.",
     "after_janaza.step1_arabic": "أعظم الله أجرك وأحسن عزائك وغفر لميتك",

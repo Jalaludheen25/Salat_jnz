@@ -3,10 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:janaza_guide/constants/colorclass.dart';
 import 'package:janaza_guide/constants/imagesclass.dart';
 import 'package:janaza_guide/model/salatjanazamodel.dart';
-import 'package:janaza_guide/screen/salat_janaza/prayersinhadith.dart';
+
 import 'package:janaza_guide/screen/salat_janaza/prayerstepscreen.dart';
 import 'package:janaza_guide/screen/salat_janaza/samshaya_nivaranam.dart';
 import 'package:janaza_guide/provider/language_provider.dart';
+import 'package:janaza_guide/widget/custom_header.dart';
 import 'package:provider/provider.dart';
 
 class SalatAlJanazaScreen extends StatefulWidget {
@@ -50,45 +51,45 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
         translation:
             langProvider.t('salat_janaza.social_obligation_translation'),
       ),
-      SalatJanazaModel(
-        title: langProvider.t('salat_janaza.reward_importance_title'),
-        description: langProvider.t('salat_janaza.reward_importance_desc'),
-        imagePath: ImageClass.salat,
-        instructions: langProvider.t('salat_janaza.reward_importance_hadith'),
-        arabicText: langProvider.t('salat_janaza.reward_importance_arabic'),
-        translation:
-            langProvider.t('salat_janaza.reward_importance_translation'),
-      ),
-      SalatJanazaModel(
-        title: langProvider.t('salat_janaza.mandatory_elements_title'),
-        description: langProvider.t('salat_janaza.mandatory_elements_desc'),
-        imagePath: ImageClass.salat,
-        instructions: langProvider.t('salat_janaza.mandatory_elements_list'),
-      ),
-      SalatJanazaModel(
-        title: langProvider.t('salat_janaza.four_takbir_title'),
-        description: '',
-        imagePath: ImageClass.salat,
-        instructions: langProvider.t('salat_janaza.four_takbir_hadith'),
-        arabicText: langProvider.t('salat_janaza.four_takbir_arabic'),
-        translation: langProvider.t('salat_janaza.four_takbir_translation'),
-      ),
-      SalatJanazaModel(
-        title: langProvider.t('salat_janaza.prayer_method_title'),
-        description: '',
-        imagePath: ImageClass.salat,
-        instructions: langProvider.t('salat_janaza.prayer_method_hadith'),
-        arabicText: langProvider.t('salat_janaza.prayer_method_arabic'),
-        translation: langProvider.t('salat_janaza.prayer_method_translation'),
-      ),
-      SalatJanazaModel(
-        title: langProvider.t('salat_janaza.sincere_prayer_title'),
-        description: langProvider.t('salat_janaza.sincere_prayer_desc'),
-        imagePath: ImageClass.salat,
-        instructions: langProvider.t('salat_janaza.sincere_prayer_hadith'),
-        arabicText: langProvider.t('salat_janaza.sincere_prayer_arabic'),
-        translation: langProvider.t('salat_janaza.sincere_prayer_translation'),
-      ),
+      // SalatJanazaModel(
+      //   title: langProvider.t('salat_janaza.reward_importance_title'),
+      //   description: langProvider.t('salat_janaza.reward_importance_desc'),
+      //   imagePath: ImageClass.salat,
+      //   instructions: langProvider.t('salat_janaza.reward_importance_hadith'),
+      //   arabicText: langProvider.t('salat_janaza.reward_importance_arabic'),
+      //   translation:
+      //       langProvider.t('salat_janaza.reward_importance_translation'),
+      // ),
+      // SalatJanazaModel(
+      //   title: langProvider.t('salat_janaza.mandatory_elements_title'),
+      //   description: langProvider.t('salat_janaza.mandatory_elements_desc'),
+      //   imagePath: ImageClass.salat,
+      //   instructions: langProvider.t('salat_janaza.mandatory_elements_list'),
+      // ),
+      // SalatJanazaModel(
+      //   title: langProvider.t('salat_janaza.four_takbir_title'),
+      //   description: '',
+      //   imagePath: ImageClass.salat,
+      //   instructions: langProvider.t('salat_janaza.four_takbir_hadith'),
+      //   arabicText: langProvider.t('salat_janaza.four_takbir_arabic'),
+      //   translation: langProvider.t('salat_janaza.four_takbir_translation'),
+      // ),
+      // SalatJanazaModel(
+      //   title: langProvider.t('salat_janaza.prayer_method_title'),
+      //   description: '',
+      //   imagePath: ImageClass.salat,
+      //   instructions: langProvider.t('salat_janaza.prayer_method_hadith'),
+      //   arabicText: langProvider.t('salat_janaza.prayer_method_arabic'),
+      //   translation: langProvider.t('salat_janaza.prayer_method_translation'),
+      // ),
+      // SalatJanazaModel(
+      //   title: langProvider.t('salat_janaza.sincere_prayer_title'),
+      //   description: langProvider.t('salat_janaza.sincere_prayer_desc'),
+      //   imagePath: ImageClass.salat,
+      //   instructions: langProvider.t('salat_janaza.sincere_prayer_hadith'),
+      //   arabicText: langProvider.t('salat_janaza.sincere_prayer_arabic'),
+      //   translation: langProvider.t('salat_janaza.sincere_prayer_translation'),
+      // ),
       SalatJanazaModel(
         title: langProvider.t('salat_janaza.leadership_title'),
         description: langProvider.t('salat_janaza.leadership_desc'),
@@ -106,27 +107,8 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
 
     return Scaffold(
       backgroundColor: ColorClass.white,
-      appBar: AppBar(
-        backgroundColor:
-            isInBottomSheet ? Colors.transparent : ColorClass.secondaryColor,
-        elevation: isInBottomSheet ? 0 : 4,
-        leading: IconButton(
-          icon: Icon(isInBottomSheet ? Icons.close : Icons.arrow_back,
-              color: ColorClass.primaryColor),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: Consumer<LanguageProvider>(
-          builder: (context, langProvider, child) {
-            return Text(
-              langProvider.t('salat_janaza.title'),
-              style: GoogleFonts.anekMalayalam(
-                fontSize: 20,
-                color: ColorClass.primaryColor,
-                fontWeight: FontWeight.w700,
-              ),
-            );
-          },
-        ),
+      appBar: const CustomHeader(
+        showBackButton: true,
       ),
       body: Consumer<LanguageProvider>(
         builder: (context, langProvider, child) {
@@ -135,6 +117,21 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
           return SingleChildScrollView(
             child: Column(
               children: [
+                // Screen Title
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(16.0),
+                  color: Colors.grey[50],
+                  child: Text(
+                    langProvider.t('salat_janaza.title'),
+                    style: GoogleFonts.poppins(
+                      fontSize: 18,
+                      color: ColorClass.primaryColor,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Container(
@@ -208,73 +205,6 @@ class _SalatAlJanazaScreenState extends State<SalatAlJanazaScreen> {
                                       fontSize: 18,
                                       color: ColorClass.primaryColor,
                                       fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Icon(
-                                Icons.chevron_right,
-                                color: ColorClass.primaryColor,
-                                size: 24,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 12),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const Prayersinhadith(),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 16, horizontal: 20),
-                          decoration: BoxDecoration(
-                            color: ColorClass.white,
-                            borderRadius: BorderRadius.circular(12),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.1),
-                                offset: const Offset(0, 2),
-                                blurRadius: 6,
-                                spreadRadius: 0,
-                              ),
-                            ],
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Container(
-                                    padding: const EdgeInsets.all(8),
-                                    decoration: BoxDecoration(
-                                      color: ColorClass.primaryColor
-                                          .withOpacity(0.1),
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    child: Icon(
-                                      Icons.format_list_bulleted,
-                                      color: ColorClass.primaryColor,
-                                      size: 20,
-                                    ),
-                                  ),
-                                  SizedBox(width: 12),
-                                  SizedBox(
-                                    width: 200,
-                                    child: Text(
-                                      langProvider
-                                          .t('salat_janaza.hadith_prayers'),
-                                      style: GoogleFonts.anekMalayalam(
-                                        fontSize: 18,
-                                        color: ColorClass.primaryColor,
-                                        fontWeight: FontWeight.w600,
-                                      ),
                                     ),
                                   ),
                                 ],

@@ -33,24 +33,25 @@ class _AppDrawerState extends State<AppDrawer> {
                 children: [
                   DrawerHeader(
                     decoration: BoxDecoration(color: ColorClass.primaryColor),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.end,
+                    child: Row(
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(60),
                           child: Image.asset(
                             IconClass.logo,
-                            height: 80,
+                            height: 60,
+                            width: 60,
                           ),
                         ),
-                        const SizedBox(height: 10),
-                        Text(
-                          'Salat Al Janaza',
-                          style: GoogleFonts.poppins(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Text(
+                            'Salat Al Janaza',
+                            style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ],

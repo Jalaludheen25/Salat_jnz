@@ -4,6 +4,7 @@ import 'package:janaza_guide/constants/colorclass.dart';
 import 'package:janaza_guide/constants/imagesclass.dart';
 import 'package:janaza_guide/screen/mayyith_samskaranam/deadbodystepscreen.dart';
 import 'package:janaza_guide/provider/language_provider.dart';
+import 'package:janaza_guide/widget/custom_header.dart';
 import 'package:provider/provider.dart';
 
 class MayyithScreen extends StatefulWidget {
@@ -111,165 +112,147 @@ class _MayyithScreenState extends State<MayyithScreen> {
 
     return Scaffold(
       backgroundColor: ColorClass.white,
-      appBar: AppBar(
-        backgroundColor:
-            isInBottomSheet ? Colors.transparent : ColorClass.secondaryColor,
-        elevation: isInBottomSheet ? 0 : 4,
-        leading: IconButton(
-          icon: Icon(isInBottomSheet ? Icons.close : Icons.arrow_back,
-              color: ColorClass.black),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: Consumer<LanguageProvider>(
-          builder: (context, langProvider, child) {
-            return Text(
-              langProvider.t('mayyith.title'),
-              style: GoogleFonts.anekMalayalam(
-                fontSize: 20,
-                color: ColorClass.primaryColor,
-                fontWeight: FontWeight.w700,
-              ),
-            );
-          },
-        ),
-        centerTitle: false,
+      appBar: const CustomHeader(
+        showBackButton: true,
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 20),
-              // Prayer Icon Card
-              // Prayer Icon Card with orientation awareness
-              Container(
-                width: 360,
-                height: 200,
-                decoration: BoxDecoration(
-                  color: Colors.grey[900],
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.asset(
-                    ImageClass.kalima,
-                    fit: BoxFit.fill,
+      body: Expanded(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 20),
+                // Prayer Icon Card
+                // Prayer Icon Card with orientation awareness
+                Container(
+                  width: 360,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[900],
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.asset(
+                      ImageClass.kalima,
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 20),
-              Consumer<LanguageProvider>(
-                builder: (context, langProvider, child) {
-                  return Text(
-                    langProvider.t('mayyith.care_title'),
-                    style: GoogleFonts.anekMalayalam(
-                      fontSize: 18,
-                      color: ColorClass.primaryColor,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  );
-                },
-              ),
-              const SizedBox(height: 20),
-              // Improved Prayer Steps Button
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Mayyithstepscreen(),
-                    ),
-                  );
-                },
-                child: Consumer<LanguageProvider>(
+                const SizedBox(height: 20),
+                Consumer<LanguageProvider>(
                   builder: (context, langProvider, child) {
-                    return BasicInitialNeedsWidget(
-                      title: langProvider.t('mayyith.steps_button'),
+                    return Text(
+                      langProvider.t('mayyith.care_title'),
+                      style: GoogleFonts.anekMalayalam(
+                        fontSize: 18,
+                        color: ColorClass.primaryColor,
+                        fontWeight: FontWeight.w600,
+                      ),
                     );
                   },
                 ),
-              ),
-              const SizedBox(height: 20),
-              Consumer<LanguageProvider>(
-                builder: (context, langProvider, child) {
-                  return ExpandableInfoWidget(
-                    title: langProvider.t('mayyith.after_death_title'),
-                    content: langProvider.t('mayyith.after_death_content'),
-                    controller: _controllers[0],
-                    isExpanded: _expandedIndex == 0,
-                    onExpansionChanged: (expanded) =>
-                        _handleExpansion(0, expanded),
-                    index: 0,
-                  );
-                },
-              ),
-              const SizedBox(height: 20),
-              Consumer<LanguageProvider>(
-                builder: (context, langProvider, child) {
-                  return ExpandableInfoWidget(
-                    title: langProvider.t('mayyith.death_news_title'),
-                    content: langProvider.t('mayyith.death_news_content'),
-                    controller: _controllers[1],
-                    isExpanded: _expandedIndex == 1,
-                    onExpansionChanged: (expanded) =>
-                        _handleExpansion(1, expanded),
-                    index: 1,
-                  );
-                },
-              ),
-              const SizedBox(height: 20),
-              Consumer<LanguageProvider>(
-                builder: (context, langProvider, child) {
-                  return ExpandableInfoWidget(
-                    title: langProvider.t('mayyith.death_announcement_title'),
-                    content:
-                        langProvider.t('mayyith.death_announcement_content'),
-                    controller: _controllers[2],
-                    isExpanded: _expandedIndex == 2,
-                    onExpansionChanged: (expanded) =>
-                        _handleExpansion(2, expanded),
-                    index: 2,
-                  );
-                },
-              ),
-              const SizedBox(height: 20),
-              Consumer<LanguageProvider>(
-                builder: (context, langProvider, child) {
-                  return ExpandableInfoWidget(
-                    title: langProvider.t('mayyith.mourning_title'),
-                    content: langProvider.t('mayyith.mourning_content'),
-                    controller: _controllers[3],
-                    isExpanded: _expandedIndex == 3,
-                    onExpansionChanged: (expanded) =>
-                        _handleExpansion(3, expanded),
-                    index: 3,
-                  );
-                },
-              ),
-              const SizedBox(height: 20),
-              // // Prayer Details
-              // Text(
-              //   "كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ ۗ وَإِنَّمَا تُوَفَّوْنَ أُجُورَكُمْ يَوْمَ الْقِيَامَةِ ۖ فَمَن زُحْزِحَ عَنِ النَّارِ وَأُدْخِلَ الْجَنَّةَ فَقَدْ فَازَ ۗ وَمَا الْحَيَاةُ الدُّنْيَا إِلَّا مَتَاعُ الْغُرُورِ ﴿١٨٥﴾എല്ലാ മനുഷ്യരും മരണം രുചിക്കുന്നവരാണ്. നിങ്ങളുടെ കര്‍മഫലമെല്ലാം ഉയിര്‍ത്തെഴുന്നേല്‍പുനാളില്‍ മാത്രമാണ് പൂര്‍ണമായും നിങ്ങള്‍ക്കു നല്‍കുക. അപ്പോള്‍ നരകത്തീയില്‍ നിന്നകറ്റപ്പെടുകയും സ്വര്‍ഗത്തില്‍ പ്രവേശിപ്പിക്കപ്പെടുകയും ചെയ്യുന്നവനാണ് വിജയംവരിച്ചവന്‍. ഐഹികജീവിതം ചതിക്കുന്ന ചരക്കല്ലാതൊന്നുമല്ല. ( 3:185)",
-              //   style: GoogleFonts.anekMalayalam(
-              //     fontSize: 18,
-              //     color: ColorClass.primaryColor,
-              //     fontWeight: FontWeight.w500,
-              //   ),
-              //   textAlign: TextAlign.left,
-              // ),
-              // SizedBox(height: 20),
-              // Text(
-              //   'മരണം ഉറപ്പിച്ചാല്‍ നിര്‍വഹിക്കേണ്ട പ്രധാന കര്‍മങ്ങള്‍ നോക്കാം.',
-              //   style: GoogleFonts.anekMalayalam(
-              //     fontSize: 18,
-              //     color: ColorClass.primaryColor,
-              //     fontWeight: FontWeight.w600,
-              //   ),
-              // ),
-              // const SizedBox(height: 20),
-              // Improved Post-Death Actions Button
-            ],
+                const SizedBox(height: 20),
+                // Improved Prayer Steps Button
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Mayyithstepscreen(),
+                      ),
+                    );
+                  },
+                  child: Consumer<LanguageProvider>(
+                    builder: (context, langProvider, child) {
+                      return BasicInitialNeedsWidget(
+                        title: langProvider.t('mayyith.steps_button'),
+                      );
+                    },
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Consumer<LanguageProvider>(
+                  builder: (context, langProvider, child) {
+                    return ExpandableInfoWidget(
+                      title: langProvider.t('mayyith.after_death_title'),
+                      content: langProvider.t('mayyith.after_death_content'),
+                      controller: _controllers[0],
+                      isExpanded: _expandedIndex == 0,
+                      onExpansionChanged: (expanded) =>
+                          _handleExpansion(0, expanded),
+                      index: 0,
+                    );
+                  },
+                ),
+                const SizedBox(height: 20),
+                Consumer<LanguageProvider>(
+                  builder: (context, langProvider, child) {
+                    return ExpandableInfoWidget(
+                      title: langProvider.t('mayyith.death_news_title'),
+                      content: langProvider.t('mayyith.death_news_content'),
+                      controller: _controllers[1],
+                      isExpanded: _expandedIndex == 1,
+                      onExpansionChanged: (expanded) =>
+                          _handleExpansion(1, expanded),
+                      index: 1,
+                    );
+                  },
+                ),
+                const SizedBox(height: 20),
+                Consumer<LanguageProvider>(
+                  builder: (context, langProvider, child) {
+                    return ExpandableInfoWidget(
+                      title: langProvider.t('mayyith.death_announcement_title'),
+                      content:
+                          langProvider.t('mayyith.death_announcement_content'),
+                      controller: _controllers[2],
+                      isExpanded: _expandedIndex == 2,
+                      onExpansionChanged: (expanded) =>
+                          _handleExpansion(2, expanded),
+                      index: 2,
+                    );
+                  },
+                ),
+                const SizedBox(height: 20),
+                Consumer<LanguageProvider>(
+                  builder: (context, langProvider, child) {
+                    return ExpandableInfoWidget(
+                      title: langProvider.t('mayyith.mourning_title'),
+                      content: langProvider.t('mayyith.mourning_content'),
+                      controller: _controllers[3],
+                      isExpanded: _expandedIndex == 3,
+                      onExpansionChanged: (expanded) =>
+                          _handleExpansion(3, expanded),
+                      index: 3,
+                    );
+                  },
+                ),
+                const SizedBox(height: 20),
+                // // Prayer Details
+                // Text(
+                //   "كُلُّ نَفْسٍ ذَائِقَةُ الْمَوْتِ ۗ وَإِنَّمَا تُوَفَّوْنَ أُجُورَكُمْ يَوْمَ الْقِيَامَةِ ۖ فَمَن زُحْزِحَ عَنِ النَّارِ وَأُدْخِلَ الْجَنَّةَ فَقَدْ فَازَ ۗ وَمَا الْحَيَاةُ الدُّنْيَا إِلَّا مَتَاعُ الْغُرُورِ ﴿١٨٥﴾എല്ലാ മനുഷ്യരും മരണം രുചിക്കുന്നവരാണ്. നിങ്ങളുടെ കര്‍മഫലമെല്ലാം ഉയിര്‍ത്തെഴുന്നേല്‍പുനാളില്‍ മാത്രമാണ് പൂര്‍ണമായും നിങ്ങള്‍ക്കു നല്‍കുക. അപ്പോള്‍ നരകത്തീയില്‍ നിന്നകറ്റപ്പെടുകയും സ്വര്‍ഗത്തില്‍ പ്രവേശിപ്പിക്കപ്പെടുകയും ചെയ്യുന്നവനാണ് വിജയംവരിച്ചവന്‍. ഐഹികജീവിതം ചതിക്കുന്ന ചരക്കല്ലാതൊന്നുമല്ല. ( 3:185)",
+                //   style: GoogleFonts.anekMalayalam(
+                //     fontSize: 18,
+                //     color: ColorClass.primaryColor,
+                //     fontWeight: FontWeight.w500,
+                //   ),
+                //   textAlign: TextAlign.left,
+                // ),
+                // SizedBox(height: 20),
+                // Text(
+                //   'മരണം ഉറപ്പിച്ചാല്‍ നിര്‍വഹിക്കേണ്ട പ്രധാന കര്‍മങ്ങള്‍ നോക്കാം.',
+                //   style: GoogleFonts.anekMalayalam(
+                //     fontSize: 18,
+                //     color: ColorClass.primaryColor,
+                //     fontWeight: FontWeight.w600,
+                //   ),
+                // ),
+                // const SizedBox(height: 20),
+                // Improved Post-Death Actions Button
+              ],
+            ),
           ),
         ),
       ),

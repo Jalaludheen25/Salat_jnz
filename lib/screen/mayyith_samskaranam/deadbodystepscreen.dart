@@ -4,6 +4,7 @@ import 'package:janaza_guide/constants/colorclass.dart';
 import 'package:janaza_guide/constants/imagesclass.dart';
 import 'package:janaza_guide/model/mayyithmodel.dart';
 import 'package:janaza_guide/provider/language_provider.dart';
+import 'package:janaza_guide/widget/custom_header.dart';
 import 'package:provider/provider.dart';
 
 class Mayyithstepscreen extends StatefulWidget {
@@ -87,43 +88,28 @@ class _MayyithstepscreenState extends State<Mayyithstepscreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: ColorClass.black),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: Consumer<LanguageProvider>(
-          builder: (context, langProvider, child) {
-            return Text(
-              langProvider.t('steps.screen_title'),
-              style: GoogleFonts.anekMalayalam(
-                fontSize: 16,
-                color: ColorClass.black,
-                fontWeight: FontWeight.w600,
-              ),
-            );
-          },
-        ),
+      appBar: const CustomHeader(
+        showBackButton: true,
       ),
       body: Consumer<LanguageProvider>(
         builder: (context, langProvider, child) {
           final prayerSteps = _getPrayerSteps(langProvider);
 
           return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+              // Screen Title
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16.0),
+                color: Colors.grey[50],
                 child: Text(
-                  langProvider.t('steps.screen_subtitle'),
-                  style: GoogleFonts.anekMalayalam(
-                    fontSize: 16,
-                    color: ColorClass.black.withOpacity(0.6),
-                    fontWeight: FontWeight.w500,
+                  langProvider.t('steps.screen_title'),
+                  style: GoogleFonts.poppins(
+                    fontSize: 18,
+                    color: ColorClass.primaryColor,
+                    fontWeight: FontWeight.w600,
                   ),
+                  textAlign: TextAlign.center,
                 ),
               ),
               Expanded(

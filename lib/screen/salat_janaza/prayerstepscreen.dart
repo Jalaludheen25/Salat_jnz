@@ -5,6 +5,7 @@ import 'package:janaza_guide/constants/imagesclass.dart';
 import 'package:janaza_guide/model/prayerstepmodel.dart';
 import 'package:janaza_guide/provider/audio_service.dart';
 import 'package:janaza_guide/provider/language_provider.dart';
+import 'package:janaza_guide/widget/custom_header.dart';
 import 'package:provider/provider.dart';
 
 class PrayerStepsSliderView extends StatefulWidget {
@@ -113,28 +114,12 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: ColorClass.black),
-          onPressed: () {
-            _audioService.stop();
-            Navigator.pop(context);
-          },
-        ),
-        title: Consumer<LanguageProvider>(
-          builder: (context, langProvider, child) {
-            return Text(
-              langProvider.t('prayer_step_screen.title'),
-              style: GoogleFonts.anekMalayalam(
-                fontSize: 22,
-                color: ColorClass.primaryColor,
-                fontWeight: FontWeight.w600,
-              ),
-            );
-          },
-        ),
+      appBar: CustomHeader(
+        showBackButton: true,
+        onBackPressed: () {
+          _audioService.stop();
+          Navigator.pop(context);
+        },
       ),
       body: Consumer<LanguageProvider>(
         builder: (context, langProvider, child) {
@@ -142,6 +127,21 @@ class _PrayerStepsSliderViewState extends State<PrayerStepsSliderView> {
 
           return Column(
             children: [
+              // Screen Title
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16.0),
+                color: Colors.grey[50],
+                child: Text(
+                  langProvider.t('prayer_step_screen.title'),
+                  style: GoogleFonts.poppins(
+                    fontSize: 18,
+                    color: ColorClass.primaryColor,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
               Expanded(
                 child: ListView.builder(
                   padding: const EdgeInsets.all(16),

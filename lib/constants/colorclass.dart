@@ -5,10 +5,9 @@ class ColorClass {
   static const Color secondaryColor = Color(0xFF003463);
   static const Color detailprimary = Color.fromRGBO(39, 106, 179, 0.7);
   static const Color primaryLight = Color(0xFFBF97FC);
-  static const Color bottomsheet1 =  Color(0xFF1E3C72);
-  static const Color bottomsheet2 =  Color(0xFF2A5298);
-    static const Color backgroundColor = Color(0xFAFAFAFA);
-
+  static const Color bottomsheet1 = Color(0xFF1E3C72);
+  static const Color bottomsheet2 = Color(0xFF2A5298);
+  static const Color backgroundColor = Color(0xFAFAFAFA);
 
   static const Color white = Color(0xffFFFFFF);
   static const Color white70 = Color(0xA4FFFFFF);
@@ -20,4 +19,6 @@ class ColorClass {
   static const Color darkGrey1 = Color(0xFF1b1c1c);
   static const Color neutral900 = Color(0xff0A0D14);
   static const Color blueGrey1 = Color(0xff889ba8);
+  static const Color blueDark = Color(0xff330972);
+  static const Color bluelite = Color(0xff762BE6);
 }

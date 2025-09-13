@@ -4,6 +4,7 @@ import '../../constants/colorclass.dart';
 import '../../constants/imagesclass.dart';
 import '../../model/bathing_corpse_model.dart';
 import '../../provider/language_provider.dart';
+import '../../widget/custom_header.dart';
 import 'package:provider/provider.dart';
 
 class WomenBathingCorpseScreen extends StatefulWidget {
@@ -21,7 +22,7 @@ class _WomenBathingCorpseScreenState extends State<WomenBathingCorpseScreen> {
   @override
   void initState() {
     super.initState();
-    _controllers = List.generate(7, (_) => ExpansionTileController());
+    _controllers = List.generate(2, (_) => ExpansionTileController());
   }
 
   void _handleExpansion(int index, bool isExpanded) {
@@ -44,26 +45,6 @@ class _WomenBathingCorpseScreenState extends State<WomenBathingCorpseScreen> {
         description: langProvider.t('women_bathing.who_desc'),
       ),
       BathingCorpseModel(
-        title: langProvider.t('women_bathing.best_title'),
-        description: langProvider.t('women_bathing.best_desc'),
-      ),
-      BathingCorpseModel(
-        title: langProvider.t('women_bathing.special_title'),
-        description: langProvider.t('women_bathing.special_desc'),
-      ),
-      BathingCorpseModel(
-        title: langProvider.t('women_bathing.hajj_title'),
-        description: langProvider.t('women_bathing.hajj_desc'),
-      ),
-      BathingCorpseModel(
-        title: langProvider.t('women_bathing.preparation_title'),
-        description: langProvider.t('women_bathing.preparation_desc'),
-      ),
-      BathingCorpseModel(
-        title: langProvider.t('women_bathing.method_title'),
-        description: langProvider.t('women_bathing.method_desc'),
-      ),
-      BathingCorpseModel(
         title: langProvider.t('women_bathing.complete_title'),
         description: langProvider.t('women_bathing.complete_desc'),
       ),
@@ -74,25 +55,8 @@ class _WomenBathingCorpseScreenState extends State<WomenBathingCorpseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: ColorClass.black),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: Consumer<LanguageProvider>(
-          builder: (context, langProvider, child) {
-            return Text(
-              langProvider.t('women_bathing.title'),
-              style: GoogleFonts.anekMalayalam(
-                fontSize: 22,
-                color: ColorClass.primaryColor,
-                fontWeight: FontWeight.w600,
-              ),
-            );
-          },
-        ),
+      appBar: const CustomHeader(
+        showBackButton: true,
       ),
       body: Consumer<LanguageProvider>(
         builder: (context, langProvider, child) {
@@ -100,6 +64,21 @@ class _WomenBathingCorpseScreenState extends State<WomenBathingCorpseScreen> {
 
           return Column(
             children: [
+              // Screen Title
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16.0),
+                color: Colors.grey[50],
+                child: Text(
+                  langProvider.t('women_bathing.title'),
+                  style: GoogleFonts.poppins(
+                    fontSize: 18,
+                    color: ColorClass.primaryColor,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Container(

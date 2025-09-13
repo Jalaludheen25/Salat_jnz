@@ -4,6 +4,7 @@ import 'package:janaza_guide/constants/colorclass.dart';
 import 'package:janaza_guide/model/janzacaremodel.dart';
 import 'package:janaza_guide/provider/audio_service.dart';
 import 'package:janaza_guide/provider/language_provider.dart';
+import 'package:janaza_guide/widget/custom_header.dart';
 import 'package:provider/provider.dart';
 
 class Janazacaredetails extends StatefulWidget {
@@ -37,14 +38,14 @@ class _JanazacaredetailsState extends State<Janazacaredetails> {
         source: langProvider.t('after_janaza.step2_source'),
         imagePath: '',
       ),
-      Janazacaremodel(
-        title: langProvider.t('after_janaza.step3_title'),
-        description: langProvider.t('after_janaza.step3_desc'),
-        arabicText: langProvider.t('after_janaza.step3_arabic'),
-        translation: langProvider.t('after_janaza.step3_translation'),
-        source: langProvider.t('after_janaza.step3_source'),
-        imagePath: '',
-      ),
+      // Janazacaremodel(
+      //   title: langProvider.t('after_janaza.step3_title'),
+      //   description: langProvider.t('after_janaza.step3_desc'),
+      //   arabicText: langProvider.t('after_janaza.step3_arabic'),
+      //   translation: langProvider.t('after_janaza.step3_translation'),
+      //   source: langProvider.t('after_janaza.step3_source'),
+      //   imagePath: '',
+      // ),
       Janazacaremodel(
         title: langProvider.t('after_janaza.step4_title'),
         description: langProvider.t('after_janaza.step4_desc'),
@@ -99,26 +100,8 @@ class _JanazacaredetailsState extends State<Janazacaredetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.close, color: ColorClass.black),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-        title: Consumer<LanguageProvider>(
-          builder: (context, langProvider, child) {
-            return Text(
-              langProvider.t('after_janaza.title'),
-              style: GoogleFonts.anekMalayalam(
-                color: ColorClass.black,
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-              ),
-            );
-          },
-        ),
-        centerTitle: true,
+      appBar: const CustomHeader(
+        showBackButton: true,
       ),
       body: Consumer<LanguageProvider>(
         builder: (context, langProvider, child) {
@@ -127,6 +110,21 @@ class _JanazacaredetailsState extends State<Janazacaredetails> {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Screen Title
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16.0),
+                color: Colors.grey[50],
+                child: Text(
+                  langProvider.t('after_janaza.title'),
+                  style: GoogleFonts.poppins(
+                    fontSize: 18,
+                    color: ColorClass.primaryColor,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
               Expanded(
                 child: ListView.builder(
                   padding: const EdgeInsets.all(16),

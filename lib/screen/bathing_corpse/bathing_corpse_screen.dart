@@ -6,6 +6,7 @@ import 'package:janaza_guide/model/deadboadyverbmodel.dart';
 import 'package:janaza_guide/screen/bathing_corpse/men_bathing_corpse.dart';
 import 'package:janaza_guide/screen/bathing_corpse/women_bathing_corpse.dart';
 import 'package:janaza_guide/provider/language_provider.dart';
+import 'package:janaza_guide/widget/custom_header.dart';
 import 'package:provider/provider.dart';
 
 class BathingCorpseScreen extends StatefulWidget {
@@ -41,19 +42,31 @@ class _BathingCorpseScreenState extends State<BathingCorpseScreen> {
   List<BathingCorpsemodel> _getDeadBodySteps(LanguageProvider langProvider) {
     return [
       BathingCorpsemodel(
-        title: langProvider.t('bathing.hadith1_title'),
-        description: langProvider.t('bathing.hadith1_desc'),
+        title: langProvider.t('men_bathing.preparation_title'),
+        description: langProvider.t('men_bathing.preparation_title'),
         imagePath: ImageClass.kalima,
         instructions: langProvider.t('bathing.hadith1_instructions'),
         arabicText:
             'دخل علينا رسول اللہ ﷺ حين توفيت ابنته فقال : اغسلنها ثلاثا أو خمسا أو أكثر من ذلك إن رأيتن بماء وسدر واجعلن في الأخيرة كافورا أوشيئا من كافور فإذا فرغتن فآذتني فلما فرغنا آذناه فأعطانا حقوه فقال أشعرنها إياه (رواه الجماعة)',
       ),
       BathingCorpsemodel(
-        title: langProvider.t('bathing.hadith2_title'),
-        description: langProvider.t('bathing.hadith2_desc'),
+        title: langProvider.t('women_bathing.method_title'),
+        description: langProvider.t('women_bathing.method_desc'),
         imagePath: ImageClass.kalima,
         instructions: langProvider.t('bathing.hadith2_instructions'),
         arabicText: 'ابدأن بميامنها ومواضع الوضوء منها',
+      ),
+      BathingCorpsemodel(
+        title: langProvider.t('bathing.mayyith_clothes_title'),
+        description: langProvider.t('bathing.mayyith_clothes_desc'),
+        imagePath: ImageClass.kalima,
+        instructions: '',
+      ),
+      BathingCorpsemodel(
+        title: langProvider.t('bathing.hajj_title'),
+        description: langProvider.t('bathing.hajj_desc'),
+        imagePath: ImageClass.kalima,
+        instructions: '',
       ),
       BathingCorpsemodel(
         title: langProvider.t('bathing.tayammum_title'),
@@ -69,12 +82,6 @@ class _BathingCorpseScreenState extends State<BathingCorpseScreen> {
         arabicText: 'لو استقبلتُ من أمري ما استدبرتُ ما غسلَه إلا نساؤُه',
         translation: langProvider.t('bathing.spouse_translation'),
       ),
-      BathingCorpsemodel(
-        title: langProvider.t('bathing.children_title'),
-        description: langProvider.t('bathing.children_desc'),
-        imagePath: ImageClass.kalima,
-        instructions: '',
-      ),
     ];
   }
 
@@ -82,25 +89,8 @@ class _BathingCorpseScreenState extends State<BathingCorpseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: ColorClass.black),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: Consumer<LanguageProvider>(
-          builder: (context, langProvider, child) {
-            return Text(
-              langProvider.t('bathing.main_title'),
-              style: GoogleFonts.anekMalayalam(
-                fontSize: 22,
-                color: ColorClass.primaryColor,
-                fontWeight: FontWeight.w600,
-              ),
-            );
-          },
-        ),
+      appBar: const CustomHeader(
+        showBackButton: true,
       ),
       body: Consumer<LanguageProvider>(
         builder: (context, langProvider, child) {
@@ -108,6 +98,21 @@ class _BathingCorpseScreenState extends State<BathingCorpseScreen> {
 
           return Column(
             children: [
+              // Screen Title
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16.0),
+                color: Colors.grey[50],
+                child: Text(
+                  langProvider.t('bathing.main_title'),
+                  style: GoogleFonts.poppins(
+                    fontSize: 18,
+                    color: ColorClass.primaryColor,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Container(

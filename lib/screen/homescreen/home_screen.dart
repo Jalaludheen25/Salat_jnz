@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:janaza_guide/constants/appkeys.dart';
+
 import 'package:janaza_guide/constants/colorclass.dart';
 import 'package:janaza_guide/constants/iconclass.dart';
-import 'package:janaza_guide/constants/textstyleclass.dart';
+
 import 'package:janaza_guide/screen/bathing_corpse/bathing_corpse_screen.dart';
 import 'package:janaza_guide/screen/janaza_samskaranam/janaza_samskaranam.dart';
 import 'package:janaza_guide/screen/kafan/kafan_screen.dart';
@@ -11,6 +11,7 @@ import 'package:janaza_guide/screen/mayyith_samskaranam/mayyith_samskaranam.dart
 import 'package:janaza_guide/screen/after_janaza/after_janazacare.dart';
 import 'package:janaza_guide/screen/salat_janaza/prayerjanazascreen.dart';
 import 'package:janaza_guide/widget/appdrawer.dart';
+import 'package:janaza_guide/widget/custom_header.dart';
 import 'package:janaza_guide/provider/language_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -65,32 +66,9 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: ColorClass.white,
           key: _scaffoldKey,
           extendBodyBehindAppBar: true,
-          appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(65.0),
-            child: AppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              leading: Container(
-                margin: const EdgeInsets.only(left: 8),
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.menu_rounded,
-                    color: ColorClass.black,
-                    size: 30,
-                  ),
-                  onPressed: () => _scaffoldKey.currentState?.openDrawer(),
-                ),
-              ),
-              title: Text(
-                langProvider.t('home.header'),
-                style: TextStyleClass.abelDefault(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
-                  color: ColorClass.black,
-                  letterSpacing: 0.8,
-                ),
-              ),
-            ),
+          appBar: CustomHeader(
+            showMenuButton: true,
+            onMenuPressed: () => _scaffoldKey.currentState?.openDrawer(),
           ),
           drawer: AppDrawer(),
           body: SafeArea(
