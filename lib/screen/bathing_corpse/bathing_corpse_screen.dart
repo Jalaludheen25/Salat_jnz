@@ -42,16 +42,15 @@ class _BathingCorpseScreenState extends State<BathingCorpseScreen> {
   List<BathingCorpsemodel> _getDeadBodySteps(LanguageProvider langProvider) {
     return [
       BathingCorpsemodel(
-        title: langProvider.t('men_bathing.preparation_title'),
-        description: langProvider.t('men_bathing.preparation_title'),
+        title: langProvider.t('bathing.preparation_title'),
+        description: langProvider.t('bathing.preparation_desc'),
         imagePath: ImageClass.kalima,
-        instructions: langProvider.t('bathing.hadith1_instructions'),
-        arabicText:
-            'دخل علينا رسول اللہ ﷺ حين توفيت ابنته فقال : اغسلنها ثلاثا أو خمسا أو أكثر من ذلك إن رأيتن بماء وسدر واجعلن في الأخيرة كافورا أوشيئا من كافور فإذا فرغتن فآذتني فلما فرغنا آذناه فأعطانا حقوه فقال أشعرنها إياه (رواه الجماعة)',
+        instructions: langProvider.t(''),
+        arabicText: '',
       ),
       BathingCorpsemodel(
-        title: langProvider.t('women_bathing.method_title'),
-        description: langProvider.t('women_bathing.method_desc'),
+        title: langProvider.t('bathing.method_title'),
+        description: langProvider.t('bathing.method_desc'),
         imagePath: ImageClass.kalima,
         instructions: langProvider.t('bathing.hadith2_instructions'),
         arabicText: 'ابدأن بميامنها ومواضع الوضوء منها',

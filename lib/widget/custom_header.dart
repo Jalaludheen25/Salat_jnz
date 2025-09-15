@@ -17,7 +17,7 @@ class CustomHeader extends StatelessWidget implements PreferredSizeWidget {
     super.key,
     this.title,
     this.showBackButton = false,
-    this.showLanguageButton = true,
+    this.showLanguageButton = false,
     this.showMenuButton = false,
     this.onMenuPressed,
     this.onBackPressed,
