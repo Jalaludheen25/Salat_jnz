@@ -115,13 +115,12 @@ class _MayyithScreenState extends State<MayyithScreen> {
       appBar: const CustomHeader(
         showBackButton: true,
       ),
-      body: Expanded(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
                 const SizedBox(height: 20),
                 // Prayer Icon Card
                 // Prayer Icon Card with orientation awareness
@@ -255,7 +254,6 @@ class _MayyithScreenState extends State<MayyithScreen> {
             ),
           ),
         ),
-      ),
     );
   }
 }
