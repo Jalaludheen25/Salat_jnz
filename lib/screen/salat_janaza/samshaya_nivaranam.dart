@@ -21,7 +21,7 @@ class _SamshayaNivaranamState extends State<SamshayaNivaranam> {
   @override
   void initState() {
     super.initState();
-    _controllers = List.generate(6, (_) => ExpansionTileController());
+    _controllers = List.generate(10, (_) => ExpansionTileController());
   }
 
   void _handleExpansion(int index, bool isExpanded) {
@@ -67,6 +67,26 @@ class _SamshayaNivaranamState extends State<SamshayaNivaranam> {
       SamshayaNivaranamModel(
         title: langProvider.t('samshaya.q6_title'),
         description: langProvider.t('samshaya.q6_answer'),
+        imagePath: ImageClass.salat,
+      ),
+      SamshayaNivaranamModel(
+        title: langProvider.t('samshaya.q7_title'),
+        description: langProvider.t('samshaya.q7_answer'),
+        imagePath: ImageClass.salat,
+      ),
+      SamshayaNivaranamModel(
+        title: langProvider.t('samshaya.q8_title'),
+        description: langProvider.t('samshaya.q8_answer'),
+        imagePath: ImageClass.salat,
+      ),
+      SamshayaNivaranamModel(
+        title: langProvider.t('samshaya.q9_title'),
+        description: langProvider.t('samshaya.q9_answer'),
+        imagePath: ImageClass.salat,
+      ),
+      SamshayaNivaranamModel(
+        title: langProvider.t('samshaya.q10_title'),
+        description: langProvider.t('samshaya.q10_answer'),
         imagePath: ImageClass.salat,
       ),
     ];
