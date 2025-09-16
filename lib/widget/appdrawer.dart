@@ -35,7 +35,8 @@ class _AppDrawerState extends State<AppDrawer> {
                     height: 120,
                     decoration: BoxDecoration(color: ColorClass.primaryColor),
                     child: Padding(
-                      padding: const EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.only(
+                          left: 16.0, right: 16.0, top: 60.0, bottom: 6.0),
                       child: Row(
                         children: [
                           ClipRRect(
