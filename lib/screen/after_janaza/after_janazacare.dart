@@ -96,6 +96,53 @@ class _JanazacaredetailsState extends State<Janazacaredetails> {
     });
   }
 
+  List<TextSpan> _buildStyledText(String text) {
+    List<TextSpan> spans = [];
+
+    // List of texts to make bold
+    List<String> boldTexts = [
+      '1. ദാനം:',
+      '2. ഹജ്ജ്:',
+      '3. നോമ്പ്:',
+      '4. ഖുർആൻ പാരായണം:',
+      'എന്താണ് എംബാം?'
+    ];
+
+    String remainingText = text;
+
+    for (String boldText in boldTexts) {
+      if (remainingText.contains(boldText)) {
+        List<String> parts = remainingText.split(boldText);
+
+        // Add text before the bold text
+        if (parts[0].isNotEmpty) {
+          spans.add(TextSpan(text: parts[0]));
+        }
+
+        // Add the bold text
+        spans.add(TextSpan(
+          text: boldText,
+          style: GoogleFonts.anekMalayalam(
+            fontSize: 14,
+            color: Colors.black87,
+            height: 1.5,
+            fontWeight: FontWeight.bold,
+          ),
+        ));
+
+        // Continue with the remaining text
+        remainingText = parts.length > 1 ? parts.sublist(1).join(boldText) : '';
+      }
+    }
+
+    // Add any remaining text
+    if (remainingText.isNotEmpty) {
+      spans.add(TextSpan(text: remainingText));
+    }
+
+    return spans;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -202,12 +249,15 @@ class _JanazacaredetailsState extends State<Janazacaredetails> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
-                                        step.description,
-                                        style: GoogleFonts.anekMalayalam(
-                                          fontSize: 14,
-                                          color: Colors.black87,
-                                          height: 1.5,
+                                      RichText(
+                                        text: TextSpan(
+                                          style: GoogleFonts.anekMalayalam(
+                                            fontSize: 14,
+                                            color: Colors.black87,
+                                            height: 1.5,
+                                          ),
+                                          children: _buildStyledText(
+                                              step.description),
                                         ),
                                       ),
                                       if (step.arabicText != null &&

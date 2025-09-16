@@ -31,30 +31,34 @@ class _AppDrawerState extends State<AppDrawer> {
               child: ListView(
                 padding: EdgeInsets.zero,
                 children: [
-                  DrawerHeader(
+                  Container(
+                    height: 120,
                     decoration: BoxDecoration(color: ColorClass.primaryColor),
-                    child: Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(60),
-                          child: Image.asset(
-                            IconClass.logo,
-                            height: 60,
-                            width: 60,
-                          ),
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: Text(
-                            'Salat Al Janaza',
-                            style: GoogleFonts.poppins(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(30),
+                            child: Image.asset(
+                              IconClass.logo,
+                              height: 50,
+                              width: 50,
                             ),
                           ),
-                        ),
-                      ],
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Text(
+                              'Janaza Guide',
+                              style: GoogleFonts.poppins(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   Column(
@@ -110,40 +114,69 @@ class _AppDrawerState extends State<AppDrawer> {
                           Shake.show(ShakeScreen.home);
                         },
                       ),
+                      _buildDrawerItem(
+                        icon: Icons.privacy_tip,
+                        title: 'Privacy Policy',
+                        onTap: () async {
+                          final Uri url =
+                              Uri.parse('https://d4dx.co/privacy-policy/');
+                          await launchUrl(url,
+                              mode: LaunchMode.externalApplication);
+                        },
+                      ),
+                      // More space before Powered by section
+                      const SizedBox(height: 24),
+                      // Combined Powered by and Version section
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 16),
+                        child: Consumer<VersionCheckProvider>(
+                          builder: (context, versionProvider, child) {
+                            return Column(
+                              children: [
+                                Text(
+                                  "Powered by",
+                                  style: GoogleFonts.poppins(
+                                    color: ColorClass.blueGrey1,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                Image.asset(
+                                  IconClass.d4dxblue,
+                                  height: 40,
+                                  width: 100,
+                                  fit: BoxFit.contain,
+                                ),
+                                const SizedBox(height: 12),
+                                Text(
+                                  "Version: ${AppConstants.appVersion}",
+                                  style: GoogleFonts.poppins(
+                                    color: ColorClass.blueGrey1,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                if (versionProvider.newVersion != null &&
+                                    versionProvider.newVersion !=
+                                        AppConstants.appVersion)
+                                  Text(
+                                    "Latest: ${versionProvider.newVersion}",
+                                    style: GoogleFonts.poppins(
+                                      color: ColorClass.blueGrey1,
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                  ),
+                              ],
+                            );
+                          },
+                        ),
+                      ),
                     ],
                   ),
                 ],
-              ),
-            ),
-
-            // Bottom Section with Version Info
-            Container(
-              padding: const EdgeInsets.all(20),
-              child: Consumer<VersionCheckProvider>(
-                builder: (context, versionProvider, child) {
-                  return Column(
-                    children: [
-                      Text(
-                        "Version: ${AppConstants.appVersion}",
-                        style: GoogleFonts.poppins(
-                          color: ColorClass.blueGrey1,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      if (versionProvider.newVersion != null &&
-                          versionProvider.newVersion != AppConstants.appVersion)
-                        Text(
-                          "Latest: ${versionProvider.newVersion}",
-                          style: GoogleFonts.poppins(
-                            color: ColorClass.blueGrey1,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                    ],
-                  );
-                },
               ),
             ),
           ],
