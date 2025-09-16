@@ -7,7 +7,7 @@ import 'package:janaza_guide/screen/drawer/aboutscreen.dart';
 import 'package:janaza_guide/screen/drawer/contactscreen.dart';
 import 'package:provider/provider.dart';
 import 'package:janaza_guide/provider/version_check_provider.dart';
-import 'package:janaza_guide/provider/language_provider.dart';
+// import 'package:janaza_guide/provider/language_provider.dart'; // Uncomment to enable language selection
 import 'package:shake_flutter/shake_flutter.dart';
 import 'package:shake_flutter/enums/shake_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -65,12 +65,15 @@ class _AppDrawerState extends State<AppDrawer> {
                         onTap: () => Navigator.pop(context),
                       ),
 
-                      // Language Selector Button
+                      // Language Selector Button - Commented out for now
+                      // Uncomment the lines below to enable language selection
+                      /*
                       _buildDrawerItem(
                         icon: Icons.language,
                         title: 'Select Language',
                         onTap: () => _showLanguageDialog(context),
                       ),
+                      */
 
                       _buildDrawerItem(
                         icon: Icons.favorite,
@@ -149,6 +152,27 @@ class _AppDrawerState extends State<AppDrawer> {
     );
   }
 
+  Widget _buildDrawerItem({
+    required IconData icon,
+    required String title,
+    required VoidCallback onTap,
+  }) {
+    return ListTile(
+      leading: Icon(icon, color: ColorClass.primaryColor),
+      title: Text(
+        title,
+        style: GoogleFonts.poppins(
+          color: ColorClass.primaryColor,
+          fontSize: 16,
+        ),
+      ),
+      onTap: onTap,
+    );
+  }
+
+  // Language Selection Methods - Commented out for now
+  // Uncomment the methods below to enable language selection functionality
+  /*
   void _showLanguageDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -292,22 +316,5 @@ class _AppDrawerState extends State<AppDrawer> {
       },
     );
   }
-
-  Widget _buildDrawerItem({
-    required IconData icon,
-    required String title,
-    required VoidCallback onTap,
-  }) {
-    return ListTile(
-      leading: Icon(icon, color: ColorClass.primaryColor),
-      title: Text(
-        title,
-        style: GoogleFonts.poppins(
-          color: ColorClass.primaryColor,
-          fontSize: 16,
-        ),
-      ),
-      onTap: onTap,
-    );
-  }
+  */
 }
