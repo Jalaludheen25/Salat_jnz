@@ -198,7 +198,7 @@ Check out Janaza Guide - A comprehensive Islamic funeral guide app!
 
 📱 Android: https://play.google.com/store/apps/details?id=co.d4dx.janazaguide
 
-🍎 iOS: https://apps.apple.com/in/app/janaza-guide/id6742624606
+ iOS: https://apps.apple.com/in/app/janaza-guide/id6742624606
 
 Learn proper Islamic funeral rites and procedures with step-by-step guidance.
 ''';
