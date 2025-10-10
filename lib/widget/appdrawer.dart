@@ -82,7 +82,7 @@ class _AppDrawerState extends State<AppDrawer> {
 
                       _buildDrawerItem(
                         icon: Icons.favorite,
-                        title: 'Donate',
+                        title: 'Support Us',
                         onTap: () async {
                           final Uri url =
                               Uri.parse('https://rzp.io/rzp/janaza-guide');
