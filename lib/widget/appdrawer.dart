@@ -10,6 +10,7 @@ import 'package:janaza_guide/provider/version_check_provider.dart';
 // import 'package:janaza_guide/provider/language_provider.dart'; // Uncomment to enable language selection
 import 'package:shake_flutter/shake_flutter.dart';
 import 'package:shake_flutter/enums/shake_screen.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AppDrawer extends StatefulWidget {
@@ -125,6 +126,11 @@ class _AppDrawerState extends State<AppDrawer> {
                               mode: LaunchMode.externalApplication);
                         },
                       ),
+                      _buildDrawerItem(
+                        icon: Icons.share,
+                        title: 'Share App',
+                        onTap: () => _shareApp(),
+                      ),
                       // More space before Powered by section
                       const SizedBox(height: 24),
                       // Combined Powered by and Version section
@@ -184,6 +190,20 @@ class _AppDrawerState extends State<AppDrawer> {
         ),
       ),
     );
+  }
+
+  void _shareApp() {
+    const String shareText = '''
+Check out Janaza Guide - A comprehensive Islamic funeral guide app!
+
+📱 Android: https://play.google.com/store/apps/details?id=co.d4dx.janazaguide
+
+🍎 iOS: https://apps.apple.com/in/app/janaza-guide/id6742624606
+
+Learn proper Islamic funeral rites and procedures with step-by-step guidance.
+''';
+
+    Share.share(shareText);
   }
 
   Widget _buildDrawerItem({

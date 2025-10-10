@@ -40,6 +40,7 @@ dependencies:
   provider: ^6.1.2
   shake_flutter: ^17.0.1
   shared_preferences: ^2.2.2
+  share_plus: ^10.1.2
   url_launcher: ^6.2.5
 
 dev_dependencies:
