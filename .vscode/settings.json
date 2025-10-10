@@ -51,5 +51,6 @@
     "സ്ത്രീകൾ",
     "സ്വന്തം"
   ],
-  "cmake.sourceDirectory": "C:/Users/muham/OneDrive/Desktop/D4DX/janaza_guide/windows"
+  "cmake.sourceDirectory": "C:/Users/muham/OneDrive/Desktop/D4DX/janaza_guide/windows",
+  "dart.flutterSdkPath": ".fvm/versions/3.32.5"
 }
